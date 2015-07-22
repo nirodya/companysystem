@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Projects" table="projects" catalog="actop_system" optimistic-lock="version">
+        <id name="idProjects" type="java.lang.Integer">
+            <column name="ID_PROJECTS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clients" class="com.actop.db.Clients" fetch="select">
+            <column name="CLIENTS_ID_CLIENTS" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
+            <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+        </many-to-one>
+        <property name="projectName" type="binary">
+            <column name="PROJECT_NAME" />
+        </property>
+        <property name="startDate" type="date">
+            <column name="START_DATE" length="10" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="END_DATE" length="10" />
+        </property>
+        <property name="actualStartDate" type="date">
+            <column name="ACTUAL_START_DATE" length="10" />
+        </property>
+        <property name="actualEndDate" type="date">
+            <column name="ACTUAL_END_DATE" length="10" />
+        </property>
+        <property name="projectType" type="binary">
+            <column name="PROJECT_TYPE" />
+        </property>
+        <property name="projectDescription" type="binary">
+            <column name="PROJECT_DESCRIPTION" />
+        </property>
+        <property name="projectStatus" type="binary">
+            <column name="PROJECT_STATUS" />
+        </property>
+        <property name="projectManager" type="binary">
+            <column name="PROJECT_MANAGER" />
+        </property>
+        <property name="clientNote" type="binary">
+            <column name="CLIENT_NOTE" />
+        </property>
+        <set name="projectTaskses" table="project_tasks" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROJECTS_ID_PROJECTS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.ProjectTasks" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 10, 2015, 1:31:46 PM
+    Author     : Nirodya Gamage (ACTOP Technologies)
+*/
+body{
+    min-height: 100vh;
+    width: 100%;
+}
+#bodycontainer{
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background-image: url('../ActopSystem/images/Nature_focus_moss_macro_blurred_1920x1200.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#logincontainer{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255,255,255,0.6);
+}
+#loginheader{
+    width: 100%;
+    text-align: center;
+}
+#logoholder{
+    width: 100%;
+}
+#logoholder div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+#logoholder div img{
+    width: 100px;
+    height: 100px;
+    
+}
+
+

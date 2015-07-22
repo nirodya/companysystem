@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="actop_system"/>
+  <table-filter match-name="project_types"/>
+  <table-filter match-name="designation"/>
+  <table-filter match-name="leave_types"/>
+  <table-filter match-name="other"/>
+  <table-filter match-name="other_types"/>
+  <table-filter match-name="payment_types"/>
+  <table-filter match-name="task_priority"/>
+  <table-filter match-name="employers"/>
+  <table-filter match-name="interfaces_has_user_login"/>
+  <table-filter match-name="payments"/>
+  <table-filter match-name="attendance"/>
+  <table-filter match-name="status_types"/>
+  <table-filter match-name="projects"/>
+  <table-filter match-name="interfaces"/>
+  <table-filter match-name="clients"/>
+  <table-filter match-name="project_task_states"/>
+  <table-filter match-name="allowances"/>
+  <table-filter match-name="project_tasks"/>
+  <table-filter match-name="leave"/>
+  <table-filter match-name="promotions"/>
+  <table-filter match-name="departments_has_designation"/>
+  <table-filter match-name="departments"/>
+  <table-filter match-name="employers_has_allowances"/>
+  <table-filter match-name="user_login"/>
+</hibernate-reverse-engineering>

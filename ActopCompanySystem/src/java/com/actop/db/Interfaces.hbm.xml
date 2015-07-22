@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Interfaces" table="interfaces" catalog="actop_system" optimistic-lock="version">
+        <id name="idInterfaces" type="java.lang.Integer">
+            <column name="ID_INTERFACES" />
+            <generator class="identity" />
+        </id>
+        <property name="interfaceName" type="binary">
+            <column name="INTERFACE_NAME" />
+        </property>
+        <set name="interfacesHasUserLogins" table="interfaces_has_user_login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="INTERFACES_ID_INTERFACES" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.InterfacesHasUserLogin" />
+        </set>
+    </class>
+</hibernate-mapping>

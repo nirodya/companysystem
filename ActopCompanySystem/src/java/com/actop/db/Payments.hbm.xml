@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Payments" table="payments" catalog="actop_system" optimistic-lock="version">
+        <id name="idPayments" type="java.lang.Integer">
+            <column name="ID_PAYMENTS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
+            <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+        </many-to-one>
+        <property name="paymentTypes" type="binary">
+            <column name="PAYMENT_TYPES" />
+        </property>
+        <property name="paymentFor" type="binary">
+            <column name="PAYMENT_FOR" />
+        </property>
+        <property name="payment" type="binary">
+            <column name="PAYMENT" />
+        </property>
+        <property name="paymentDate" type="timestamp">
+            <column name="PAYMENT_DATE" length="19" />
+        </property>
+        <property name="paymentApprovedBy" type="binary">
+            <column name="PAYMENT_APPROVED_BY" />
+        </property>
+        <property name="paymentApproved" type="timestamp">
+            <column name="PAYMENT_APPROVED" length="19" />
+        </property>
+        <property name="paymentStates" type="binary">
+            <column name="PAYMENT_STATES" />
+        </property>
+        <property name="paymentPayed" type="timestamp">
+            <column name="PAYMENT_PAYED" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

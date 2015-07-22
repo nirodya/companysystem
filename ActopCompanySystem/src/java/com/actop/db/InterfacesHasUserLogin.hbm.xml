@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.InterfacesHasUserLogin" table="interfaces_has_user_login" catalog="actop_system" optimistic-lock="version">
+        <id name="idInterfacesHasUserLogin" type="java.lang.Integer">
+            <column name="ID_INTERFACES_has_User_Login" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="interfaces" class="com.actop.db.Interfaces" fetch="select">
+            <column name="INTERFACES_ID_INTERFACES" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userLogin" class="com.actop.db.UserLogin" fetch="select">
+            <column name="User_Login_ID_User_Login" not-null="true" />
+        </many-to-one>
+        <property name="permissionType" type="java.lang.Integer">
+            <column name="PERMISSION_TYPE" />
+        </property>
+        <property name="permissionSave" type="java.lang.Integer">
+            <column name="PERMISSION_SAVE" />
+        </property>
+        <property name="permissionUpdate" type="java.lang.Integer">
+            <column name="PERMISSION_UPDATE" />
+        </property>
+        <property name="permissionDelete" type="java.lang.Integer">
+            <column name="PERMISSION_DELETE" />
+        </property>
+        <property name="permissionSearch" type="java.lang.Integer">
+            <column name="PERMISSION_SEARCH" />
+        </property>
+    </class>
+</hibernate-mapping>

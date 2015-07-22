@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.UserLogin" table="user_login" catalog="actop_system" optimistic-lock="version">
+        <id name="idUserLogin" type="java.lang.Integer">
+            <column name="ID_User_Login" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
+            <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+        </many-to-one>
+        <property name="un" type="binary">
+            <column name="un" />
+        </property>
+        <property name="pw" type="binary">
+            <column name="pw" />
+        </property>
+        <property name="securityq1" type="binary">
+            <column name="securityq1" />
+        </property>
+        <property name="answer1" type="binary">
+            <column name="answer1" />
+        </property>
+        <property name="securityq2" type="binary">
+            <column name="securityq2" />
+        </property>
+        <property name="answer2" type="binary">
+            <column name="answer2" />
+        </property>
+        <set name="interfacesHasUserLogins" table="interfaces_has_user_login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_Login_ID_User_Login" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.InterfacesHasUserLogin" />
+        </set>
+    </class>
+</hibernate-mapping>

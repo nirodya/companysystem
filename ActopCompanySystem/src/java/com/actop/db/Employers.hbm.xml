@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Employers" table="employers" catalog="actop_system" optimistic-lock="version">
+        <id name="idEmployers" type="java.lang.Integer">
+            <column name="ID_EMPLOYERS" />
+            <generator class="identity" />
+        </id>
+        <property name="fullName" type="binary">
+            <column name="FULL_NAME" />
+        </property>
+        <property name="callingName" type="binary">
+            <column name="CALLING_NAME" />
+        </property>
+        <property name="address1" type="binary">
+            <column name="ADDRESS1" />
+        </property>
+        <property name="address2" type="binary">
+            <column name="ADDRESS2" />
+        </property>
+        <property name="city" type="binary">
+            <column name="CITY" />
+        </property>
+        <property name="district" type="binary">
+            <column name="DISTRICT" />
+        </property>
+        <property name="mobileNo" type="binary">
+            <column name="MOBILE_NO" />
+        </property>
+        <property name="homeNo" type="binary">
+            <column name="HOME_NO" />
+        </property>
+        <property name="epf" type="binary">
+            <column name="EPF" />
+        </property>
+        <property name="imgPath" type="binary">
+            <column name="IMG_PATH" />
+        </property>
+        <property name="salary" type="binary">
+            <column name="SALARY" />
+        </property>
+        <property name="appointedDate" type="date">
+            <column name="APPOINTED_DATE" length="10" />
+        </property>
+        <property name="appointedType" type="binary">
+            <column name="APPOINTED_TYPE" />
+        </property>
+        <property name="reportBy" type="binary">
+            <column name="REPORT_BY" />
+        </property>
+        <property name="nic" type="binary">
+            <column name="NIC" />
+        </property>
+        <property name="bloodGroup" type="binary">
+            <column name="BLOOD_GROUP" />
+        </property>
+        <property name="passport" type="binary">
+            <column name="PASSPORT" />
+        </property>
+        <property name="licenseNo" type="binary">
+            <column name="LICENSE_NO" />
+        </property>
+        <property name="branch" type="binary">
+            <column name="BRANCH" />
+        </property>
+        <property name="officeEmail" type="binary">
+            <column name="OFFICE_EMAIL" />
+        </property>
+        <property name="personalEmail" type="binary">
+            <column name="PERSONAL_EMAIL" />
+        </property>
+        <property name="officeNo" type="binary">
+            <column name="OFFICE_NO" />
+        </property>
+        <property name="extensionNo" type="binary">
+            <column name="EXTENSION_NO" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="STATUS" />
+        </property>
+        <property name="resigningDate" type="date">
+            <column name="RESIGNING_DATE" length="10" />
+        </property>
+        <property name="paymetsBank" type="binary">
+            <column name="PAYMETS_BANK" />
+        </property>
+        <property name="paymetsBankBranch" type="binary">
+            <column name="PAYMETS_BANK_BRANCH" />
+        </property>
+        <property name="paymetsBankAccountNumber" type="binary">
+            <column name="PAYMETS_BANK_ACCOUNT_NUMBER" />
+        </property>
+        <property name="paymetsBankPersonName" type="binary">
+            <column name="PAYMETS_BANK_PERSON_NAME" />
+        </property>
+        <set name="promotionses" table="promotions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.Promotions" />
+        </set>
+        <set name="attendances" table="attendance" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.Attendance" />
+        </set>
+        <set name="projectTaskses" table="project_tasks" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.ProjectTasks" />
+        </set>
+        <set name="leaves" table="leave" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.Leave" />
+        </set>
+        <set name="projectses" table="projects" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.Projects" />
+        </set>
+        <set name="userLogins" table="user_login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.UserLogin" />
+        </set>
+        <set name="departmentsHasDesignations" table="departments_has_designation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.DepartmentsHasDesignation" />
+        </set>
+        <set name="paymentses" table="payments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.Payments" />
+        </set>
+        <set name="employersHasAllowanceses" table="employers_has_allowances" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.EmployersHasAllowances" />
+        </set>
+        <set name="others" table="other" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.Other" />
+        </set>
+    </class>
+</hibernate-mapping>

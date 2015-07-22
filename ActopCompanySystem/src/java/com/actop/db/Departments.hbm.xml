@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Departments" table="departments" catalog="actop_system" optimistic-lock="version">
+        <id name="idDepartment" type="java.lang.Integer">
+            <column name="ID_DEPARTMENT" />
+            <generator class="identity" />
+        </id>
+        <property name="department" type="binary">
+            <column name="DEPARTMENT" />
+        </property>
+        <set name="departmentsHasDesignations" table="departments_has_designation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_ID_DEPARTMENT" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.DepartmentsHasDesignation" />
+        </set>
+    </class>
+</hibernate-mapping>

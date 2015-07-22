@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Clients" table="clients" catalog="actop_system" optimistic-lock="version">
+        <id name="idClients" type="java.lang.Integer">
+            <column name="ID_CLIENTS" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="binary">
+            <column name="NAME" />
+        </property>
+        <property name="address" type="binary">
+            <column name="ADDRESS" />
+        </property>
+        <property name="email" type="binary">
+            <column name="EMAIL" />
+        </property>
+        <property name="contactNo" type="binary">
+            <column name="CONTACT_NO" />
+        </property>
+        <property name="cantactPersonDepartment" type="binary">
+            <column name="CANTACT_PERSON_DEPARTMENT" />
+        </property>
+        <property name="contactPersonDesignation" type="binary">
+            <column name="CONTACT_PERSON_DESIGNATION" />
+        </property>
+        <property name="contactPerson" type="binary">
+            <column name="CONTACT_PERSON" />
+        </property>
+        <property name="contactPersonNo" type="binary">
+            <column name="CONTACT_PERSON_NO" />
+        </property>
+        <property name="contactPersonEmail" type="binary">
+            <column name="CONTACT_PERSON_EMAIL" />
+        </property>
+        <set name="projectses" table="projects" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CLIENTS_ID_CLIENTS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.Projects" />
+        </set>
+    </class>
+</hibernate-mapping>

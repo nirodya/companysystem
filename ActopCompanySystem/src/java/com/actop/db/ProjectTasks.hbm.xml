@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.ProjectTasks" table="project_tasks" catalog="actop_system" optimistic-lock="version">
+        <id name="idProjectTasks" type="java.lang.Integer">
+            <column name="ID_PROJECT_TASKS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
+            <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+        </many-to-one>
+        <many-to-one name="projects" class="com.actop.db.Projects" fetch="select">
+            <column name="PROJECTS_ID_PROJECTS" not-null="true" />
+        </many-to-one>
+        <property name="projectTaskType" type="binary">
+            <column name="PROJECT_TASK_TYPE" />
+        </property>
+        <property name="projectTaskNote" type="string">
+            <column name="PROJECT_TASK_NOTE" />
+        </property>
+        <property name="projectTaskStart" type="timestamp">
+            <column name="PROJECT_TASK_START" length="19" />
+        </property>
+        <property name="projectTaskEnd" type="timestamp">
+            <column name="PROJECT_TASK_END" length="19" />
+        </property>
+        <property name="projectTaskAssing" type="timestamp">
+            <column name="PROJECT_TASK_ASSING" length="19" />
+        </property>
+        <property name="projectTaskAssingBy" type="binary">
+            <column name="PROJECT_TASK_ASSING_BY" />
+        </property>
+        <property name="projectTaskStates" type="binary">
+            <column name="PROJECT_TASK_STATES" />
+        </property>
+        <property name="projectTaskPriority" type="java.lang.Integer">
+            <column name="PROJECT_TASK_PRIORITY" />
+        </property>
+        <set name="projectTaskStateses" table="project_task_states" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROJECT_TASKS_ID_PROJECT_TASKS" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.ProjectTaskStates" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Allowances" table="allowances" catalog="actop_system" optimistic-lock="version">
+        <id name="idAllowances" type="java.lang.Integer">
+            <column name="ID_ALLOWANCES" />
+            <generator class="identity" />
+        </id>
+        <property name="allowanceType" type="binary">
+            <column name="ALLOWANCE_TYPE" />
+        </property>
+        <property name="allownceMinimum" type="java.lang.Double">
+            <column name="ALLOWNCE_MINIMUM" precision="22" scale="0" />
+        </property>
+        <property name="allowanceMaximum" type="java.lang.Double">
+            <column name="ALLOWANCE_MAXIMUM" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="STATUS" />
+        </property>
+        <set name="employersHasAllowanceses" table="employers_has_allowances" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ALLOWANCES_ID_ALLOWANCES" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.EmployersHasAllowances" />
+        </set>
+    </class>
+</hibernate-mapping>

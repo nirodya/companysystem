@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Other" table="other" catalog="actop_system" optimistic-lock="version">
+        <id name="idOther" type="java.lang.Integer">
+            <column name="ID_OTHER" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
+            <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+        </many-to-one>
+        <property name="otherType" type="binary">
+            <column name="OTHER_TYPE" />
+        </property>
+        <property name="location" type="binary">
+            <column name="LOCATION" />
+        </property>
+        <property name="inDate" type="timestamp">
+            <column name="IN_DATE" length="19" />
+        </property>
+        <property name="outDate" type="timestamp">
+            <column name="OUT_DATE" length="19" />
+        </property>
+        <property name="reson" type="binary">
+            <column name="RESON" />
+        </property>
+        <property name="note" type="string">
+            <column name="NOTE" />
+        </property>
+        <property name="expenses" type="binary">
+            <column name="EXPENSES" />
+        </property>
+        <property name="informTo" type="binary">
+            <column name="INFORM_TO" />
+        </property>
+        <property name="approvedBy" type="binary">
+            <column name="APPROVED_BY" />
+        </property>
+        <property name="approved" type="timestamp">
+            <column name="APPROVED" length="19" />
+        </property>
+        <property name="claim" type="java.lang.Integer">
+            <column name="CLAIM" />
+        </property>
+        <property name="claimPayed" type="timestamp">
+            <column name="CLAIM_PAYED" length="19" />
+        </property>
+        <property name="claimApprovedBy" type="binary">
+            <column name="CLAIM_APPROVED_BY" />
+        </property>
+        <property name="claimApproved" type="timestamp">
+            <column name="CLAIM_APPROVED" length="19" />
+        </property>
+        <property name="states" type="java.lang.Integer">
+            <column name="STATES" />
+        </property>
+    </class>
+</hibernate-mapping>

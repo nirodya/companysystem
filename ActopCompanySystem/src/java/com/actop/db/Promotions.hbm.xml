@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.Promotions" table="promotions" catalog="actop_system" optimistic-lock="version">
+        <id name="idPromotions" type="java.lang.Integer">
+            <column name="ID_PROMOTIONS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
+            <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
+        </many-to-one>
+        <property name="beforePromotion" type="binary">
+            <column name="BEFORE_PROMOTION" />
+        </property>
+        <property name="promotionFor" type="binary">
+            <column name="PROMOTION_FOR" />
+        </property>
+        <property name="promotionApplyDate" type="date">
+            <column name="PROMOTION_APPLY_DATE" length="10" />
+        </property>
+        <property name="promotBy" type="binary">
+            <column name="PROMOT_BY" />
+        </property>
+        <property name="promotionEffectiveDate" type="date">
+            <column name="PROMOTION_EFFECTIVE_DATE" length="10" />
+        </property>
+        <property name="promotionApprovedBy" type="binary">
+            <column name="PROMOTION_APPROVED_BY" />
+        </property>
+        <property name="promotionApproved" type="timestamp">
+            <column name="PROMOTION_APPROVED" length="19" />
+        </property>
+        <property name="promotionStates" type="binary">
+            <column name="PROMOTION_STATES" />
+        </property>
+    </class>
+</hibernate-mapping>
