@@ -5,7 +5,9 @@
  */
 package com.actop.controller;
 
+import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.Employers;
+import com.actop.model.ApprovalManagement;
 import com.actop.model.PaymentsManagement;
 import com.actop.model.UserManagement;
 import java.io.IOException;
@@ -29,6 +31,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "savePayment", urlPatterns = {"/savePayment"})
 public class savePayment extends HttpServlet {
+
     private String employer;
     private String ptype;
     private String pfor;
@@ -38,31 +41,40 @@ public class savePayment extends HttpServlet {
     private String pstatus;
     private String payeddate;
     private String apdate;
-
+    private String depthasdesigid[];
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        employer=request.getParameter("employer");
-        ptype=request.getParameter("ptype");
-        pfor=request.getParameter("pfor");
-        payment=request.getParameter("payment");
-        pdate=request.getParameter("pdate");
-        pstatus=request.getParameter("pstatus");
-        payeddate=request.getParameter("payeddate");
-        
-        if(employer!=null&&ptype!=null&&pfor!=null&&payment!=null){
-        UserManagement umanagement=new UserManagement();
-        Employers emp=umanagement.loadEmployer(Integer.parseInt(employer));
-        
-        PaymentsManagement management=new PaymentsManagement();
-        management.savePayment(emp, payment, convertToDate(pdate), new Date(), pstatus, ptype, pfor);
-        request.setAttribute("msg", "Saved Successfully");
+        employer = request.getParameter("employer");
+        ptype = request.getParameter("ptype");
+        pfor = request.getParameter("pfor");
+        payment = request.getParameter("payment");
+        pdate = request.getParameter("pdate");
+        pstatus = request.getParameter("pstatus");
+        payeddate = request.getParameter("payeddate");
+        depthasdesigid=request.getParameterValues("depthasdesigid");
+
+        if (employer != null && ptype != null && pfor != null && payment != null) {
+            UserManagement umanagement = new UserManagement();
+            Employers emp = umanagement.loadEmployer(Integer.parseInt(employer));
+
+            PaymentsManagement management = new PaymentsManagement();
+            management.savePayment(emp, payment, convertToDate(pdate), new Date(), pstatus, ptype, pfor);
+            ApprovalManagement am=new ApprovalManagement();
+            for (int i = 0; i < depthasdesigid.length; i++) {
+                String depthasdesigid1 = depthasdesigid[i];
+                DepartmentsHasDesignation dhd=umanagement.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
+                if (dhd!=null) {
+                    am.savePaymentApproval(null, dhd, null, null, 0);
+                }
+            }
+            request.setAttribute("msg", "Saved Successfully");
         }
         request.getRequestDispatcher("/payments").forward(request, response);
     }
+
     public Date convertToDate(String strDate) {
         Date apdate = null;
         try {
