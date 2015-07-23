@@ -7,6 +7,7 @@ package com.actop.controller;
 
 import com.actop.db.Employers;
 import com.actop.model.LeaveManagement;
+import com.actop.model.UserManagement;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,8 +30,10 @@ public class SaveLeave extends HttpServlet {
     private int nuofdays;
     private Date sdate;
     private Date edate;
+    private Date stime;
+    private Date etime;
     private Employers emp;
-//    private String substitute;
+    private String substitute;
 //    private String sadatentime;
 //    private String appby;
 //    private Date appdate;
@@ -39,10 +42,18 @@ public class SaveLeave extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            System.out.println("stime" +request.getParameter("stime"));
+            System.out.println("etime" +request.getParameter("etime"));
+            
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat dateFormat2 = new SimpleDateFormat("H:mm");
             leavetype = request.getParameter("leavetype");
             sdate = dateFormat.parse(request.getParameter("sdate"));
             edate = dateFormat.parse(request.getParameter("edate"));
+            stime = dateFormat2.parse(request.getParameter("stime"));
+            etime = dateFormat2.parse(request.getParameter("etime"));
+            substitute=request.getParameter("substitute");
+            empid=Integer.parseInt(request.getParameter("empid"));
 
 //            String[] cal1 = request.getParameter("sdate").split("-");
 //            String[] cal2 = request.getParameter("edate").split("-");
@@ -64,23 +75,15 @@ public class SaveLeave extends HttpServlet {
 //            }
             System.out.println(leavetype + request.getParameter("sdate"));
             LeaveManagement lm = new LeaveManagement();
-            com.actop.db.UserLogin ul = (com.actop.db.UserLogin) request.getSession().getAttribute("loggedUser");
-            emp = ul.getEmployers();
-            lm.saveLeave1(leavetype, nuofdays, sdate, edate, emp);
+            UserManagement um=new UserManagement();
+            
+            Employers loadedEmployer=um.loadEmployer(empid);
+            lm.saveLeave1(leavetype, nuofdays, sdate, edate, loadedEmployer,stime,etime,substitute);
             response.sendRedirect("leave");
         } catch (Exception e) {
             throw new ServletException(e);
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
 }

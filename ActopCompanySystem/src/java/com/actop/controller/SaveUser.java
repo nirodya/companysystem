@@ -198,7 +198,7 @@ public class SaveUser extends HttpServlet {
             UserManagement um = new UserManagement();
             if (un != null && nic != null) {
                 if (um.checkUser(un)) {
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     Date apdate = dateFormat.parse(appointeddate);
                     Employers e = um.saveEmployers(fullname, callingname, ad1, ad2, apdate, appointedtype, bloodselect, branch, callingname, city, district, epf, extension, home, path, license, mobile, nic, officeemail, officeno, passport, passport, bank, bankaccount, bankbranch, bankperson, reportby, null, salary);
                     UserLogin ul = um.saveUserLogin(answer1, answer2, e, pw, sq1, sq2, un);

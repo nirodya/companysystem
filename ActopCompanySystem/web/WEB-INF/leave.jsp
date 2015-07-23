@@ -9,6 +9,7 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <m:retrieveallleavetypes/>
+<m:retrieveallEmplyers/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,8 +19,9 @@
         </style>
         <script>
 
-            $("#bloodselect").dropdown();
-
+            $("#leavetype").dropdown();
+            $("#substitute").dropdown();
+            
         </script>
     </head>
     <body>
@@ -37,18 +39,17 @@
                     <div class="form-group">
                         <label for="empid" class="col-lg-2 control-label">Employee ID</label>
                         <div class="col-lg-10">
-                            <!--<input name="empid" required="" type="text" class="form-control" id="nic" placeholder="Employee ID">-->
-                            <input type="text" name="empid" value="${loggedUser.employers.idEmployers}" class="form-control" id="nic" readonly="readonly" />
+                             <input type="text" name="empid" value="${loggedUser.employers.idEmployers}" class="form-control" id="empid" readonly="readonly" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="leavetype" class="col-lg-2 control-label">Leave Type</label>
                         <div class="col-lg-10 dropdownjs">
-                            <select id="bloodselect" name="leavetype" class="form-control" data-dropdownjs="true" placeholder="Leave Type">
+                            <select id="leavetype" name="leavetype" class="form-control" data-dropdownjs="true" placeholder="Leave Type">
                               
                                 <c:out value="${fn:length(allleavetypes)}" />
                                 <c:forEach items="${allleavetypes}" var="leavetypes" begin="0" end="${fn:length(allleavetypes)}">
-                                    <option value="${leavetypes.idLeaveTypes}">${leavetypes.leaveType}</option>
+                                    <option value="${leavetypes.leaveType}">${leavetypes.leaveType}</option> 
                                 </c:forEach>
 
 
@@ -89,7 +90,13 @@
                     <div class="form-group">
                         <label for="substitute" class="col-lg-2 control-label">Substitute</label>
                         <div class="col-lg-10">
-                            <input name="substitute" required="required" type="text" class="form-control" id="callingname" placeholder="Substitute">
+                             <select id="substitute" name="substitute" class="form-control" data-dropdownjs="true" placeholder="Substitute">
+                              
+                           <c:out value="${fn:length(allemployers)}" />
+                                <c:forEach items="${allemployers}" var="allemployer" begin="0" end="${fn:length(allemployers)}">
+                                    <option value="${allemployer.fullName}"><m:convertbytetostring text="${allemployer.fullName}"/></option>
+                                </c:forEach>
+                             </select>
                         </div>
                     </div> 
 
