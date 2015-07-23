@@ -27,7 +27,7 @@
     <tag>  
         <name>retrieveallEmplyers</name>  
         <tag-class>com.actop.controller.RetrieveCustomers</tag-class>  
-    </tag>  
+    </tag> 
     <tag>  
         <name>retrieveDesignations</name>  
         <tag-class>com.actop.taglibs.RetrieveDesignations</tag-class>  
@@ -126,5 +126,10 @@
             <rtexprvalue>true</rtexprvalue> 
             <required>true</required> 
         </attribute>  
-    </tag>  
+    </tag> 
+    
+    <tag> <!--Ruchi-->
+        <name>retrieveallLeaves</name>
+        <tag-class>com.actop.taglibs.RetrieveLeaves</tag-class>
+    </tag> 
 </taglib>
