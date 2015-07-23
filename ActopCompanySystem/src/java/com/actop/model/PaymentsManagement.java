@@ -29,7 +29,7 @@ public class PaymentsManagement {
         return convertedText;
     }
 
-    public Payments savePayment(Employers emp, String payment, Date approvedDate, String paymentApprovedBy,
+    public Payments savePayment(Employers emp, String payment,
             Date payedDate, Date pDate, String paymentStates, String paymentTypes, String paymentFor) {
         Session s = Connection.getSessionFactory().openSession();
         Transaction t = s.beginTransaction();
@@ -37,8 +37,6 @@ public class PaymentsManagement {
         try {
             p.setEmployers(emp);
             p.setPayment(convertToBytes(payment));
-            p.setPaymentApproved(approvedDate);
-            p.setPaymentApprovedBy(convertToBytes(paymentApprovedBy));
             p.setPaymentDate(pDate);
             p.setPaymentFor(convertToBytes(paymentFor));
             p.setPaymentPayed(payedDate);
