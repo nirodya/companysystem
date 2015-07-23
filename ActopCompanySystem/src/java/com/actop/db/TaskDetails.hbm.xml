@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.TaskDetails" table="task_details" catalog="actop_system" optimistic-lock="version">
+        <id name="idTaskDetails" type="java.lang.Integer">
+            <column name="ID_TASK_DETAILS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="projectTaskStates" class="com.actop.db.ProjectTaskStates" fetch="select">
+            <column name="PROJECT_TASK_STATES_ID_PROJECT_TASK_STATES" not-null="true" />
+        </many-to-one>
+        <property name="taskDetailsTopic" type="binary">
+            <column name="TASK_DETAILS_TOPIC" />
+        </property>
+        <property name="taskDetailsNote" type="binary">
+            <column name="TASK_DETAILS_NOTE" />
+        </property>
+        <property name="taskDetailsDate" type="date">
+            <column name="TASK_DETAILS_DATE" length="10" />
+        </property>
+        <property name="taskDetailsStart" type="date">
+            <column name="TASK_DETAILS_START" length="10" />
+        </property>
+        <property name="taskDetailsEnd" type="date">
+            <column name="TASK_DETAILS_END" length="10" />
+        </property>
+        <property name="taskDetailsCalculateTime" type="binary">
+            <column name="TASK_DETAILS_CALCULATE_TIME" />
+        </property>
+        <property name="taskDetailsActualTime" type="binary">
+            <column name="TASK_DETAILS_ACTUAL_TIME" />
+        </property>
+    </class>
+</hibernate-mapping>

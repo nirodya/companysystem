@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.DepartmentsHasDesignation" table="departments_has_designation" catalog="actop_system" optimistic-lock="version">
         <id name="idDepartmentsHasDesignation" type="int">
@@ -17,5 +17,47 @@
         <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
+        <set name="projectTasksApprovals" table="project_tasks_approval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.ProjectTasksApproval" />
+        </set>
+        <set name="projectsApprovals" table="projects_approval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.ProjectsApproval" />
+        </set>
+        <set name="allowanceApprovals" table="allowance_approval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.AllowanceApproval" />
+        </set>
+        <set name="otherApprovalses" table="other_approvals" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.OtherApprovals" />
+        </set>
+        <set name="paymentApprovals" table="payment_approval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.PaymentApproval" />
+        </set>
+        <set name="leaveApprovals" table="leave_approval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.LeaveApproval" />
+        </set>
+        <set name="promotionApprovals" table="promotion_approval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.PromotionApproval" />
+        </set>
     </class>
 </hibernate-mapping>

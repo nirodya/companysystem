@@ -1,5 +1,5 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -40,6 +40,7 @@ public class ProjectTasks  implements java.io.Serializable {
      private byte[] projectTaskStates;
      private Integer projectTaskPriority;
      private Set<ProjectTaskStates> projectTaskStateses = new HashSet<ProjectTaskStates>(0);
+     private Set<ProjectTasksApproval> projectTasksApprovals = new HashSet<ProjectTasksApproval>(0);
 
     public ProjectTasks() {
     }
@@ -49,7 +50,7 @@ public class ProjectTasks  implements java.io.Serializable {
         this.employers = employers;
         this.projects = projects;
     }
-    public ProjectTasks(Employers employers, Projects projects, byte[] projectTaskType, String projectTaskNote, Date projectTaskStart, Date projectTaskEnd, Date projectTaskAssing, byte[] projectTaskAssingBy, byte[] projectTaskStates, Integer projectTaskPriority, Set<ProjectTaskStates> projectTaskStateses) {
+    public ProjectTasks(Employers employers, Projects projects, byte[] projectTaskType, String projectTaskNote, Date projectTaskStart, Date projectTaskEnd, Date projectTaskAssing, byte[] projectTaskAssingBy, byte[] projectTaskStates, Integer projectTaskPriority, Set<ProjectTaskStates> projectTaskStateses, Set<ProjectTasksApproval> projectTasksApprovals) {
        this.employers = employers;
        this.projects = projects;
        this.projectTaskType = projectTaskType;
@@ -61,6 +62,7 @@ public class ProjectTasks  implements java.io.Serializable {
        this.projectTaskStates = projectTaskStates;
        this.projectTaskPriority = projectTaskPriority;
        this.projectTaskStateses = projectTaskStateses;
+       this.projectTasksApprovals = projectTasksApprovals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -182,6 +184,15 @@ public class ProjectTasks  implements java.io.Serializable {
     
     public void setProjectTaskStateses(Set<ProjectTaskStates> projectTaskStateses) {
         this.projectTaskStateses = projectTaskStateses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="projectTasks")
+    public Set<ProjectTasksApproval> getProjectTasksApprovals() {
+        return this.projectTasksApprovals;
+    }
+    
+    public void setProjectTasksApprovals(Set<ProjectTasksApproval> projectTasksApprovals) {
+        this.projectTasksApprovals = projectTasksApprovals;
     }
 
 

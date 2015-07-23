@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.actop.db.LeaveApproval" table="leave_approval" catalog="actop_system" optimistic-lock="version">
+        <id name="leaveHasDepartmentsHasDesignationId" type="java.lang.Integer">
+            <column name="LEAVE_has_DEPARTMENTS_has_DESIGNATION_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="departmentsHasDesignation" class="com.actop.db.DepartmentsHasDesignation" fetch="select">
+            <column name="DEPARTMENTS_has_DESIGNATION_ID_DEPARTMENTS_has_DESIGNATION" not-null="true" />
+        </many-to-one>
+        <many-to-one name="leave" class="com.actop.db.Leave" fetch="select">
+            <column name="LEAVE_ID_LEAVE" not-null="true" />
+        </many-to-one>
+        <property name="approvedtime" type="timestamp">
+            <column name="APPROVEDTIME" length="19" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="STATUS">
+                <comment>0-PENDING 1-APPROVED 2-NOTAPPROVED</comment>
+            </column>
+        </property>
+        <property name="note" type="string">
+            <column name="NOTE" />
+        </property>
+    </class>
+</hibernate-mapping>

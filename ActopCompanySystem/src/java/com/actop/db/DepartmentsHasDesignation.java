@@ -1,13 +1,16 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,15 +27,36 @@ public class DepartmentsHasDesignation  implements java.io.Serializable {
      private Departments departments;
      private Designation designation;
      private Employers employers;
+     private Set<ProjectTasksApproval> projectTasksApprovals = new HashSet<ProjectTasksApproval>(0);
+     private Set<ProjectsApproval> projectsApprovals = new HashSet<ProjectsApproval>(0);
+     private Set<AllowanceApproval> allowanceApprovals = new HashSet<AllowanceApproval>(0);
+     private Set<OtherApprovals> otherApprovalses = new HashSet<OtherApprovals>(0);
+     private Set<PaymentApproval> paymentApprovals = new HashSet<PaymentApproval>(0);
+     private Set<LeaveApproval> leaveApprovals = new HashSet<LeaveApproval>(0);
+     private Set<PromotionApproval> promotionApprovals = new HashSet<PromotionApproval>(0);
 
     public DepartmentsHasDesignation() {
     }
 
+	
     public DepartmentsHasDesignation(int idDepartmentsHasDesignation, Departments departments, Designation designation, Employers employers) {
+        this.idDepartmentsHasDesignation = idDepartmentsHasDesignation;
+        this.departments = departments;
+        this.designation = designation;
+        this.employers = employers;
+    }
+    public DepartmentsHasDesignation(int idDepartmentsHasDesignation, Departments departments, Designation designation, Employers employers, Set<ProjectTasksApproval> projectTasksApprovals, Set<ProjectsApproval> projectsApprovals, Set<AllowanceApproval> allowanceApprovals, Set<OtherApprovals> otherApprovalses, Set<PaymentApproval> paymentApprovals, Set<LeaveApproval> leaveApprovals, Set<PromotionApproval> promotionApprovals) {
        this.idDepartmentsHasDesignation = idDepartmentsHasDesignation;
        this.departments = departments;
        this.designation = designation;
        this.employers = employers;
+       this.projectTasksApprovals = projectTasksApprovals;
+       this.projectsApprovals = projectsApprovals;
+       this.allowanceApprovals = allowanceApprovals;
+       this.otherApprovalses = otherApprovalses;
+       this.paymentApprovals = paymentApprovals;
+       this.leaveApprovals = leaveApprovals;
+       this.promotionApprovals = promotionApprovals;
     }
    
      @Id 
@@ -75,6 +99,69 @@ public class DepartmentsHasDesignation  implements java.io.Serializable {
     
     public void setEmployers(Employers employers) {
         this.employers = employers;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departmentsHasDesignation")
+    public Set<ProjectTasksApproval> getProjectTasksApprovals() {
+        return this.projectTasksApprovals;
+    }
+    
+    public void setProjectTasksApprovals(Set<ProjectTasksApproval> projectTasksApprovals) {
+        this.projectTasksApprovals = projectTasksApprovals;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departmentsHasDesignation")
+    public Set<ProjectsApproval> getProjectsApprovals() {
+        return this.projectsApprovals;
+    }
+    
+    public void setProjectsApprovals(Set<ProjectsApproval> projectsApprovals) {
+        this.projectsApprovals = projectsApprovals;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departmentsHasDesignation")
+    public Set<AllowanceApproval> getAllowanceApprovals() {
+        return this.allowanceApprovals;
+    }
+    
+    public void setAllowanceApprovals(Set<AllowanceApproval> allowanceApprovals) {
+        this.allowanceApprovals = allowanceApprovals;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departmentsHasDesignation")
+    public Set<OtherApprovals> getOtherApprovalses() {
+        return this.otherApprovalses;
+    }
+    
+    public void setOtherApprovalses(Set<OtherApprovals> otherApprovalses) {
+        this.otherApprovalses = otherApprovalses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departmentsHasDesignation")
+    public Set<PaymentApproval> getPaymentApprovals() {
+        return this.paymentApprovals;
+    }
+    
+    public void setPaymentApprovals(Set<PaymentApproval> paymentApprovals) {
+        this.paymentApprovals = paymentApprovals;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departmentsHasDesignation")
+    public Set<LeaveApproval> getLeaveApprovals() {
+        return this.leaveApprovals;
+    }
+    
+    public void setLeaveApprovals(Set<LeaveApproval> leaveApprovals) {
+        this.leaveApprovals = leaveApprovals;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="departmentsHasDesignation")
+    public Set<PromotionApproval> getPromotionApprovals() {
+        return this.promotionApprovals;
+    }
+    
+    public void setPromotionApprovals(Set<PromotionApproval> promotionApprovals) {
+        this.promotionApprovals = promotionApprovals;
     }
 
 

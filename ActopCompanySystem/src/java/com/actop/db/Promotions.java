@@ -1,8 +1,10 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,9 +35,8 @@ public class Promotions  implements java.io.Serializable {
      private Date promotionApplyDate;
      private byte[] promotBy;
      private Date promotionEffectiveDate;
-     private byte[] promotionApprovedBy;
-     private Date promotionApproved;
      private byte[] promotionStates;
+     private Set<PromotionApproval> promotionApprovals = new HashSet<PromotionApproval>(0);
 
     public Promotions() {
     }
@@ -43,16 +45,15 @@ public class Promotions  implements java.io.Serializable {
     public Promotions(Employers employers) {
         this.employers = employers;
     }
-    public Promotions(Employers employers, byte[] beforePromotion, byte[] promotionFor, Date promotionApplyDate, byte[] promotBy, Date promotionEffectiveDate, byte[] promotionApprovedBy, Date promotionApproved, byte[] promotionStates) {
+    public Promotions(Employers employers, byte[] beforePromotion, byte[] promotionFor, Date promotionApplyDate, byte[] promotBy, Date promotionEffectiveDate, byte[] promotionStates, Set<PromotionApproval> promotionApprovals) {
        this.employers = employers;
        this.beforePromotion = beforePromotion;
        this.promotionFor = promotionFor;
        this.promotionApplyDate = promotionApplyDate;
        this.promotBy = promotBy;
        this.promotionEffectiveDate = promotionEffectiveDate;
-       this.promotionApprovedBy = promotionApprovedBy;
-       this.promotionApproved = promotionApproved;
        this.promotionStates = promotionStates;
+       this.promotionApprovals = promotionApprovals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -128,26 +129,6 @@ public class Promotions  implements java.io.Serializable {
     }
 
     
-    @Column(name="PROMOTION_APPROVED_BY")
-    public byte[] getPromotionApprovedBy() {
-        return this.promotionApprovedBy;
-    }
-    
-    public void setPromotionApprovedBy(byte[] promotionApprovedBy) {
-        this.promotionApprovedBy = promotionApprovedBy;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="PROMOTION_APPROVED", length=19)
-    public Date getPromotionApproved() {
-        return this.promotionApproved;
-    }
-    
-    public void setPromotionApproved(Date promotionApproved) {
-        this.promotionApproved = promotionApproved;
-    }
-
-    
     @Column(name="PROMOTION_STATES")
     public byte[] getPromotionStates() {
         return this.promotionStates;
@@ -155,6 +136,15 @@ public class Promotions  implements java.io.Serializable {
     
     public void setPromotionStates(byte[] promotionStates) {
         this.promotionStates = promotionStates;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="promotions")
+    public Set<PromotionApproval> getPromotionApprovals() {
+        return this.promotionApprovals;
+    }
+    
+    public void setPromotionApprovals(Set<PromotionApproval> promotionApprovals) {
+        this.promotionApprovals = promotionApprovals;
     }
 
 

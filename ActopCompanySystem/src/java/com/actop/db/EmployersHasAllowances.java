@@ -1,7 +1,9 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +12,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,14 +29,22 @@ public class EmployersHasAllowances  implements java.io.Serializable {
      private Allowances allowances;
      private Designation designation;
      private Employers employers;
+     private Set<AllowanceApproval> allowanceApprovals = new HashSet<AllowanceApproval>(0);
 
     public EmployersHasAllowances() {
     }
 
+	
     public EmployersHasAllowances(Allowances allowances, Designation designation, Employers employers) {
+        this.allowances = allowances;
+        this.designation = designation;
+        this.employers = employers;
+    }
+    public EmployersHasAllowances(Allowances allowances, Designation designation, Employers employers, Set<AllowanceApproval> allowanceApprovals) {
        this.allowances = allowances;
        this.designation = designation;
        this.employers = employers;
+       this.allowanceApprovals = allowanceApprovals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -76,6 +87,15 @@ public class EmployersHasAllowances  implements java.io.Serializable {
     
     public void setEmployers(Employers employers) {
         this.employers = employers;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="employersHasAllowances")
+    public Set<AllowanceApproval> getAllowanceApprovals() {
+        return this.allowanceApprovals;
+    }
+    
+    public void setAllowanceApprovals(Set<AllowanceApproval> allowanceApprovals) {
+        this.allowanceApprovals = allowanceApprovals;
     }
 
 
