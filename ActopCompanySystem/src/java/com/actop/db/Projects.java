@@ -1,5 +1,5 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -42,6 +42,7 @@ public class Projects  implements java.io.Serializable {
      private byte[] projectManager;
      private byte[] clientNote;
      private Set<ProjectTasks> projectTaskses = new HashSet<ProjectTasks>(0);
+     private Set<ProjectsApproval> projectsApprovals = new HashSet<ProjectsApproval>(0);
 
     public Projects() {
     }
@@ -51,7 +52,7 @@ public class Projects  implements java.io.Serializable {
         this.clients = clients;
         this.employers = employers;
     }
-    public Projects(Clients clients, Employers employers, byte[] projectName, Date startDate, Date endDate, Date actualStartDate, Date actualEndDate, byte[] projectType, byte[] projectDescription, byte[] projectStatus, byte[] projectManager, byte[] clientNote, Set<ProjectTasks> projectTaskses) {
+    public Projects(Clients clients, Employers employers, byte[] projectName, Date startDate, Date endDate, Date actualStartDate, Date actualEndDate, byte[] projectType, byte[] projectDescription, byte[] projectStatus, byte[] projectManager, byte[] clientNote, Set<ProjectTasks> projectTaskses, Set<ProjectsApproval> projectsApprovals) {
        this.clients = clients;
        this.employers = employers;
        this.projectName = projectName;
@@ -65,6 +66,7 @@ public class Projects  implements java.io.Serializable {
        this.projectManager = projectManager;
        this.clientNote = clientNote;
        this.projectTaskses = projectTaskses;
+       this.projectsApprovals = projectsApprovals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -206,6 +208,15 @@ public class Projects  implements java.io.Serializable {
     
     public void setProjectTaskses(Set<ProjectTasks> projectTaskses) {
         this.projectTaskses = projectTaskses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="projects")
+    public Set<ProjectsApproval> getProjectsApprovals() {
+        return this.projectsApprovals;
+    }
+    
+    public void setProjectsApprovals(Set<ProjectsApproval> projectsApprovals) {
+        this.projectsApprovals = projectsApprovals;
     }
 
 

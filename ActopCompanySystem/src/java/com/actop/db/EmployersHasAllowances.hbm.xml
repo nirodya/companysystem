@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 11, 2015 12:30:17 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.EmployersHasAllowances" table="employers_has_allowances" catalog="actop_system" optimistic-lock="version">
         <id name="idEmployersHasAllowances" type="java.lang.Integer">
@@ -17,5 +17,11 @@
         <many-to-one name="employers" class="com.actop.db.Employers" fetch="select">
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
+        <set name="allowanceApprovals" table="allowance_approval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYERS_has_ALLOWANCES_ID_EMPLOYERS_has_ALLOWANCES" not-null="true" />
+            </key>
+            <one-to-many class="com.actop.db.AllowanceApproval" />
+        </set>
     </class>
 </hibernate-mapping>

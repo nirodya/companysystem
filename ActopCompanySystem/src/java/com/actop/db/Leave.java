@@ -1,8 +1,10 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,8 +36,9 @@ public class Leave  implements java.io.Serializable {
      private Date endDate;
      private byte[] substitute;
      private Date substituteApprove;
-     private byte[] approvedBy;
-     private Date approvedDate;
+     private Date starttime;
+     private Date endtime;
+     private Set<LeaveApproval> leaveApprovals = new HashSet<LeaveApproval>(0);
 
     public Leave() {
     }
@@ -43,7 +47,7 @@ public class Leave  implements java.io.Serializable {
     public Leave(Employers employers) {
         this.employers = employers;
     }
-    public Leave(Employers employers, byte[] leaveType, byte[] noOfDays, Date startDate, Date endDate, byte[] substitute, Date substituteApprove, byte[] approvedBy, Date approvedDate) {
+    public Leave(Employers employers, byte[] leaveType, byte[] noOfDays, Date startDate, Date endDate, byte[] substitute, Date substituteApprove, Date starttime, Date endtime, Set<LeaveApproval> leaveApprovals) {
        this.employers = employers;
        this.leaveType = leaveType;
        this.noOfDays = noOfDays;
@@ -51,8 +55,9 @@ public class Leave  implements java.io.Serializable {
        this.endDate = endDate;
        this.substitute = substitute;
        this.substituteApprove = substituteApprove;
-       this.approvedBy = approvedBy;
-       this.approvedDate = approvedDate;
+       this.starttime = starttime;
+       this.endtime = endtime;
+       this.leaveApprovals = leaveApprovals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -137,24 +142,33 @@ public class Leave  implements java.io.Serializable {
         this.substituteApprove = substituteApprove;
     }
 
-    
-    @Column(name="APPROVED_BY")
-    public byte[] getApprovedBy() {
-        return this.approvedBy;
+    @Temporal(TemporalType.TIME)
+    @Column(name="STARTTIME", length=8)
+    public Date getStarttime() {
+        return this.starttime;
     }
     
-    public void setApprovedBy(byte[] approvedBy) {
-        this.approvedBy = approvedBy;
+    public void setStarttime(Date starttime) {
+        this.starttime = starttime;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="APPROVED_DATE", length=19)
-    public Date getApprovedDate() {
-        return this.approvedDate;
+    @Temporal(TemporalType.TIME)
+    @Column(name="ENDTIME", length=8)
+    public Date getEndtime() {
+        return this.endtime;
     }
     
-    public void setApprovedDate(Date approvedDate) {
-        this.approvedDate = approvedDate;
+    public void setEndtime(Date endtime) {
+        this.endtime = endtime;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="leave")
+    public Set<LeaveApproval> getLeaveApprovals() {
+        return this.leaveApprovals;
+    }
+    
+    public void setLeaveApprovals(Set<LeaveApproval> leaveApprovals) {
+        this.leaveApprovals = leaveApprovals;
     }
 
 

@@ -1,8 +1,10 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,10 +34,9 @@ public class Payments  implements java.io.Serializable {
      private byte[] paymentFor;
      private byte[] payment;
      private Date paymentDate;
-     private byte[] paymentApprovedBy;
-     private Date paymentApproved;
      private byte[] paymentStates;
      private Date paymentPayed;
+     private Set<PaymentApproval> paymentApprovals = new HashSet<PaymentApproval>(0);
 
     public Payments() {
     }
@@ -43,16 +45,15 @@ public class Payments  implements java.io.Serializable {
     public Payments(Employers employers) {
         this.employers = employers;
     }
-    public Payments(Employers employers, byte[] paymentTypes, byte[] paymentFor, byte[] payment, Date paymentDate, byte[] paymentApprovedBy, Date paymentApproved, byte[] paymentStates, Date paymentPayed) {
+    public Payments(Employers employers, byte[] paymentTypes, byte[] paymentFor, byte[] payment, Date paymentDate, byte[] paymentStates, Date paymentPayed, Set<PaymentApproval> paymentApprovals) {
        this.employers = employers;
        this.paymentTypes = paymentTypes;
        this.paymentFor = paymentFor;
        this.payment = payment;
        this.paymentDate = paymentDate;
-       this.paymentApprovedBy = paymentApprovedBy;
-       this.paymentApproved = paymentApproved;
        this.paymentStates = paymentStates;
        this.paymentPayed = paymentPayed;
+       this.paymentApprovals = paymentApprovals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -118,26 +119,6 @@ public class Payments  implements java.io.Serializable {
     }
 
     
-    @Column(name="PAYMENT_APPROVED_BY")
-    public byte[] getPaymentApprovedBy() {
-        return this.paymentApprovedBy;
-    }
-    
-    public void setPaymentApprovedBy(byte[] paymentApprovedBy) {
-        this.paymentApprovedBy = paymentApprovedBy;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="PAYMENT_APPROVED", length=19)
-    public Date getPaymentApproved() {
-        return this.paymentApproved;
-    }
-    
-    public void setPaymentApproved(Date paymentApproved) {
-        this.paymentApproved = paymentApproved;
-    }
-
-    
     @Column(name="PAYMENT_STATES")
     public byte[] getPaymentStates() {
         return this.paymentStates;
@@ -155,6 +136,15 @@ public class Payments  implements java.io.Serializable {
     
     public void setPaymentPayed(Date paymentPayed) {
         this.paymentPayed = paymentPayed;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="payments")
+    public Set<PaymentApproval> getPaymentApprovals() {
+        return this.paymentApprovals;
+    }
+    
+    public void setPaymentApprovals(Set<PaymentApproval> paymentApprovals) {
+        this.paymentApprovals = paymentApprovals;
     }
 
 

@@ -1,8 +1,10 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,6 +37,7 @@ public class ProjectTaskStates  implements java.io.Serializable {
      private byte[] topicActualTime;
      private String topicNote;
      private byte[] topicStates;
+     private Set<TaskDetails> taskDetailses = new HashSet<TaskDetails>(0);
 
     public ProjectTaskStates() {
     }
@@ -42,7 +46,7 @@ public class ProjectTaskStates  implements java.io.Serializable {
     public ProjectTaskStates(ProjectTasks projectTasks) {
         this.projectTasks = projectTasks;
     }
-    public ProjectTaskStates(ProjectTasks projectTasks, byte[] topic, Date topicStart, Date topicEnd, byte[] topicEstimateTime, byte[] topicActualTime, String topicNote, byte[] topicStates) {
+    public ProjectTaskStates(ProjectTasks projectTasks, byte[] topic, Date topicStart, Date topicEnd, byte[] topicEstimateTime, byte[] topicActualTime, String topicNote, byte[] topicStates, Set<TaskDetails> taskDetailses) {
        this.projectTasks = projectTasks;
        this.topic = topic;
        this.topicStart = topicStart;
@@ -51,6 +55,7 @@ public class ProjectTaskStates  implements java.io.Serializable {
        this.topicActualTime = topicActualTime;
        this.topicNote = topicNote;
        this.topicStates = topicStates;
+       this.taskDetailses = taskDetailses;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -143,6 +148,15 @@ public class ProjectTaskStates  implements java.io.Serializable {
     
     public void setTopicStates(byte[] topicStates) {
         this.topicStates = topicStates;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="projectTaskStates")
+    public Set<TaskDetails> getTaskDetailses() {
+        return this.taskDetailses;
+    }
+    
+    public void setTaskDetailses(Set<TaskDetails> taskDetailses) {
+        this.taskDetailses = taskDetailses;
     }
 
 

@@ -1,8 +1,10 @@
 package com.actop.db;
-// Generated Jul 11, 2015 12:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,13 +38,12 @@ public class Other  implements java.io.Serializable {
      private String note;
      private byte[] expenses;
      private byte[] informTo;
-     private byte[] approvedBy;
-     private Date approved;
      private Integer claim;
      private Date claimPayed;
      private byte[] claimApprovedBy;
      private Date claimApproved;
      private Integer states;
+     private Set<OtherApprovals> otherApprovalses = new HashSet<OtherApprovals>(0);
 
     public Other() {
     }
@@ -50,7 +52,7 @@ public class Other  implements java.io.Serializable {
     public Other(Employers employers) {
         this.employers = employers;
     }
-    public Other(Employers employers, byte[] otherType, byte[] location, Date inDate, Date outDate, byte[] reson, String note, byte[] expenses, byte[] informTo, byte[] approvedBy, Date approved, Integer claim, Date claimPayed, byte[] claimApprovedBy, Date claimApproved, Integer states) {
+    public Other(Employers employers, byte[] otherType, byte[] location, Date inDate, Date outDate, byte[] reson, String note, byte[] expenses, byte[] informTo, Integer claim, Date claimPayed, byte[] claimApprovedBy, Date claimApproved, Integer states, Set<OtherApprovals> otherApprovalses) {
        this.employers = employers;
        this.otherType = otherType;
        this.location = location;
@@ -60,13 +62,12 @@ public class Other  implements java.io.Serializable {
        this.note = note;
        this.expenses = expenses;
        this.informTo = informTo;
-       this.approvedBy = approvedBy;
-       this.approved = approved;
        this.claim = claim;
        this.claimPayed = claimPayed;
        this.claimApprovedBy = claimApprovedBy;
        this.claimApproved = claimApproved;
        this.states = states;
+       this.otherApprovalses = otherApprovalses;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -172,26 +173,6 @@ public class Other  implements java.io.Serializable {
     }
 
     
-    @Column(name="APPROVED_BY")
-    public byte[] getApprovedBy() {
-        return this.approvedBy;
-    }
-    
-    public void setApprovedBy(byte[] approvedBy) {
-        this.approvedBy = approvedBy;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="APPROVED", length=19)
-    public Date getApproved() {
-        return this.approved;
-    }
-    
-    public void setApproved(Date approved) {
-        this.approved = approved;
-    }
-
-    
     @Column(name="CLAIM")
     public Integer getClaim() {
         return this.claim;
@@ -239,6 +220,15 @@ public class Other  implements java.io.Serializable {
     
     public void setStates(Integer states) {
         this.states = states;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="other")
+    public Set<OtherApprovals> getOtherApprovalses() {
+        return this.otherApprovalses;
+    }
+    
+    public void setOtherApprovalses(Set<OtherApprovals> otherApprovalses) {
+        this.otherApprovalses = otherApprovalses;
     }
 
 
