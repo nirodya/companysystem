@@ -318,8 +318,13 @@ public class UserManagement {
     public DepartmentsHasDesignation saveDepartmentHasDesignation(Departments department, 
             Designation designation, Employers emp){
         Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(DepartmentsHasDesignation.class);
+        c.add(Restrictions.eq("employers", emp));
+        DepartmentsHasDesignation departmentsHasDesignation;
+        departmentsHasDesignation=(DepartmentsHasDesignation) c.uniqueResult();
+        if(departmentsHasDesignation==null){
         Transaction t=s.beginTransaction();
-        DepartmentsHasDesignation departmentsHasDesignation=new DepartmentsHasDesignation();
+        departmentsHasDesignation=new DepartmentsHasDesignation();
         try {
             departmentsHasDesignation.setDepartments(department);
             departmentsHasDesignation.setDesignation(designation);
@@ -330,6 +335,17 @@ public class UserManagement {
             e.printStackTrace();
         }
         t.commit();
+        }
+        s.flush();
+        s.close();
+        return departmentsHasDesignation;
+    }
+    public DepartmentsHasDesignation getDepartmentHasDesignation(Employers emp){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(DepartmentsHasDesignation.class);
+        c.add(Restrictions.eq("employers", emp));
+        DepartmentsHasDesignation departmentsHasDesignation;
+        departmentsHasDesignation=(DepartmentsHasDesignation) c.uniqueResult();
         s.flush();
         s.close();
         return departmentsHasDesignation;

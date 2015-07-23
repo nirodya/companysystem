@@ -50,8 +50,6 @@ public class savePayment extends HttpServlet {
         pfor=request.getParameter("pfor");
         payment=request.getParameter("payment");
         pdate=request.getParameter("pdate");
-        apdate=request.getParameter("apdate");
-        approvedby=request.getParameter("approvedby");
         pstatus=request.getParameter("pstatus");
         payeddate=request.getParameter("payeddate");
         
@@ -60,7 +58,7 @@ public class savePayment extends HttpServlet {
         Employers emp=umanagement.loadEmployer(Integer.parseInt(employer));
         
         PaymentsManagement management=new PaymentsManagement();
-        management.savePayment(emp, payment, convertToDate(pdate), approvedby, new Date(), convertToDate(pdate), pstatus, ptype, pfor);
+        management.savePayment(emp, payment, convertToDate(pdate), new Date(), pstatus, ptype, pfor);
         request.setAttribute("msg", "Saved Successfully");
         }
         request.getRequestDispatcher("/payments").forward(request, response);
