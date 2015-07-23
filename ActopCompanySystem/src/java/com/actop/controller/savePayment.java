@@ -79,7 +79,7 @@ public class savePayment extends HttpServlet {
     public Date convertToDate(String strDate) {
         Date apdate = null;
         try {
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             apdate = dateFormat.parse(strDate);
 
         } catch (ParseException ex) {
