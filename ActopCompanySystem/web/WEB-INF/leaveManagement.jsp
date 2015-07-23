@@ -24,10 +24,10 @@
                 <div class="panel panel-default">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Pending Appove</h3>
+                            <h3 class="panel-title">Pending Approvals</h3>
                         </div>
                         <div class="panel-body">
-                            <a href="allemp"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
+                            <a href="leaverecords?stype=pending"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
                         </div>
                     </div>
                 </div>
@@ -36,10 +36,10 @@
                 <div class="panel panel-default">
                     <div class="panel panel-danger">
                         <div class="panel-heading">
-                            <h3 class="panel-title">View Approved Leaves</h3>
+                            <h3 class="panel-title">View Approved</h3>
                         </div>
                         <div class="panel-body">
-                            <a href="allemp"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
+                            <a href="leaverecords?stype=approved"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
                         </div>
                     </div>
 
@@ -49,10 +49,10 @@
                 <div class="panel panel-default">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">View all Leaves</h3>
+                            <h3 class="panel-title">View all </h3>
                         </div>
                         <div class="panel-body">
-                            <a href="allemp"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
+                            <a href="leaverecords?stype=all"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
                         </div>
                     </div>
 
@@ -62,10 +62,10 @@
                 <div class="panel panel-default">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Add New Leave Type</h3>
+                            <h3 class="panel-title">Add New Type</h3>
                         </div>
                         <div class="panel-body">
-                            <a href="allemp"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
+                            <a href="addleavetype"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
                         </div>
                     </div>
 
@@ -78,7 +78,7 @@
                             <h3 class="panel-title">View All Leave Types</h3>
                         </div>
                         <div class="panel-body">
-                            <a href="allemp"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
+                            <a href="addleavetype"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@
                             <h3 class="panel-title">My Leaves</h3>
                         </div>
                         <div class="panel-body">
-                            <a href="allemp"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
+                            <a href="myleaves"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
                         </div>
                     </div>
 

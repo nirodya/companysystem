@@ -44,6 +44,7 @@ public class SaveLeave extends HttpServlet {
         try {
             System.out.println("stime" +request.getParameter("stime"));
             System.out.println("etime" +request.getParameter("etime"));
+            System.out.println("substitute" +request.getParameter("substitute"));
             
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             DateFormat dateFormat2 = new SimpleDateFormat("H:mm");

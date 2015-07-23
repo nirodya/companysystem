@@ -49,7 +49,7 @@
                             <td valign="middle" style="vertical-align:middle;"  />${leaves.endDate}</td>
                             <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaves.noOfDays}" /></td>
                             <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaves.substitute}" /></td>
-                            <td valign="middle" style="vertical-align:middle;"  />${leaves.substituteApprove}</td>
+                            <td valign="middle" style="vertical-align:middle;">${leaves.substituteApprove}</td>
                              <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger   ">Edit Details</button></td>
                         </tr>
                     </c:forEach>

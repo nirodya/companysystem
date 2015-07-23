@@ -9,6 +9,7 @@ import com.actop.connection.Connection;
 import com.actop.db.Employers;
 import com.actop.db.Leave;
 import com.actop.db.LeaveTypes;
+import com.actop.db.SpecialHolidays;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -50,31 +51,22 @@ public class LeaveManagement {
         s.close();
 
     }
-//    public void saveLeave1(String leaveType, int nuofdays, Date sdate,
-//            Date edate, String substitute, Date subsapprvdatetime, String approvedby, Date apprvdatetime, Employers employer) {
-//        Session s = Connection.getSessionFactory().openSession();
-//        Transaction t = s.beginTransaction();
-//        Leave lv = new Leave();
-//        try {
-//            lv.setLeaveType(convertToBytes(leaveType));
-//            lv.setNoOfDays(convertToBytes(nuofdays+""));
-//            lv.setStartDate(sdate);
-//            lv.setEndDate(edate);
-//            lv.setSubstitute(convertToBytes(substitute));
-//            lv.setSubstituteApprove(subsapprvdatetime);
-//            lv.setApprovedBy(convertToBytes(approvedby));
-//            lv.setApprovedDate(apprvdatetime);
-//            lv.setEmployers(employer);
-//            s.save(lv);
-//        } catch (Exception e) {
-//            t.rollback();
-//            e.printStackTrace();
-//        }
-//        t.commit();
-//        s.flush();
-//        s.close();
-//        
-//    }
+    public void saveLeave2(Leave leaveid,String substitute, Date subsapprvdatetime, String approvedby, Date apprvdatetime) {
+        Session s = Connection.getSessionFactory().openSession();
+        Transaction t = s.beginTransaction();
+        Leave lv = new Leave();
+        try {
+            lv.setSubstituteApprove(subsapprvdatetime);
+            s.save(lv);
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        
+    }
 
     public List<Leave> getAllLeaves() {
         Session s = Connection.getSessionFactory().openSession();
@@ -101,6 +93,34 @@ public class LeaveManagement {
         try {
             lvtyp.setLeaveType(ltype);
             s.save(lvtyp);
+
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+    }
+
+    public List<SpecialHolidays> getAllspclLeaveTypes() {
+        Session s = Connection.getSessionFactory().openSession();
+        Criteria c = s.createCriteria(SpecialHolidays.class);
+        List<SpecialHolidays> spclleavetypes = c.list();
+        s.flush();
+        s.close();
+        return spclleavetypes;
+    }
+
+    public void saveSpclLeaveType(String spclltype,Date sdate,Date edate) {
+        Session s = Connection.getSessionFactory().openSession();
+        Transaction t = s.beginTransaction();
+        SpecialHolidays spcllvtyp = new SpecialHolidays();
+        try {
+            spcllvtyp.setHolidayType(convertToBytes(spclltype));
+            spcllvtyp.setStartDate(sdate);
+            spcllvtyp.setEndDate(edate);
+            s.save(spcllvtyp);
 
         } catch (Exception e) {
             t.rollback();

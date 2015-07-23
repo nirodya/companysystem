@@ -135,5 +135,11 @@
     <tag> <!--Ruchi-->
         <name>retrieveallleavetypes</name>
         <tag-class>com.actop.taglibs.RetrieveLeaveTypes</tag-class>
+        
+    </tag> 
+    <tag> <!--Ruchi-->
+        <name>retrieveallspclleavetypes</name>
+        <tag-class>com.actop.taglibs.RetrieveSpclLeaveTypes</tag-class>
+        
     </tag> 
 </taglib>

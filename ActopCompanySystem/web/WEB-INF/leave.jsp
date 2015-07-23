@@ -92,9 +92,10 @@
                         <div class="col-lg-10">
                              <select id="substitute" name="substitute" class="form-control" data-dropdownjs="true" placeholder="Substitute">
                               
-                           <c:out value="${fn:length(allemployers)}" />
+                           
                                 <c:forEach items="${allemployers}" var="allemployer" begin="0" end="${fn:length(allemployers)}">
-                                    <option value="${allemployer.fullName}"><m:convertbytetostring text="${allemployer.fullName}"/></option>
+                                   
+                                    <option value="<m:convertbytetostring text="${allemployer.fullName}"/>"><m:convertbytetostring text="${allemployer.fullName}"/></option>
                                 </c:forEach>
                              </select>
                         </div>
