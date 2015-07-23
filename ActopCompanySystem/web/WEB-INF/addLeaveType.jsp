@@ -1,6 +1,6 @@
 <%-- 
-    Document   : leave
-    Created on : Jul 14, 2015, 4:02:40 PM
+    Document   : addLeaveType
+    Created on : Jul 23, 2015, 1:25:11 PM
     Author     : J.R.K. Wickramasinghe(Actop Technologies)
 --%>
 
@@ -21,7 +21,7 @@
 
             $("#leavetype").dropdown();
             $("#substitute").dropdown();
-            
+
         </script>
     </head>
     <body>
@@ -39,6 +39,7 @@
                     <div class="form-group">
                         <label for="empid" class="col-lg-2 control-label">Employee ID</label>
                         <div class="col-lg-10">
+                            <!--<input name="empid" required="" type="text" class="form-control" id="nic" placeholder="Employee ID">-->
                             <input type="text" name="empid" value="${loggedUser.employers.idEmployers}" class="form-control" id="nic" readonly="readonly" />
                         </div>
                     </div>
@@ -49,7 +50,7 @@
                               
                                 <c:out value="${fn:length(allleavetypes)}" />
                                 <c:forEach items="${allleavetypes}" var="leavetypes" begin="0" end="${fn:length(allleavetypes)}">
-                                    <option value="${leavetypes.leaveType}">${leavetypes.leaveType}</option> 
+                                    <option value="${leavetypes.idLeaveTypes}">${leavetypes.leaveType}</option> 
                                 </c:forEach>
 
 

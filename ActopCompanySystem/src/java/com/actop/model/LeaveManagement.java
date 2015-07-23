@@ -26,18 +26,19 @@ public class LeaveManagement {
         return convertedText;
     }
 
-    public void saveLeave1(String leaveType, int nuofdays, Date sdate,Date edate, Employers employer) {
+    public void saveLeave1(String leaveType, int nuofdays, Date sdate,Date edate, Employers employer,Date stime, Date etime,String substitute) {
         Session s = Connection.getSessionFactory().openSession();
         Transaction t = s.beginTransaction();
         Leave lv = new Leave();
         try {
-            System.out.println(edate);
-            System.out.println(sdate);
             lv.setLeaveType(convertToBytes(leaveType));
             lv.setNoOfDays(convertToBytes(nuofdays+""));
             lv.setStartDate(sdate);
             lv.setEndDate(edate);
             lv.setEmployers(employer);
+            lv.setStarttime(stime);
+            lv.setEndtime(etime);
+            lv.setSubstitute(convertToBytes(substitute));
             s.save(lv);
             
         } catch (Exception e) {
@@ -91,6 +92,8 @@ public class LeaveManagement {
         s.close();
         return leavetypes;
     }
+
+    
 
     
 }
