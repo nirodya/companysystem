@@ -7,6 +7,7 @@ package com.actop.controller;
 
 import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.Employers;
+import com.actop.db.Payments;
 import com.actop.model.ApprovalManagement;
 import com.actop.model.PaymentsManagement;
 import com.actop.model.UserManagement;
@@ -61,13 +62,13 @@ public class savePayment extends HttpServlet {
             Employers emp = umanagement.loadEmployer(Integer.parseInt(employer));
 
             PaymentsManagement management = new PaymentsManagement();
-            management.savePayment(emp, payment, convertToDate(pdate), new Date(), pstatus, ptype, pfor);
+            Payments p= management.savePayment(emp, payment, convertToDate(pdate), new Date(), pstatus, ptype, pfor);
             ApprovalManagement am=new ApprovalManagement();
             for (int i = 0; i < depthasdesigid.length; i++) {
                 String depthasdesigid1 = depthasdesigid[i];
                 DepartmentsHasDesignation dhd=umanagement.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
                 if (dhd!=null) {
-                    am.savePaymentApproval(null, dhd, null, null, 0);
+                    am.savePaymentApproval(null, dhd, null, p, 0);
                 }
             }
             request.setAttribute("msg", "Saved Successfully");
