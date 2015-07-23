@@ -8,6 +8,7 @@ package com.actop.model;
 import com.actop.connection.Connection;
 import com.actop.db.Employers;
 import com.actop.db.Leave;
+import com.actop.db.LeaveTypes;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -81,6 +82,14 @@ public class LeaveManagement {
         s.flush();
         s.close();
         return leave;
+    }
+    public List<LeaveTypes> getAllLeaveTypes(){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(LeaveTypes.class);
+        List<LeaveTypes> leavetypes=c.list();
+        s.flush();
+        s.close();
+        return leavetypes;
     }
 
     
