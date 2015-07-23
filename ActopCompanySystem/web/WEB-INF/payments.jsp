@@ -16,8 +16,25 @@
         <script>
             <%@include file="js/adminjs.js" %>
         </script>
+        <script>
+            angular.module('myApp', [])
+
+// controller here
+                    .controller('myCtrl', function ($scope) {
+                        $scope.selectables = [
+                            {label: 'A', value: 1},
+                            {label: 'B', value: 2},
+                            {label: 'C', value: 3}
+                        ];
+
+                        // this is the model that's used for the data binding in the select directive
+                        // the default selected item
+                        //using value, i want to set the selected value
+                        $scope.selectedItemvalue = "2";
+                    })
+        </script>
     </head>
-    <body>
+    <body ng-app="myApp">
         <%@include file="navigationbar.jsp" %>
         <div class="well" style="width: 80%;margin-left: auto;margin-right: auto">
             <h3 style="width: 100%;text-align: center">Payment to Employer</h3>
@@ -72,6 +89,19 @@
                         <input name="payeddate" required="" type="date" class="form-control" id="payeddate" placeholder="Payed Date">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="payeddate" class="col-lg-2 control-label">Need Approvals</label>
+                    <div ng-controller="myCtrl" class="col-lg-10">
+
+                        <select  class="form-control" multiple ng-model="selectedItemvalue">
+
+                            <option ng-repeat="sel in selectables" value="{{sel.value}}">{{sel.label}}</option>
+                        </select>
+                        <p>Selected Value is : {{selectedItemvalue}}</p>
+
+                    </div>
+                </div>
+
                 <input class="btn btn-danger" value="Save" type="submit" />
                 <div style="clear: both"></div>
             </form>
