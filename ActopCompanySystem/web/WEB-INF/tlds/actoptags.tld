@@ -129,7 +129,11 @@
     </tag> 
     
     <tag> <!--Ruchi-->
-        <name>retrieveallLeaves</name>
+        <name>retrieveallleaves</name>
         <tag-class>com.actop.taglibs.RetrieveLeaves</tag-class>
+    </tag> 
+    <tag> <!--Ruchi-->
+        <name>retrieveallleavetypes</name>
+        <tag-class>com.actop.taglibs.RetrieveLeaveTypes</tag-class>
     </tag> 
 </taglib>

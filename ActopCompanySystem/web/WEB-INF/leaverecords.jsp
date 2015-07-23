@@ -7,7 +7,7 @@
 <%@taglib uri="/WEB-INF/tlds/actoptags.tld" prefix="m" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<m:retrieveallLeaves/>
+<m:retrieveallleaves/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -63,7 +63,7 @@
 
         </div>
         <br>
-        <div id="complete-dialog" class="modal fade" tabindex="-1">
+<!--        <div id="complete-dialog" class="modal fade" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -84,6 +84,6 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div> -->
     </body>
 </html>
