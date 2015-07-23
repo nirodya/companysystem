@@ -21,7 +21,7 @@
         <url-pattern>/promotion</url-pattern>
         <url-pattern>/addleavetype</url-pattern>
         <url-pattern>/leave</url-pattern>
-        <url-pattern>/SaveLeave</url-pattern>
+        <!--<url-pattern>/SaveLeave</url-pattern>-->
     </filter-mapping>
     <servlet>
         <servlet-name>login</servlet-name>
@@ -107,10 +107,10 @@
         <servlet-name>leaverecords</servlet-name>
         <jsp-file>/WEB-INF/leaverecords.jsp</jsp-file>
     </servlet>
-    <servlet>
+<!--    <servlet>
         <servlet-name>SaveLeave</servlet-name>
         <jsp-file>/SaveLeave</jsp-file>
-    </servlet>
+    </servlet>-->
     <servlet>
         <servlet-name>addleavetype</servlet-name>
         <jsp-file>/WEB-INF/addLeaveType.jsp</jsp-file>
@@ -199,10 +199,10 @@
         <servlet-name>leaverecords</servlet-name>
         <url-pattern>/leaverecords</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>SaveLeave</servlet-name>
         <url-pattern>/SaveLeave</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>addleavetype</servlet-name>
         <url-pattern>/addleavetype</url-pattern>

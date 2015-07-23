@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label for="empid" class="col-lg-2 control-label">Employee ID</label>
                         <div class="col-lg-10">
-                            <input type="text" name="empid" value="${loggedUser.employers.idEmployers}" class="form-control" id="nic" readonly="readonly" />
+                             <input type="text" name="empid" value="${loggedUser.employers.idEmployers}" class="form-control" id="empid" readonly="readonly" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -93,8 +93,8 @@
                              <select id="substitute" name="substitute" class="form-control" data-dropdownjs="true" placeholder="Substitute">
                               
                            <c:out value="${fn:length(allemployers)}" />
-                                <c:forEach items="${allemployers}" var="leavetypes" begin="0" end="${fn:length(allemployers)}">
-                                    <option value="${allemployers.idEmployers}">${allemployers.fullName}</option>
+                                <c:forEach items="${allemployers}" var="allemployer" begin="0" end="${fn:length(allemployers)}">
+                                    <option value="${allemployer.fullName}"><m:convertbytetostring text="${allemployer.fullName}"/></option>
                                 </c:forEach>
                              </select>
                         </div>

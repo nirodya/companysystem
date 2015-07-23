@@ -42,8 +42,11 @@ public class SaveLeave extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            System.out.println("stime" +request.getParameter("stime"));
+            System.out.println("etime" +request.getParameter("etime"));
+            
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            DateFormat dateFormat2 = new SimpleDateFormat("hh-mm-ss-a");
+            DateFormat dateFormat2 = new SimpleDateFormat("H:mm");
             leavetype = request.getParameter("leavetype");
             sdate = dateFormat.parse(request.getParameter("sdate"));
             edate = dateFormat.parse(request.getParameter("edate"));
@@ -82,14 +85,5 @@ public class SaveLeave extends HttpServlet {
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
 }

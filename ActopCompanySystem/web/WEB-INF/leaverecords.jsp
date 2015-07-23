@@ -34,27 +34,23 @@
                         <th>Number of Dates</th>
                         <th>Substitute</th>
                         <th>Substitute Approved Date</th>
-                        <th>Approved By</th>
-                        <th>Approved Date</th>
-
+                        
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     
-                    <c:out value="${fn:length(allleaves)}" />
+                    
                     <c:forEach items="${allleaves}" var="leaves" begin="0" end="${fn:length(allleaves)}">
                         <tr>
-                            <td valign="middle" style="vertical-align:middle;" text="${leaves.employers.idEmployers}"/></td>
+                            <td valign="middle" style="vertical-align:middle;"/>${leaves.employers.idEmployers}</td>
                             <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaves.leaveType}" /></td>
-                            <td valign="middle" style="vertical-align:middle;" text="${leaves.startDate}" /></td>
-                            <td valign="middle" style="vertical-align:middle;" text="${leaves.endDate}" /></td>
+                            <td valign="middle" style="vertical-align:middle;"  />${leaves.startDate}</td>
+                            <td valign="middle" style="vertical-align:middle;"  />${leaves.endDate}</td>
                             <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaves.noOfDays}" /></td>
                             <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaves.substitute}" /></td>
-                            <td valign="middle" style="vertical-align:middle;" text="${leaves.substituteApprove}" /></td>
-                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaves.approvedBy}" /></td>
-                            <td valign="middle" style="vertical-align:middle;" text="${leaves.approvedDate}" /></td>
-                            <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger   ">Edit Details</button></td>
+                            <td valign="middle" style="vertical-align:middle;"  />${leaves.substituteApprove}</td>
+                             <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger   ">Edit Details</button></td>
                         </tr>
                     </c:forEach>
                 </tbody>
