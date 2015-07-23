@@ -61,18 +61,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="apdate" class="col-lg-2 control-label">Approved Date</label>
-                    <div class="col-lg-10">
-                        <input name="apdate" required="" type="date" class="form-control" id="apdate" placeholder="Approved Date">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="approvedby" class="col-lg-2 control-label">Approved by</label>
-                    <div class="col-lg-10">
-                        <input name="approvedby" required="" type="text" class="form-control" id="approvedby" placeholder="Approved By">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="pstatus" class="col-lg-2 control-label">Payment Status</label>
                     <div class="col-lg-10">
                         <input name="pstatus" required="" type="text" class="form-control" id="pstatus" placeholder="Payment Status">
