@@ -58,7 +58,7 @@ public class promoteEmp extends HttpServlet {
             String effectDate = request.getParameter("effectDate");
             String approvedBy = request.getParameter("approvedBy");
             int promoid=Integer.parseInt(request.getParameter("promoid"));
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date apdate = dateFormat.parse(effectDate);
             PromotionManagement management = new PromotionManagement();
             management.promoteEmployer(promoid, promoteBy, new Date(), approvedBy, apdate, promoteBy);
