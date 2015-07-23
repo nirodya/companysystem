@@ -19,7 +19,8 @@ import org.hibernate.Transaction;
  */
 public class ApprovalManagement {
     
-    public PaymentApproval savePaymentApproval(Date aptime, DepartmentsHasDesignation depahasdes, String note, Payments payment, Integer status){
+    public PaymentApproval savePaymentApproval(Date aptime, DepartmentsHasDesignation depahasdes, 
+            String note, Payments payment, Integer status){
         Session s=Connection.getSessionFactory().openSession();
         Transaction t=s.beginTransaction();
         PaymentApproval approval=new PaymentApproval();
