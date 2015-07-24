@@ -395,8 +395,4 @@ public class UserManagement {
         s.close();
         return allowanceses;
     }
-    public static void main(String[] args) {
-        UserManagement management=new UserManagement();
-        management.saveDesignation(100000.00, "Manager", null);
-    }
 }
