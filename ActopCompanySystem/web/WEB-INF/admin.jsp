@@ -11,13 +11,13 @@
         
         <title>Management System</title>
         <!-- Bootstrap Styles-->
-        <link href="../ActopSystem/assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="../ActopCompanySystem/assets/css/bootstrap.css" rel="stylesheet" />
         <!-- FontAwesome Styles-->
-        <link href="../ActopSystem/assets/css/font-awesome.css" rel="stylesheet" />
+        <link href="../ActopCompanySystem/assets/css/font-awesome.css" rel="stylesheet" />
         <!-- Morris Chart Styles-->
-        <link href="../ActopSystem/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <link href="../ActopCompanySystem/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
         <!-- Custom Styles-->
-        <link href="../ActopSystem/assets/css/custom-styles.css" rel="stylesheet" />
+        <link href="../ActopCompanySystem/assets/css/custom-styles.css" rel="stylesheet" />
         <!-- Google Fonts-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     </head>
@@ -241,15 +241,15 @@
         <!-- /. WRAPPER  -->
         <!-- JS Scripts-->
         <!-- jQuery Js -->
-        <script src="../ActopSystem/assets/js/jquery-1.10.2.js"></script>
+        <script src="../ActopCompanySystem/assets/js/jquery-1.10.2.js"></script>
         <!-- Bootstrap Js -->
-        <script src="../ActopSystem/assets/js/bootstrap.min.js"></script>
+        <script src="../ActopCompanySystem/assets/js/bootstrap.min.js"></script>
         <!-- Metis Menu Js -->
-        <script src="../ActopSystem/assets/js/jquery.metisMenu.js"></script>
+        <script src="../ActopCompanySystem/assets/js/jquery.metisMenu.js"></script>
         <!-- Morris Chart Js -->
-        <script src="../ActopSystem/assets/js/morris/raphael-2.1.0.min.js"></script>
-        <script src="../ActopSystem/assets/js/morris/morris.js"></script>
+        <script src="../ActopCompanySystem/assets/js/morris/raphael-2.1.0.min.js"></script>
+        <script src="../ActopCompanySystem/assets/js/morris/morris.js"></script>
         <!-- Custom Js -->
-        <script src="../ActopSystem/assets/js/custom-scripts.js"></script>
+        <script src="../ActopCompanySystem/assets/js/custom-scripts.js"></script>
     </body>
 </html>
