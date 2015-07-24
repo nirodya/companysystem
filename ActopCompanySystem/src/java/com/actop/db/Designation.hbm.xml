@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="designation" type="binary">
-            <column name="DESIGNATION" />
+            <column name="DESIGNATION" read="AES_DECRYPT(DESIGNATION, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="basicSalary" type="java.lang.Double">
             <column name="BASIC_SALARY" precision="22" scale="0" />

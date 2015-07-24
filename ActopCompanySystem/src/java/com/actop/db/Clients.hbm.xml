@@ -9,31 +9,31 @@
             <generator class="identity" />
         </id>
         <property name="name" type="binary">
-            <column name="NAME" />
+            <column name="NAME" read="AES_DECRYPT(NAME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')" />
         </property>
         <property name="address" type="binary">
-            <column name="ADDRESS" />
+            <column name="ADDRESS" read="AES_DECRYPT(ADDRESS, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="email" type="binary">
-            <column name="EMAIL" />
+            <column name="EMAIL" read="AES_DECRYPT(EMAIL, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')" />
         </property>
         <property name="contactNo" type="binary">
-            <column name="CONTACT_NO" />
+            <column name="CONTACT_NO" read="AES_DECRYPT(CONTACT_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="cantactPersonDepartment" type="binary">
-            <column name="CANTACT_PERSON_DEPARTMENT" />
+            <column name="CANTACT_PERSON_DEPARTMENT" read="AES_DECRYPT(CANTACT_PERSON_DEPARTMENT, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="contactPersonDesignation" type="binary">
-            <column name="CONTACT_PERSON_DESIGNATION" />
+            <column name="CONTACT_PERSON_DESIGNATION" read="AES_DECRYPT(CONTACT_PERSON_DESIGNATION, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="contactPerson" type="binary">
-            <column name="CONTACT_PERSON" />
+            <column name="CONTACT_PERSON" read="AES_DECRYPT(CONTACT_PERSON, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="contactPersonNo" type="binary">
-            <column name="CONTACT_PERSON_NO" />
+            <column name="CONTACT_PERSON_NO" read="AES_DECRYPT(CONTACT_PERSON_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="contactPersonEmail" type="binary">
-            <column name="CONTACT_PERSON_EMAIL" />
+            <column name="CONTACT_PERSON_EMAIL" read="AES_DECRYPT(CONTACT_PERSON_EMAIL, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="projectses" table="projects" inverse="true" lazy="true" fetch="select">
             <key>

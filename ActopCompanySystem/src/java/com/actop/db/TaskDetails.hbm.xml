@@ -12,10 +12,10 @@
             <column name="PROJECT_TASK_STATES_ID_PROJECT_TASK_STATES" not-null="true" />
         </many-to-one>
         <property name="taskDetailsTopic" type="binary">
-            <column name="TASK_DETAILS_TOPIC" />
+            <column name="TASK_DETAILS_TOPIC" read="AES_DECRYPT(TASK_DETAILS_TOPIC, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="taskDetailsNote" type="binary">
-            <column name="TASK_DETAILS_NOTE" />
+            <column name="TASK_DETAILS_NOTE" read="AES_DECRYPT(TASK_DETAILS_NOTE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="taskDetailsDate" type="date">
             <column name="TASK_DETAILS_DATE" length="10" />
@@ -27,10 +27,10 @@
             <column name="TASK_DETAILS_END" length="10" />
         </property>
         <property name="taskDetailsCalculateTime" type="binary">
-            <column name="TASK_DETAILS_CALCULATE_TIME" />
+            <column name="TASK_DETAILS_CALCULATE_TIME" read="AES_DECRYPT(TASK_DETAILS_CALCULATE_TIME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="taskDetailsActualTime" type="binary">
-            <column name="TASK_DETAILS_ACTUAL_TIME" />
+            <column name="TASK_DETAILS_ACTUAL_TIME" read="AES_DECRYPT(TASK_DETAILS_ACTUAL_TIME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
     </class>
 </hibernate-mapping>

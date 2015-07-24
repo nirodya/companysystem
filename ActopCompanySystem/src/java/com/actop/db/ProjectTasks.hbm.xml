@@ -15,7 +15,7 @@
             <column name="PROJECTS_ID_PROJECTS" not-null="true" />
         </many-to-one>
         <property name="projectTaskType" type="binary">
-            <column name="PROJECT_TASK_TYPE" />
+            <column name="PROJECT_TASK_TYPE" read="AES_DECRYPT(PROJECT_TASK_TYPE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="projectTaskNote" type="string">
             <column name="PROJECT_TASK_NOTE" />
@@ -30,10 +30,10 @@
             <column name="PROJECT_TASK_ASSING" length="19" />
         </property>
         <property name="projectTaskAssingBy" type="binary">
-            <column name="PROJECT_TASK_ASSING_BY" />
+            <column name="PROJECT_TASK_ASSING_BY" read="AES_DECRYPT(PROJECT_TASK_ASSING_BY, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="projectTaskStates" type="binary">
-            <column name="PROJECT_TASK_STATES" />
+            <column name="PROJECT_TASK_STATES" read="AES_DECRYPT(PROJECT_TASK_STATES, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="projectTaskPriority" type="java.lang.Integer">
             <column name="PROJECT_TASK_PRIORITY" />

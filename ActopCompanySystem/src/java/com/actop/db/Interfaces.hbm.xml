@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="interfaceName" type="binary">
-            <column name="INTERFACE_NAME" />
+            <column name="INTERFACE_NAME" read="AES_DECRYPT(INTERFACE_NAME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="interfacesHasUserLogins" table="interfaces_has_user_login" inverse="true" lazy="true" fetch="select">
             <key>

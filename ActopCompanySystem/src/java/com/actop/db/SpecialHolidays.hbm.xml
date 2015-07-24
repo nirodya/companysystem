@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="holidayType" type="binary">
-            <column name="HOLIDAY_TYPE" />
+            <column name="HOLIDAY_TYPE" read="AES_DECRYPT(HOLIDAY_TYPE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="startDate" type="date">
             <column name="START_DATE" length="10" />

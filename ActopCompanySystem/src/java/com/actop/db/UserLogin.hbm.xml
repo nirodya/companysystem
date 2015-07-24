@@ -12,22 +12,22 @@
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
         <property name="un" type="binary">
-            <column name="un" />
+            <column name="un" read="AES_DECRYPT(un, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="pw" type="binary">
-            <column name="pw" />
+            <column name="pw" read="AES_DECRYPT(pw, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="securityq1" type="binary">
-            <column name="securityq1" />
+            <column name="securityq1" read="AES_DECRYPT(securityq1, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="answer1" type="binary">
-            <column name="answer1" />
+            <column name="answer1" read="AES_DECRYPT(answer1, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="securityq2" type="binary">
-            <column name="securityq2" />
+            <column name="securityq2" read="AES_DECRYPT(securityq2, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="answer2" type="binary">
-            <column name="answer2" />
+            <column name="answer2" read="AES_DECRYPT(answer2, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="interfacesHasUserLogins" table="interfaces_has_user_login" inverse="true" lazy="true" fetch="select">
             <key>

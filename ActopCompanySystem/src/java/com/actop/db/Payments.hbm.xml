@@ -12,19 +12,19 @@
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
         <property name="paymentTypes" type="binary">
-            <column name="PAYMENT_TYPES" />
+            <column name="PAYMENT_TYPES" read="AES_DECRYPT(PAYMENT_TYPES, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="paymentFor" type="binary">
-            <column name="PAYMENT_FOR" />
+            <column name="PAYMENT_FOR" read="AES_DECRYPT(PAYMENT_FOR, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="payment" type="binary">
-            <column name="PAYMENT" />
+            <column name="PAYMENT" read="AES_DECRYPT(PAYMENT, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="paymentDate" type="timestamp">
             <column name="PAYMENT_DATE" length="19" />
         </property>
         <property name="paymentStates" type="binary">
-            <column name="PAYMENT_STATES" />
+            <column name="PAYMENT_STATES" read="AES_DECRYPT(PAYMENT_STATES, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="paymentPayed" type="timestamp">
             <column name="PAYMENT_PAYED" length="19" />

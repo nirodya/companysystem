@@ -394,4 +394,9 @@ public class UserManagement {
         s.close();
         return allowanceses;
     }
+    public static void main(String[] args) {
+        Session s=Connection.getSessionFactory().openSession();
+        Departments d=(Departments) s.load(Departments.class, 1);
+        System.out.println(new String(d.getDepartment()));
+    }
 }

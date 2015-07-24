@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="department" type="binary">
-            <column name="DEPARTMENT" />
+            <column name="DEPARTMENT" read="AES_DECRYPT(department, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="departmentsHasDesignations" table="departments_has_designation" inverse="true" lazy="true" fetch="select">
             <key>

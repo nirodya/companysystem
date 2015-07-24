@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="allowanceType" type="binary">
-            <column name="ALLOWANCE_TYPE" />
+            <column name="ALLOWANCE_TYPE" read="AES_DECRYPT(allowanceType, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')" />
         </property>
         <property name="allownceMinimum" type="java.lang.Double">
             <column name="ALLOWNCE_MINIMUM" precision="22" scale="0" />
