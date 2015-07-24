@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 24, 2015 12:22:51 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.Employers" table="employers" catalog="actop_system" optimistic-lock="version">
         <id name="idEmployers" type="java.lang.Integer">
@@ -78,7 +78,7 @@
             <column name="EXTENSION_NO" read="AES_DECRYPT(EXTENSION_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="status" type="java.lang.Integer">
-            <column name="STATUS" read="AES_DECRYPT(STATUS, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
+            <column name="STATUS"/>
         </property>
         <property name="resigningDate" type="date">
             <column name="RESIGNING_DATE" length="10" />

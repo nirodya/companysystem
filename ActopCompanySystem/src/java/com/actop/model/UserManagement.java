@@ -14,6 +14,7 @@ import com.actop.db.Employers;
 import com.actop.db.EmployersHasAllowances;
 import com.actop.db.UserLogin;
 import java.io.Serializable;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -395,8 +396,7 @@ public class UserManagement {
         return allowanceses;
     }
     public static void main(String[] args) {
-        Session s=Connection.getSessionFactory().openSession();
-        Departments d=(Departments) s.load(Departments.class, 1);
-        System.out.println(new String(d.getDepartment()));
+        UserManagement management=new UserManagement();
+        management.saveDesignation(100000.00, "Manager", null);
     }
 }

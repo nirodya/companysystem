@@ -67,7 +67,10 @@ public class savePayment extends HttpServlet {
             for (int i = 0; i < depthasdesigid.length; i++) {
                 String depthasdesigid1 = depthasdesigid[i];
                 DepartmentsHasDesignation dhd=umanagement.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
+                System.out.println("dhd id : "+dhd.getIdDepartmentsHasDesignation());
+                System.out.println("payment id : "+p.getIdPayments());
                 if (dhd!=null) {
+                    //System.out.println("awa"+dhd);
                     am.savePaymentApproval(null, dhd, null, p, 0);
                 }
             }

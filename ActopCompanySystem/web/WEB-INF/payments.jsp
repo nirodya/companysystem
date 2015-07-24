@@ -122,7 +122,7 @@
                     </div>
                     <div ng-controller="myCtrl" class="col-lg-5">
 
-                        <select id="desigs"  class="form-control" multiple ng-model="selectedItemvalue">
+                        <select id="desigs" required=""  class="form-control" multiple ng-model="selectedItemvalue">
 
                             
                         </select>
