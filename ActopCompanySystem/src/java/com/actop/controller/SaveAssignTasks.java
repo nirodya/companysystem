@@ -5,8 +5,11 @@
  */
 package com.actop.controller;
 
+import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.Employers;
+import com.actop.db.ProjectTasks;
 import com.actop.db.Projects;
+import com.actop.model.ApprovalManagement;
 import com.actop.model.ProjectsManagement;
 import com.actop.model.UserManagement;
 import java.io.IOException;
@@ -39,6 +42,7 @@ public class SaveAssignTasks extends HttpServlet {
     private String assignby;
     private String status;
     private String priority;
+    private String depthasdesigid[];
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -76,12 +80,24 @@ public class SaveAssignTasks extends HttpServlet {
         assignby = request.getParameter("assignby");
         status = request.getParameter("status");
         priority = request.getParameter("priority");
+        depthasdesigid=request.getParameterValues("depthasdesigid");
         if (employer != null && projectname != null && ttype != null && tnote != null && stdate != null) {
+            UserManagement umanagement = new UserManagement();
             ProjectsManagement pm = new ProjectsManagement();
             UserManagement um = new UserManagement();
             Employers emp = um.loadEmployer(Integer.parseInt(employer));
             Projects p = pm.loadProjects(Integer.parseInt(projectname));
-            pm.saveProjectTasks(emp, new Date(), assignby, convertToDate(endate), tnote, Integer.parseInt(priority), convertToDate(stdate), status, ttype, p);
+            ProjectTasks ptask=pm.saveProjectTasks(emp, new Date(), assignby, convertToDate(endate), tnote, Integer.parseInt(priority), convertToDate(stdate), status, ttype, p);
+            ApprovalManagement am=new ApprovalManagement();
+            for (int i = 0; i < depthasdesigid.length; i++) {
+                String depthasdesigid1 = depthasdesigid[i];
+                DepartmentsHasDesignation dhd=umanagement.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
+                
+                if (dhd!=null) {
+                    //System.out.println("awa"+dhd);
+                    am.saveProjectTasksApprovel(null, dhd, null, ptask, i);
+                }
+            }
             request.setAttribute("msg", "Saved Successfully");
         }
             request.getRequestDispatcher("/addtasks").forward(request, response);

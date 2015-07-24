@@ -9,6 +9,7 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <niro:retrieveDesignations/>
+<niro:retrieveDepartments/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,8 +18,9 @@
         <script>
             <%@include file="js/adminjs.js" %>
         </script>
+        
     </head>
-    <body>
+    <body ng-app="myApp">
         <%@include file="navigationbar.jsp" %>
         <div class="well" style="width: 80%;margin-left: auto;margin-right: auto">
             <h3 style="width: 100%;text-align: center">Allowance</h3>
@@ -28,27 +30,29 @@
                 <div class="form-group">
                     <label for="atype" class="col-lg-2 control-label">Allowance Type</label>
                     <div class="col-lg-10">
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" required="" name="atype" />
-                        </div>
+
+                        <input type="text" class="form-control" required="" name="atype" />
+
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="min" class="col-lg-2 control-label">Minimum Rs.</label>
                     <div class="col-lg-10">
-                        <div class="col-lg-10">
-                            <input type="number" class="form-control" required="" name="min" />
-                        </div>
+
+                        <input type="number" class="form-control" required="" name="min" />
+
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="max" class="col-lg-2 control-label">Maximum Rs.</label>
                     <div class="col-lg-10">
-                        <div class="col-lg-10">
-                            <input type="number" class="form-control" required="" name="max" />
-                        </div>
+
+                        <input type="number" class="form-control" required="" name="max" />
+
                     </div>
                 </div>
+                
+                <div style="clear: both"></div>
                 <input class="btn btn-info" type="submit" value="Save" />
             </form>
         </div>
