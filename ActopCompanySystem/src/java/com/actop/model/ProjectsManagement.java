@@ -11,6 +11,7 @@ import com.actop.db.Employers;
 import com.actop.db.ProjectTaskStates;
 import com.actop.db.ProjectTasks;
 import com.actop.db.Projects;
+import com.actop.db.TaskDetails;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -180,6 +181,31 @@ public class ProjectsManagement {
         s.flush();
         s.close();
         return projectTaskStates;
+    }
+    
+    public TaskDetails saveTaskDetails(ProjectTaskStates prostatus, String actualTime, String calculatedTime, 
+            Date detailsDate, Date detailsEndDate, String detailsNote, Date detailsStartDate, String detailsTopic){
+        Session s=Connection.getSessionFactory().openSession();
+        Transaction t=s.beginTransaction();
+        TaskDetails details=new TaskDetails();
+        try {
+           details.setProjectTaskStates(prostatus);
+           details.setTaskDetailsActualTime(convertToBytes(actualTime));
+           details.setTaskDetailsCalculateTime(convertToBytes(calculatedTime));
+           details.setTaskDetailsDate(detailsDate);
+           details.setTaskDetailsEnd(detailsEndDate);
+           details.setTaskDetailsNote(convertToBytes(detailsNote));
+           details.setTaskDetailsStart(detailsStartDate);
+           details.setTaskDetailsTopic(convertToBytes(detailsTopic));
+           s.save(details);
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return details;
     }
 
 }
