@@ -27,24 +27,24 @@
             </c:forEach>
                 ];
                 $scope.changeItem = function () {
-                    var reqtest='';
+                    var reqtest = '';
                     for (var i = 0; i < $('#depts').val().length; i++) {
                         if (i < 1)
                             reqtest += $('#depts').val()[i];
                         else
                             reqtest += "&depid=" + $('#depts').val()[i];
                     }
-                    
+
                     $http.get("GetDesignationFromDept?depid=" + reqtest)
                             .success(function (response) {
                                 console.log(response);
-                                
+
                                 $('#desigs').html(response);
-                        $scope.desigs=response;
+                                $scope.desigs = response;
 //                                $scope.names = response.records;
 //                                $scope.test = "test";
                             });
-                    
+
                     $scope.desres = "awa";
                 };
                 // this is the model that's used for the data binding in the select directive
@@ -69,7 +69,6 @@
                                 <option value="${employer.idEmployers}"><niro:convertbytetostring text="${employer.fullName}" /></option>
                             </c:forEach>
                         </select>
-
                     </div>
                 </div>
                 <div class="form-group">
@@ -111,25 +110,16 @@
                 <div class="form-group">
                     <label for="payeddate" class="col-lg-2 control-label">Need Approvals</label>
                     <div ng-controller="myCtrl" class="col-lg-5">
-
                         <select name="depthasdesigid" id="depts" ng-change="changeItem()"  class="form-control" multiple ng-model="selectedItemvalue">
-
                             <option ng-repeat="sel in selectables" value="{{sel.value}}">{{sel.label}}</option>
                         </select>
-
                         <p id="desres" ng-model="desres"></p>
-
                     </div>
                     <div ng-controller="myCtrl" class="col-lg-5">
-
                         <select id="desigs" required=""  class="form-control" multiple ng-model="selectedItemvalue">
-
-                            
                         </select>
-
                     </div>
                 </div>
-
                 <input class="btn btn-danger" value="Save" type="submit" />
                 <div style="clear: both"></div>
             </form>
