@@ -92,7 +92,7 @@ public class UserUpdate extends HttpServlet {
             empid=Integer.parseInt(request.getParameter("empid"));
             
             UserManagement management=new UserManagement();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date apdate = dateFormat.parse(appointedDate);
             management.updateEmployers(empid, fullname, callname, address1, address2, apdate, appointeType, bloodselect, branch, callname, city, district, epf, extension, homeNo, city, licenseNo, mobileNo, nic, officeemail, officeno, passport, passport, bankaccount, bankbranch, bankperson, personalemail, reportBy, null, salary);
             RequestDispatcher rd=request.getRequestDispatcher("/profile?id="+empid);

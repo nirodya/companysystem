@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 24, 2015 12:22:51 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.Employers" table="employers" catalog="actop_system" optimistic-lock="version">
         <id name="idEmployers" type="java.lang.Integer">
@@ -9,91 +9,91 @@
             <generator class="identity" />
         </id>
         <property name="fullName" type="binary">
-            <column name="FULL_NAME" />
+            <column name="FULL_NAME" read="AES_DECRYPT(FULL_NAME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="callingName" type="binary">
-            <column name="CALLING_NAME" />
+            <column name="CALLING_NAME" read="AES_DECRYPT(CALLING_NAME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="address1" type="binary">
-            <column name="ADDRESS1" />
+            <column name="ADDRESS1" read="AES_DECRYPT(ADDRESS1, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="address2" type="binary">
-            <column name="ADDRESS2" />
+            <column name="ADDRESS2" read="AES_DECRYPT(ADDRESS2, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="city" type="binary">
-            <column name="CITY" />
+            <column name="CITY" read="AES_DECRYPT(CITY, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="district" type="binary">
-            <column name="DISTRICT" />
+            <column name="DISTRICT" read="AES_DECRYPT(DISTRICT, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="mobileNo" type="binary">
-            <column name="MOBILE_NO" />
+            <column name="MOBILE_NO" read="AES_DECRYPT(MOBILE_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="homeNo" type="binary">
-            <column name="HOME_NO" />
+            <column name="HOME_NO" read="AES_DECRYPT(HOME_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="epf" type="binary">
-            <column name="EPF" />
+            <column name="EPF" read="AES_DECRYPT(EPF, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="imgPath" type="binary">
-            <column name="IMG_PATH" />
+            <column name="IMG_PATH" read="AES_DECRYPT(IMG_PATH, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="salary" type="binary">
-            <column name="SALARY" />
+            <column name="SALARY" read="AES_DECRYPT(SALARY, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="appointedDate" type="date">
             <column name="APPOINTED_DATE" length="10" />
         </property>
         <property name="appointedType" type="binary">
-            <column name="APPOINTED_TYPE" />
+            <column name="APPOINTED_TYPE" read="AES_DECRYPT(APPOINTED_TYPE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="reportBy" type="binary">
-            <column name="REPORT_BY" />
+            <column name="REPORT_BY" read="AES_DECRYPT(REPORT_BY, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="nic" type="binary">
-            <column name="NIC" />
+            <column name="NIC" read="AES_DECRYPT(NIC, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="bloodGroup" type="binary">
-            <column name="BLOOD_GROUP" />
+            <column name="BLOOD_GROUP" read="AES_DECRYPT(BLOOD_GROUP, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="passport" type="binary">
-            <column name="PASSPORT" />
+            <column name="PASSPORT" read="AES_DECRYPT(PASSPORT, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="licenseNo" type="binary">
-            <column name="LICENSE_NO" />
+            <column name="LICENSE_NO" read="AES_DECRYPT(LICENSE_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="branch" type="binary">
-            <column name="BRANCH" />
+            <column name="BRANCH" read="AES_DECRYPT(BRANCH, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="officeEmail" type="binary">
-            <column name="OFFICE_EMAIL" />
+            <column name="OFFICE_EMAIL" read="AES_DECRYPT(OFFICE_EMAIL, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="personalEmail" type="binary">
-            <column name="PERSONAL_EMAIL" />
+            <column name="PERSONAL_EMAIL" read="AES_DECRYPT(PERSONAL_EMAIL, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="officeNo" type="binary">
-            <column name="OFFICE_NO" />
+            <column name="OFFICE_NO" read="AES_DECRYPT(OFFICE_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="extensionNo" type="binary">
-            <column name="EXTENSION_NO" />
+            <column name="EXTENSION_NO" read="AES_DECRYPT(EXTENSION_NO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="status" type="java.lang.Integer">
-            <column name="STATUS" />
+            <column name="STATUS"/>
         </property>
         <property name="resigningDate" type="date">
             <column name="RESIGNING_DATE" length="10" />
         </property>
         <property name="paymetsBank" type="binary">
-            <column name="PAYMETS_BANK" />
+            <column name="PAYMETS_BANK" read="AES_DECRYPT(PAYMETS_BANK, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="paymetsBankBranch" type="binary">
-            <column name="PAYMETS_BANK_BRANCH" />
+            <column name="PAYMETS_BANK_BRANCH" read="AES_DECRYPT(PAYMETS_BANK_BRANCH, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="paymetsBankAccountNumber" type="binary">
-            <column name="PAYMETS_BANK_ACCOUNT_NUMBER" />
+            <column name="PAYMETS_BANK_ACCOUNT_NUMBER" read="AES_DECRYPT(PAYMETS_BANK_ACCOUNT_NUMBER, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="paymetsBankPersonName" type="binary">
-            <column name="PAYMETS_BANK_PERSON_NAME" />
+            <column name="PAYMETS_BANK_PERSON_NAME" read="AES_DECRYPT(PAYMETS_BANK_PERSON_NAME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="promotionses" table="promotions" inverse="true" lazy="true" fetch="select">
             <key>

@@ -7,6 +7,7 @@ package com.actop.controller;
 
 import com.actop.db.ProjectTasks;
 import com.actop.model.ProjectsManagement;
+import com.actop.model.UserManagement;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
@@ -35,7 +36,6 @@ public class SaveProjectTaskStatus extends HttpServlet {
     private String actual;
     private String note;
     private String status;
-
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -86,7 +86,7 @@ public class SaveProjectTaskStatus extends HttpServlet {
     public Date convertToDate(String strDate) {
         Date apdate = null;
         try {
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             apdate = dateFormat.parse(strDate);
 
         } catch (ParseException ex) {

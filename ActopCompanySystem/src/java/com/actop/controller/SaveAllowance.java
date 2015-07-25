@@ -5,6 +5,8 @@
  */
 package com.actop.controller;
 
+import com.actop.db.DepartmentsHasDesignation;
+import com.actop.model.ApprovalManagement;
 import com.actop.model.UserManagement;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "SaveAllowance", urlPatterns = {"/SaveAllowance"})
 public class SaveAllowance extends HttpServlet {
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     
     @Override
@@ -43,9 +45,13 @@ public class SaveAllowance extends HttpServlet {
         String atype = request.getParameter("atype");
         String min = request.getParameter("min");
         String max = request.getParameter("max");
+        
+        if(atype!=null&&min!=null&&max!=null){
         UserManagement management = new UserManagement();
+        UserManagement umanagement = new UserManagement();
         management.saveAllowances(Double.parseDouble(max), atype, Double.parseDouble(max));
         request.setAttribute("msg", "Saved Successfully");
+        }
         request.getRequestDispatcher("/allowance").forward(request, response);
     }
 

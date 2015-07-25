@@ -132,7 +132,6 @@
                                 </c:forEach>
                                 <!--Data Models End-->
                             </div>
-
                         </div>
                     </div>
                     <!--End Advanced Tables -->
@@ -215,7 +214,6 @@
                                 </c:forEach>
                                 <!--Data Models End-->
                             </div>
-
                         </div>
                     </div>
                     <!--End Advanced Tables -->

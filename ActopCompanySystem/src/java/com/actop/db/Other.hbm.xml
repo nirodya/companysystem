@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 24, 2015 12:22:51 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.Other" table="other" catalog="actop_system" optimistic-lock="version">
         <id name="idOther" type="java.lang.Integer">
@@ -12,10 +12,10 @@
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
         <property name="otherType" type="binary">
-            <column name="OTHER_TYPE" />
+            <column name="OTHER_TYPE" read="AES_DECRYPT(OTHER_TYPE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="location" type="binary">
-            <column name="LOCATION" />
+            <column name="LOCATION" read="AES_DECRYPT(LOCATION, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="inDate" type="timestamp">
             <column name="IN_DATE" length="19" />
@@ -24,16 +24,16 @@
             <column name="OUT_DATE" length="19" />
         </property>
         <property name="reson" type="binary">
-            <column name="RESON" />
+            <column name="RESON" read="AES_DECRYPT(RESON, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="note" type="string">
             <column name="NOTE" />
         </property>
         <property name="expenses" type="binary">
-            <column name="EXPENSES" />
+            <column name="EXPENSES" read="AES_DECRYPT(EXPENSES, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="informTo" type="binary">
-            <column name="INFORM_TO" />
+            <column name="INFORM_TO" read="AES_DECRYPT(INFORM_TO, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="claim" type="java.lang.Integer">
             <column name="CLAIM" />
@@ -42,7 +42,7 @@
             <column name="CLAIM_PAYED" length="19" />
         </property>
         <property name="claimApprovedBy" type="binary">
-            <column name="CLAIM_APPROVED_BY" />
+            <column name="CLAIM_APPROVED_BY" read="AES_DECRYPT(CLAIM_APPROVED_BY, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="claimApproved" type="timestamp">
             <column name="CLAIM_APPROVED" length="19" />

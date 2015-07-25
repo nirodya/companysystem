@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 24, 2015 12:22:51 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.Projects" table="projects" catalog="actop_system" optimistic-lock="version">
         <id name="idProjects" type="java.lang.Integer">
@@ -15,7 +15,7 @@
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
         <property name="projectName" type="binary">
-            <column name="PROJECT_NAME" />
+            <column name="PROJECT_NAME" read="AES_DECRYPT(PROJECT_NAME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="startDate" type="date">
             <column name="START_DATE" length="10" />
@@ -30,19 +30,19 @@
             <column name="ACTUAL_END_DATE" length="10" />
         </property>
         <property name="projectType" type="binary">
-            <column name="PROJECT_TYPE" />
+            <column name="PROJECT_TYPE" read="AES_DECRYPT(PROJECT_TYPE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="projectDescription" type="binary">
-            <column name="PROJECT_DESCRIPTION" />
+            <column name="PROJECT_DESCRIPTION" read="AES_DECRYPT(PROJECT_DESCRIPTION, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="projectStatus" type="binary">
-            <column name="PROJECT_STATUS" />
+            <column name="PROJECT_STATUS" read="AES_DECRYPT(PROJECT_STATUS, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="projectManager" type="binary">
-            <column name="PROJECT_MANAGER" />
+            <column name="PROJECT_MANAGER" read="AES_DECRYPT(PROJECT_MANAGER, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="clientNote" type="binary">
-            <column name="CLIENT_NOTE" />
+            <column name="CLIENT_NOTE" read="AES_DECRYPT(CLIENT_NOTE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="projectTaskses" table="project_tasks" inverse="true" lazy="true" fetch="select">
             <key>

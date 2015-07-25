@@ -9,8 +9,8 @@
     <property name="hibernate.connection.password">1234</property>
     <mapping resource="com/actop/db/OtherTypes.hbm.xml"/>
     <mapping resource="com/actop/db/ProjectTypes.hbm.xml"/>
-    <mapping resource="com/actop/db/DepartmentsHasDesignation.hbm.xml"/>
     <mapping resource="com/actop/db/PaymentApproval.hbm.xml"/>
+    <mapping resource="com/actop/db/DepartmentsHasDesignation.hbm.xml"/>
     <mapping resource="com/actop/db/AllowanceApproval.hbm.xml"/>
     <mapping resource="com/actop/db/Attendance.hbm.xml"/>
     <mapping resource="com/actop/db/Interfaces.hbm.xml"/>
@@ -27,8 +27,8 @@
     <mapping resource="com/actop/db/InterfacesHasUserLogin.hbm.xml"/>
     <mapping resource="com/actop/db/ProjectTaskStates.hbm.xml"/>
     <mapping resource="com/actop/db/Other.hbm.xml"/>
-    <mapping resource="com/actop/db/ProjectTasks.hbm.xml"/>
     <mapping resource="com/actop/db/Designation.hbm.xml"/>
+    <mapping resource="com/actop/db/ProjectTasks.hbm.xml"/>
     <mapping resource="com/actop/db/Payments.hbm.xml"/>
     <mapping resource="com/actop/db/UserLogin.hbm.xml"/>
     <mapping resource="com/actop/db/ProjectTasksApproval.hbm.xml"/>

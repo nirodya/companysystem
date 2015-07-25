@@ -1,5 +1,5 @@
 package com.actop.db;
-// Generated Jul 23, 2015 9:46:44 AM by Hibernate Tools 4.3.1
+// Generated Jul 24, 2015 12:22:50 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

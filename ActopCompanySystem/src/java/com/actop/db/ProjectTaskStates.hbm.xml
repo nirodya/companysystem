@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 24, 2015 12:22:51 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.ProjectTaskStates" table="project_task_states" catalog="actop_system" optimistic-lock="version">
         <id name="idProjectTaskStates" type="java.lang.Integer">
@@ -12,7 +12,7 @@
             <column name="PROJECT_TASKS_ID_PROJECT_TASKS" not-null="true" />
         </many-to-one>
         <property name="topic" type="binary">
-            <column name="TOPIC" />
+            <column name="TOPIC" read="AES_DECRYPT(TOPIC, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="topicStart" type="timestamp">
             <column name="TOPIC_START" length="19" />
@@ -21,16 +21,16 @@
             <column name="TOPIC_END" length="19" />
         </property>
         <property name="topicEstimateTime" type="binary">
-            <column name="TOPIC_ESTIMATE_TIME" />
+            <column name="TOPIC_ESTIMATE_TIME" read="AES_DECRYPT(TOPIC_ESTIMATE_TIME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="topicActualTime" type="binary">
-            <column name="TOPIC_ACTUAL_TIME" />
+            <column name="TOPIC_ACTUAL_TIME" read="AES_DECRYPT(TOPIC_ACTUAL_TIME, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="topicNote" type="string">
             <column name="TOPIC_NOTE" />
         </property>
         <property name="topicStates" type="binary">
-            <column name="TOPIC_STATES" />
+            <column name="TOPIC_STATES" read="AES_DECRYPT(TOPIC_STATES, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="taskDetailses" table="task_details" inverse="true" lazy="true" fetch="select">
             <key>

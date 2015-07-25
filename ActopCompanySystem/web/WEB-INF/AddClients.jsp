@@ -21,7 +21,7 @@
         <%@include file="navigationbar.jsp" %>
         <div class="well" style="width: 80%;margin-left: auto;margin-right: auto">
             <h3 style="width: 100%;text-align: center">Add new Client</h3>
-            
+
             <label style="color: green" class="col-lg-2 control-label">${msg}</label>
             <hr>
             <form  action="AddClient" method="post">
@@ -79,7 +79,6 @@
                         <input name="contactpersonemail" required="" type="email" class="form-control" id="contactpersonemail" placeholder="Contact Person Email">
                     </div>
                 </div>
-                
                 <div style="clear: both"></div>
                 <input class="btn btn-info" value="Apply" type="submit" />
             </form>

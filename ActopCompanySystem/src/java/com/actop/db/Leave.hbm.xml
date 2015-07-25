@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 24, 2015 12:22:51 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.Leave" table="leave" catalog="actop_system" optimistic-lock="version">
         <id name="idLeave" type="java.lang.Integer">
@@ -12,10 +12,10 @@
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
         <property name="leaveType" type="binary">
-            <column name="LEAVE_TYPE" />
+            <column name="LEAVE_TYPE" read="AES_DECRYPT(LEAVE_TYPE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="noOfDays" type="binary">
-            <column name="NO_OF_DAYS" />
+            <column name="NO_OF_DAYS" read="AES_DECRYPT(NO_OF_DAYS, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="startDate" type="date">
             <column name="START_DATE" length="10" />
@@ -24,7 +24,7 @@
             <column name="END_DATE" length="10" />
         </property>
         <property name="substitute" type="binary">
-            <column name="SUBSTITUTE" />
+            <column name="SUBSTITUTE" read="AES_DECRYPT(SUBSTITUTE, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="substituteApprove" type="timestamp">
             <column name="SUBSTITUTE_APPROVE" length="19" />

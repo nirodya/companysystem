@@ -6,7 +6,10 @@
 package com.actop.controller;
 
 import com.actop.db.Clients;
+import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.Employers;
+import com.actop.db.Projects;
+import com.actop.model.ApprovalManagement;
 import com.actop.model.ProjectsManagement;
 import com.actop.model.UserManagement;
 import java.io.IOException;
@@ -42,6 +45,7 @@ public class SaveProject extends HttpServlet {
     private String client;
     private String employer;
     private String clientNote;
+    private String depthasdesigid[];
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     @Override
@@ -59,6 +63,7 @@ public class SaveProject extends HttpServlet {
         client = request.getParameter("client");
         employer = request.getParameter("employer");
         clientNote = request.getParameter("clientNote");
+        depthasdesigid=request.getParameterValues("depthasdesigid");
         UserManagement um=new UserManagement();
        
         
@@ -66,8 +71,17 @@ public class SaveProject extends HttpServlet {
             Employers loadedEmployer=um.loadEmployer(Integer.parseInt(employer));
             ProjectsManagement pm = new ProjectsManagement();
             Clients loadClient=pm.loadClients(Integer.parseInt(client));
-            pm.saveProject(actualenddate, actualstart, clientNote, loadClient, loadedEmployer, 
+            Projects p=pm.saveProject(actualenddate, actualstart, clientNote, loadClient, loadedEmployer, 
                     enddate, projectdescription, projectManager, projecttype, projectstatus, projecttype, startdate);
+            ApprovalManagement am=new ApprovalManagement();
+            for (int i = 0; i < depthasdesigid.length; i++) {
+                String depthasdesigid1 = depthasdesigid[i];
+                DepartmentsHasDesignation dhd=um.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
+                if (dhd!=null) {
+                    //System.out.println("awa"+dhd);
+                    am.saveProjectApproval(null, dhd, null, p, i);
+                }
+            }
             request.setAttribute("msg", "Suucessfully Saved");
         }
         request.getRequestDispatcher("/addproject").forward(request, response);

@@ -6,8 +6,11 @@
 package com.actop.controller;
 
 import com.actop.db.Allowances;
+import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.Designation;
 import com.actop.db.Employers;
+import com.actop.db.EmployersHasAllowances;
+import com.actop.model.ApprovalManagement;
 import com.actop.model.UserManagement;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "AddAllowance", urlPatterns = {"/AddAllowance"})
 public class AddAllowance extends HttpServlet {
-
+    private String depthasdesigid[];
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -51,6 +54,7 @@ public class AddAllowance extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String allowancetype = request.getParameter("allowancetype");
+        depthasdesigid=request.getParameterValues("depthasdesigid");
         String eid = request.getParameter("eid");
         String designation = request.getParameter("designation");
         if (allowancetype != null && eid != null && designation != null) {
@@ -58,7 +62,17 @@ public class AddAllowance extends HttpServlet {
             Employers e = management.loadEmployer(Integer.parseInt(eid));
             Designation d = management.loadDesignation(Integer.parseInt(designation));
             Allowances a = management.loadAllowance(Integer.parseInt(allowancetype));
-            management.saveEmployerHasAllowance(a, d, e);
+            EmployersHasAllowances eha=management.saveEmployerHasAllowance(a, d, e);
+            ApprovalManagement am=new ApprovalManagement();
+            for (int i = 0; i < depthasdesigid.length; i++) {
+                String depthasdesigid1 = depthasdesigid[i];
+                DepartmentsHasDesignation dhd=management.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
+                System.out.println("dhd id : "+dhd.getIdDepartmentsHasDesignation());
+                if (dhd!=null) {
+                    //System.out.println("awa"+dhd);
+                    am.saveAllowanceApproval(null, dhd, eha, null, 0);
+                }
+            }
             request.setAttribute("msg", "Saved Successfully");
         }
         request.getRequestDispatcher("/addallowance").forward(request, response);

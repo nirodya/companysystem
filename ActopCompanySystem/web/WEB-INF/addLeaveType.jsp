@@ -24,7 +24,6 @@
         </script>
     </head>
     <body>
-
         <div id="bodycontainer">
             <%@include file="navigationbar.jsp" %>
             <div class="well" style="" id="logincontainer">

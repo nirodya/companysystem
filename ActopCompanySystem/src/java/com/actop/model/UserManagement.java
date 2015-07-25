@@ -14,6 +14,8 @@ import com.actop.db.Employers;
 import com.actop.db.EmployersHasAllowances;
 import com.actop.db.UserLogin;
 import java.io.Serializable;
+import java.math.MathContext;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -349,6 +351,23 @@ public class UserManagement {
         s.flush();
         s.close();
         return departmentsHasDesignation;
+    }
+    public DepartmentsHasDesignation loadDepartmentsHasDesignation(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        DepartmentsHasDesignation dhd=(DepartmentsHasDesignation) s.load(DepartmentsHasDesignation.class, id);
+        s.flush();
+        s.close();
+        return dhd;
+    }
+    public List<DepartmentsHasDesignation> getDesignationFromDept(Departments dept){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(DepartmentsHasDesignation.class);
+        c.add(Restrictions.eq("departments", dept));
+        ArrayList<Designation> designations=new ArrayList<>();
+        List<DepartmentsHasDesignation> l=c.list();
+        s.flush();
+        s.close();
+        return l;
     }
     public EmployersHasAllowances saveEmployerHasAllowance(Allowances allowance, Designation designation, Employers emp){
         Session s=Connection.getSessionFactory().openSession();

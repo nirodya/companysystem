@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 23, 2015 9:46:46 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 24, 2015 12:22:51 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.actop.db.UserLogin" table="user_login" catalog="actop_system" optimistic-lock="version">
         <id name="idUserLogin" type="java.lang.Integer">
@@ -12,22 +12,22 @@
             <column name="EMPLOYERS_ID_EMPLOYERS" not-null="true" />
         </many-to-one>
         <property name="un" type="binary">
-            <column name="un" />
+            <column name="un" read="AES_DECRYPT(un, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="pw" type="binary">
-            <column name="pw" />
+            <column name="pw" read="AES_DECRYPT(pw, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="securityq1" type="binary">
-            <column name="securityq1" />
+            <column name="securityq1" read="AES_DECRYPT(securityq1, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="answer1" type="binary">
-            <column name="answer1" />
+            <column name="answer1" read="AES_DECRYPT(answer1, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="securityq2" type="binary">
-            <column name="securityq2" />
+            <column name="securityq2" read="AES_DECRYPT(securityq2, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <property name="answer2" type="binary">
-            <column name="answer2" />
+            <column name="answer2" read="AES_DECRYPT(answer2, 'Actop@123456')" write="AES_ENCRYPT(?, 'Actop@123456')"/>
         </property>
         <set name="interfacesHasUserLogins" table="interfaces_has_user_login" inverse="true" lazy="true" fetch="select">
             <key>
