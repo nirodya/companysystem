@@ -33,8 +33,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js.map"></script>
 <link rel="stylesheet" href="dropdownjs/jquery.dropdown.css" type="text/css" />
 <script src="dropdownjs/jquery.dropdown.js" ></script>
-<link rel="stylesheet" href="remotestyles/code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="remotestyles/code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="remotestyles/code.jquery.com_ui_1.11.4_themes_smoothness_jquery-ui.css">
+<script src="remotestyles/code.jquery.com_ui_1.11.4_jquery-ui.js"></script>
 <script src="remotestyles/modernizr.custom.51082.js"></script>
 <script src="remotestyles/angular.min.js"></script>
 
