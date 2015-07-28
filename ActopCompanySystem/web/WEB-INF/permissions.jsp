@@ -30,7 +30,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Permissions
-                            <a href="payments"><button style="float: right" class="btn btn-success">Pay for an Employer</button></a>
+                            <a href="payments"><button style="float: right" class="btn btn-success">Add Interface</button></a>
 
                             <div style="clear: both"></div>
                         </div>
@@ -40,9 +40,10 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Payment Type</th>
-                                            <th>Payment</th>
-                                            <th></th>
+                                            <th>Interface Name</th>
+                                            <th>Save</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -128,7 +129,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Permissions by Employer
-
+                            <a href="payments"><button style="float: right" class="btn btn-warning">Add Permissions</button></a>
+                            <div style="clear: both"></div>
                         </div>
                         <select class="form-control">
                             <c:forEach items="${allemployers}" var="employer" begin="0" end="${fn:length(allemployers)}">

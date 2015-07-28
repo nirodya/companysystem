@@ -1,11 +1,11 @@
 <div class="navbar navbar-info">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-blue-collapse">
-        <span class="icon-bar"><img src="../ActopSystem/images/favicon.png"/></span>
+        <span class="icon-bar"><img src="images/favicon.png"/></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-      <a class="navbar-brand" href="javascript:void(0)"><img width="40" height="40" src="../ActopSystem/images/favicon.png"/></a>
+      <a class="navbar-brand" href="javascript:void(0)"><img width="40" height="40" src="images/favicon.png"/></a>
   </div>
   <div class="navbar-collapse collapse navbar-material-light-blue-collapse">
     <ul class="nav navbar-nav">

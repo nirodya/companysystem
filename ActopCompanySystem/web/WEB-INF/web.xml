@@ -107,7 +107,7 @@
         <servlet-name>leaverecords</servlet-name>
         <jsp-file>/WEB-INF/leaverecords.jsp</jsp-file>
     </servlet>
-<!--    <servlet>
+    <!--    <servlet>
         <servlet-name>SaveLeave</servlet-name>
         <jsp-file>/SaveLeave</jsp-file>
     </servlet>-->
@@ -118,6 +118,14 @@
     <servlet>
         <servlet-name>myleaves</servlet-name>
         <jsp-file>/WEB-INF/myLeaves.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>addInterface</servlet-name>
+        <jsp-file>/WEB-INF/addInterface.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>addPermission</servlet-name>
+        <jsp-file>/WEB-INF/addPermission.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -203,7 +211,7 @@
         <servlet-name>leaverecords</servlet-name>
         <url-pattern>/leaverecords</url-pattern>
     </servlet-mapping>
-<!--    <servlet-mapping>
+    <!--    <servlet-mapping>
         <servlet-name>SaveLeave</servlet-name>
         <url-pattern>/SaveLeave</url-pattern>
     </servlet-mapping>-->
@@ -214,6 +222,14 @@
     <servlet-mapping>
         <servlet-name>myleaves</servlet-name>
         <url-pattern>/myleaves</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addInterface</servlet-name>
+        <url-pattern>/addinterface</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addPermission</servlet-name>
+        <url-pattern>/addpermission</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

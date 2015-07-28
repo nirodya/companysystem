@@ -21,7 +21,7 @@
                 <m:msgwriter/>
                 <div id="logoholder">
                     <div>
-                        <img src="../ActopSystem/images/user.ico" />
+                        <img src="images/user.ico" />
                     </div>
                 </div>
                 <label id="loginheader"><h3>ACTOP System Login</h3></label>

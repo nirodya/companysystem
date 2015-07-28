@@ -33,9 +33,9 @@ public class PermissionManagement {
     public Interfaces saveInterface(String interfaceName) {
         Session s = Connection.getSessionFactory().openSession();
         Criteria c = s.createCriteria(Interfaces.class);
-        c.add(Restrictions.eq("interfaceName", interfaceName));
+        c.add(Restrictions.eq("interfaceName", convertToBytes(interfaceName)));
         Interfaces checkinterface = (Interfaces) c.uniqueResult();
-        if (checkinterface != null) {
+        if (checkinterface == null) {
             Transaction t = s.beginTransaction();
             Interfaces i = new Interfaces();
             try {
@@ -128,7 +128,7 @@ public class PermissionManagement {
     public Interfaces loadInterface(String interfaceName) {
         Session s = Connection.getSessionFactory().openSession();
         Criteria c = s.createCriteria(Interfaces.class);
-        c.add(Restrictions.eq("interfaceName", interfaceName));
+        c.add(Restrictions.eq("interfaceName", convertToBytes(interfaceName)));
         Interfaces i = (Interfaces) c.uniqueResult();
         s.flush();
         s.close();
@@ -137,7 +137,7 @@ public class PermissionManagement {
 
     public boolean loadPermission(UserLogin ul, Interfaces i) {
         Session s = Connection.getSessionFactory().openSession();
-        Criteria c = s.createCriteria(UserLogin.class);
+        Criteria c = s.createCriteria(InterfacesHasUserLogin.class);
         c.add(Restrictions.eq("interfaces", i));
         c.add(Restrictions.eq("userLogin", ul));
         InterfacesHasUserLogin ihul = (InterfacesHasUserLogin) c.uniqueResult();
