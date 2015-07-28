@@ -5,7 +5,7 @@ body{
 #bodycontainer{
     height: 100vh;
     width: 100%;
-    background-image: url('../ActopSystem/images/hills-landscapes-mountains-nature-2809815-2560x1600.jpg');
+    background-image: url('images/hills-landscapes-mountains-nature-2809815-2560x1600.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
