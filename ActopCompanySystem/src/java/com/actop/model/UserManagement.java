@@ -404,11 +404,6 @@ public class UserManagement {
         return allowanceses;
     }
 
-    public static void main(String[] args) {
-        UserManagement management=new UserManagement();
-        management.saveDepartment("IT");
-        management.saveDepartment("HR");
-        management.saveDepartment("Finance");
-    }
+    
 
 }
