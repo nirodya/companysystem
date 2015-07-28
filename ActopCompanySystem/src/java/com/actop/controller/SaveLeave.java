@@ -49,6 +49,7 @@ public class SaveLeave extends HttpServlet {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             DateFormat dateFormat2 = new SimpleDateFormat("H:mm");
             leavetype = request.getParameter("leavetype");
+            nuofdays = Integer.parseInt(request.getParameter("nuofdays"));
             sdate = dateFormat.parse(request.getParameter("sdate"));
             edate = dateFormat.parse(request.getParameter("edate"));
             stime = dateFormat2.parse(request.getParameter("stime"));

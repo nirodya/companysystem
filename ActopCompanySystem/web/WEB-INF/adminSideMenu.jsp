@@ -19,6 +19,9 @@
                             <a href="permissions"><i class="fa fa-table"></i> Permission Management</a>
                         </li>
                         <li>
+                            <a href="leavemanagement"><i class="fa fa-briefcase"></i> Leave Management</a>
+                        </li>
+                        <li>
                             <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
                         </li>
 

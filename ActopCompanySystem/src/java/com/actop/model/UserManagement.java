@@ -15,6 +15,7 @@ import com.actop.db.EmployersHasAllowances;
 import com.actop.db.UserLogin;
 import java.io.Serializable;
 import java.math.MathContext;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -402,10 +403,12 @@ public class UserManagement {
         s.close();
         return allowanceses;
     }
+
     public static void main(String[] args) {
         UserManagement management=new UserManagement();
         management.saveDepartment("IT");
         management.saveDepartment("HR");
         management.saveDepartment("Finance");
     }
+
 }

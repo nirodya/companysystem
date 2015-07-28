@@ -7,25 +7,35 @@
 <%@taglib uri="/WEB-INF/tlds/actoptags.tld" prefix="m" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <m:retrieveallleaves/>
+<m:openHibSession/>
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="header.jsp" %>
-        <style>
-            <%@include file="styles/adminstyles.css" %>
-        </style>
-        <script>
-            <%@include file="js/adminjs.js" %>
-        </script>
-    </head>
-    <body style="width: 100%">
-        <%@include file="navigationbar.jsp" %>
-        <br>
 
-        <div class="well" style="width: 80%;margin-left: auto;margin-right: auto">
-            <table class="table">
-                <thead>
+        <%@include file="admin_header.jsp" %>
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <%@include file="adminTopMenu.jsp" %>
+            <!--/. NAV TOP  -->
+            <%@include file="adminSideMenu.jsp" %>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Leave
+                            <a href="register"><button style="float: right" class="btn btn-info">Add new Employer</button></a>
+                            <div style="clear: both"></div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
                     <tr>
                         <th>Employer ID</th>
                         <th>Leave Type</th>
@@ -38,10 +48,8 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    
-                    
-                    <c:forEach items="${allleaves}" var="leaves" begin="0" end="${fn:length(allleaves)}">
+                                    <tbody>
+                                         <c:forEach items="${allleaves}" var="leaves" begin="0" end="${fn:length(allleaves)}">
                         <tr>
                             <td valign="middle" style="vertical-align:middle;"/>${leaves.employers.idEmployers}</td>
                             <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaves.leaveType}" /></td>
@@ -53,33 +61,23 @@
                              <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger   ">Edit Details</button></td>
                         </tr>
                     </c:forEach>
-                </tbody>
-            </table>
+                                    </tbody>
+                                </table>
+                            </div>
 
-
-        </div>
-        <br>
-<!--        <div id="complete-dialog" class="modal fade" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Dialog</h4>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <p>Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit,
-                            cillum proident ne reprehenderit, quem ad laborum, quo possumus praetermissum,
-                            si ne illustriora, hic appellat coniunctione, do labore aliqua quo probant. In
-                            probant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque.
-                            Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita
-                            ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi
-                            quis dolore veniam proident, consequat sed ingeniis.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" data-dismiss="modal">Dismiss</button>
-                    </div>
+                    <!--End Advanced Tables -->
+                    
                 </div>
+                <!-- /. PAGE INNER  -->
             </div>
-        </div> -->
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <!-- JS Scripts-->
+        <footer><p>&nbsp;All right reserved. <a href="http://actoptec.com">ACTOP Technologies</a></p></footer>
+
     </body>
 </html>
+<m:closehibsession session="${hibsession}"/>
