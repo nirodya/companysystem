@@ -124,6 +124,14 @@ public class PermissionManagement {
         s.close();
         return ihuls;
     }
+    
+    public List<InterfacesHasUserLogin> getPermissionByEmployer(UserLogin ul){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(InterfacesHasUserLogin.class);
+        c.add(Restrictions.eq("userLogin", ul));
+        List<InterfacesHasUserLogin> ihuls=c.list();
+        return ihuls;
+    }
 
     public Interfaces loadInterface(String interfaceName) {
         Session s = Connection.getSessionFactory().openSession();

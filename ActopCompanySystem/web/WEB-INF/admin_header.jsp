@@ -29,6 +29,21 @@
 <script>
     $(document).ready(function () {
         $('.dataTables-example').dataTable();
+        $('.dataTables-example').dataTable();
+        $('#access').change(function () {
+            if ($('#access').is(":checked")) {
+                $('.permissions').show(500);
+            } else {
+                $('.permissions').hide(500);
+            }
+
+        });
+        $('#changepermission').click(function () {
+            $('.text').hide();
+            $(this).hide();
+            $('.edit').show(500);
+            $('#saveChanges').show(500);
+        });
     });
 </script>
 <!-- Custom Js -->
