@@ -15,6 +15,7 @@ import com.actop.db.EmployersHasAllowances;
 import com.actop.db.UserLogin;
 import java.io.Serializable;
 import java.math.MathContext;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -395,4 +396,12 @@ public class UserManagement {
         s.close();
         return allowanceses;
     }
+//    public static void main(String[] args) {
+////        SimpleDateFormat d= new SimpleDateFormat("dd-MM-yyyy");
+////        
+////      new UserManagement().saveDepartment("IT Department");
+////      new UserManagement().saveDepartment("Finance");
+////      new UserManagement().saveDepartment("Project");
+////      new UserManagement().saveDepartment("Management");
+//    }
 }

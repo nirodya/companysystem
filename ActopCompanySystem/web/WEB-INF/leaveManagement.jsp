@@ -9,94 +9,128 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="header.jsp" %>
-        <style>
-            <%@include file="styles/adminstyles.css" %>
-        </style>
-        <script>
-            <%@include file="js/adminjs.js" %>
-        </script>
+
+           <title>Management System</title>
+        <!-- Bootstrap Styles-->
+        <link href="../ActopCompanySystem/assets/css/bootstrap.css" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="../ActopCompanySystem/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- Morris Chart Styles-->
+        <link href="../ActopCompanySystem/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="../ActopCompanySystem/assets/css/custom-styles.css" rel="stylesheet" />
+        <!-- Google Fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   
     </head>
     <body>
-        <%@include file="navigationbar.jsp" %>
-        <div style="width: 70%;margin-left: auto;margin-right: auto">
-            <div class="col-md-3 content">
-                <div class="panel panel-default">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Pending Approvals</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="leaverecords?stype=pending"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 content">
-                <div class="panel panel-default">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">View Approved</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="leaverecords?stype=approved"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="col-md-3 content">
-                <div class="panel panel-default">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">View all </h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="leaverecords?stype=all"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-3 content">
-                <div class="panel panel-default">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Add New Type</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="addleavetype"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
+        <div id="wrapper">
+            <%@include file="adminTopMenu.jsp" %>
+            <!--/. NAV TOP  -->
+            <%@include file="adminSideMenu.jsp" %>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="page-header">
+                                Dashboard <small>Leave Management</small>
+                            </h1>
                         </div>
                     </div>
+                <div id="page-inner">
+       
+                    <div class="row">
+                       <a href="myleaves">  
+                           <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="panel panel-primary text-center no-boder bg-color-green">
+                                <div class="panel-body">
+                                    <i class="fa fa-bar-chart-o fa-5x"></i>
+                                    <h3>8,457</h3>
+                                </div>
+                                <div class="panel-footer back-footer-green">
+                                    My Leaves
 
-                </div>
-            </div>
-             <div class="col-md-3 content">
-                <div class="panel panel-default">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">View All Leave Types</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="addleavetype"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
-                        </div>
-                    </div>
+                                </div>
+                            </div>
+                        </div></a>
+                                               <a href="addleavetype">  
 
-                </div>
-            </div>
-             <div class="col-md-3 content">
-                <div class="panel panel-default">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">My Leaves</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="myleaves"><div class="icon-preview adminmiddlediv" ><i class="mdi-action-account-circle adminicons"></i></div></a>
-                        </div>
-                    </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="panel panel-primary text-center no-boder bg-color-blue">
+                                <div class="panel-body">
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                    <h3>52,160 </h3>
+                                </div>
+                                <div class="panel-footer back-footer-blue">
+                                   Leave Types
 
-                </div>
+                                </div>
+                            </div>
+                        </div></a>
+                         <a href="leaverecords?stype=all">  
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="panel panel-primary text-center no-boder bg-color-red">
+                                <div class="panel-body">
+                                    <i class="fa fa fa-comments fa-5x"></i>
+                                    <h3>15,823 </h3>
+                                </div>
+                                <div class="panel-footer back-footer-red">
+                                    View all
+
+                                </div>
+                            </div>
+                        </div></a>
+                                                 <a href="leaverecords?stype=approved">  
+
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="panel panel-primary text-center no-boder bg-color-brown">
+                                <div class="panel-body">
+                                    <i class="fa fa-users fa-5x"></i>
+                                    <h3>36,752 </h3>
+                                </div>
+                                <div class="panel-footer back-footer-brown">
+                                    approved
+
+                                </div>
+                            </div>
+                        </div></a>
+                                                 <a href="leaverecords?stype=pending">  
+
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="panel panel-primary text-center no-boder bg-color-brown">
+                                <div class="panel-body">
+                                    <i class="fa fa-users fa-5x"></i>
+                                    <h3>36,752 </h3>
+                                </div>
+                                <div class="panel-footer back-footer-brown">
+                                    pending
+
+                                </div>
+                            </div>
+                        </div></a>
+                    </div></div></div>
+                <!-- /. PAGE INNER  -->
             </div>
+            <!-- /. PAGE WRAPPER  -->
         </div>
+        <!-- /. WRAPPER  -->
+        <!-- JS Scripts-->
+       
+        <!-- jQuery Js -->
+        <script src="../ActopCompanySystem/assets/js/jquery-1.10.2.js"></script>
+        <!-- Bootstrap Js -->
+        <script src="../ActopCompanySystem/assets/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="../ActopCompanySystem/assets/js/jquery.metisMenu.js"></script>
+        <!-- Morris Chart Js -->
+        <script src="../ActopCompanySystem/assets/js/morris/raphael-2.1.0.min.js"></script>
+        <script src="../ActopCompanySystem/assets/js/morris/morris.js"></script>
+        <!-- Custom Js -->
+        <script src="../ActopCompanySystem/assets/js/custom-scripts.js"></script>
+        <footer><p>&nbsp;All right reserved. <a href="http://actoptec.com">ACTOP Technologies</a></p></footer>
+
     </body>
 </html>
+
