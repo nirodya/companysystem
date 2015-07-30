@@ -5,8 +5,17 @@
  */
 package com.actop.controller;
 
+import com.actop.db.Other;
+import com.actop.model.OtherManagement;
+import com.actop.model.UserManagement;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,32 +28,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "SaveOther", urlPatterns = {"/SaveOther"})
 public class SaveOther extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SaveOther</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SaveOther at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+    private String type;
+    private String location;
+    private String indate;
+    private String outdate;
+    private String reason;
+    private String note;
+    private String expenses;
+    private String claim;
+    private String depthasdesigid[];
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -58,7 +50,7 @@ public class SaveOther extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("/other").forward(request, response);
     }
 
     /**
@@ -72,7 +64,31 @@ public class SaveOther extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        type=request.getParameter("type");
+        location=request.getParameter("location");
+        indate=request.getParameter("indate");
+        outdate=request.getParameter("outdate");
+        reason=request.getParameter("reason");
+        note=request.getParameter("note");
+        expenses=request.getParameter("expenses");
+        claim=request.getParameter("claim");
+        depthasdesigid=request.getParameterValues("depthasdesigid");
+        UserManagement um=new UserManagement();
+        if (type!=null&&location!=null&&indate!=null&&outdate!=null&&reason!=null&&note!=null) {
+            OtherManagement om=new OtherManagement();
+            
+        }
+    }
+    public Date convertToDate(String strDate) {
+        Date apdate = null;
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            apdate = dateFormat.parse(strDate);
+
+        } catch (ParseException ex) {
+            Logger.getLogger(SaveProject.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return apdate;
     }
 
     /**

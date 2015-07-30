@@ -10,6 +10,7 @@ import com.actop.db.AllowanceApproval;
 import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.EmployersHasAllowances;
 import com.actop.db.LeaveApproval;
+import com.actop.db.Other;
 import com.actop.db.OtherApprovals;
 import com.actop.db.PaymentApproval;
 import com.actop.db.Payments;
@@ -139,6 +140,27 @@ public class ApprovalManagement {
         s.flush();
         s.close();
         return approval;
+    }
+    public OtherApprovals saveOtherApproval(Date date, DepartmentsHasDesignation dhd, String note, Other other,
+            Integer status){
+        Session s=Connection.getSessionFactory().openSession();
+        Transaction t=s.beginTransaction();
+        OtherApprovals approvals=new OtherApprovals();
+        try {
+            approvals.setApprovedtime(date);
+            approvals.setDepartmentsHasDesignation(dhd);
+            approvals.setNote(note);
+            approvals.setOther(other);
+            approvals.setStatus(status);
+            s.save(approvals);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approvals;
     }
     public List<PaymentApproval> checkPayementApproval(DepartmentsHasDesignation dhd){
         Session s=Connection.getSessionFactory().openSession();

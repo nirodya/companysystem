@@ -65,9 +65,9 @@
                     <label for="empname" class="col-lg-2 control-label">Other Type</label>
                     <div class="col-lg-10">
                         <niro:retrieveallEmplyers />
-                        <select name="employer" required="" class="form-control col-lg-10" id="designation" placeholder="Designation">
+                        <select name="type" required="" class="form-control col-lg-10" id="designation" placeholder="Designation">
                             <c:forEach items="${othertype}" var="type" begin="0" end="${fn:length(othertype)}">
-                                <option value="${type.idOtherTypes}"><niro:convertbytetostring text="${type.otherType}" /></option>
+                                <option value="${type.idOtherTypes}">${type.otherType}</option>
                             </c:forEach>
                         </select>
                     </div>
