@@ -50,9 +50,14 @@
         });
         $('#permbyempbody').change(function () {
             $.post('LoadPermissionsByEmp', {empid: $('#emp').val()}, function (data, status) {
-                $('#permbyempbody').html(data);
+                $('#permbyempbody').html("0");
             });
         });
+        setInterval(function () {
+            $.post('ApprovalListner', {}, function (data, status) {
+                $('#msg').html(data);
+            });
+        }, 6000);
     });
 </script>
 <!-- Custom Js -->

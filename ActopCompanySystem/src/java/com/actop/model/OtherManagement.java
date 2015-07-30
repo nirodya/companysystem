@@ -8,7 +8,10 @@ package com.actop.model;
 import com.actop.connection.Connection;
 import com.actop.db.Employers;
 import com.actop.db.Other;
+import com.actop.db.OtherTypes;
 import java.util.Date;
+import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -51,6 +54,27 @@ public class OtherManagement {
         s.flush();
         s.close();
         return o;
+    }
+    public OtherTypes saveOtherTypes(String type){
+        Session s=Connection.getSessionFactory().openSession();
+        Transaction t=s.beginTransaction();
+        OtherTypes ot=new OtherTypes();
+        try {
+            ot.setOtherType(type);
+            s.save(ot);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return ot;
+    }
+    public List<OtherTypes> getAllOtherTypes(){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(OtherTypes.class);
+        return c.list();
     }
     
 }

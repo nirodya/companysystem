@@ -34,19 +34,7 @@ import javax.servlet.http.HttpSession;
 public class ApprovalListner extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
+    
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -59,6 +47,7 @@ public class ApprovalListner extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("awa");
         ApprovalManagement am = new ApprovalManagement();
         UserManagement um = new UserManagement();
         HttpSession httpSession = request.getSession();
@@ -95,6 +84,7 @@ public class ApprovalListner extends HttpServlet {
             count = allowanceApprovals.size();
         }
         PrintWriter out = response.getWriter();
+        System.out.println("awa");
         if (count > 0) {
             out.write(""+count+"");
         }

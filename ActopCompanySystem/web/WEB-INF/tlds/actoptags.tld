@@ -69,6 +69,10 @@
         <tag-class>com.actop.taglibs.RetrieveEmployersHasAllowances</tag-class>  
     </tag>  
     <tag>  
+        <name>retrieveothertypes</name>  
+        <tag-class>com.actop.taglibs.RetrieveOtherTypes</tag-class>  
+    </tag>  
+    <tag>  
         <name>convertbytetostring</name>  
         <tag-class>com.actop.taglibs.ConvertByteToString</tag-class>
         <attribute> 
