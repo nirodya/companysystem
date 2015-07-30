@@ -6,6 +6,9 @@
 package com.actop.model;
 
 import com.actop.connection.Connection;
+import com.actop.db.Departments;
+import com.actop.db.DepartmentsHasDesignation;
+import com.actop.db.Designation;
 import com.actop.db.Employers;
 import com.actop.db.Promotions;
 import java.util.Date;
@@ -13,6 +16,8 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -81,6 +86,14 @@ public class PromotionManagement {
         Promotions p = (Promotions) s.load(Promotions.class, pid);
         Transaction t = s.beginTransaction();
         try {
+            Criteria c=s.createCriteria(DepartmentsHasDesignation.class);
+            c.add(Restrictions.eq("employers", p.getEmployers()));
+            DepartmentsHasDesignation dhd=(DepartmentsHasDesignation) c.uniqueResult();
+            Criteria c1=s.createCriteria(Designation.class);
+            c1.add(Restrictions.eq("designation", p.getPromotionFor()));
+            Designation d=(Designation) c.uniqueResult();
+            dhd.setDesignation(d);
+            s.update(dhd);
             p.setPromotBy(convertToBytes(promotBy));
 //            p.setPromotionApproved(approvedDate);
 //            p.setPromotionApprovedBy(convertToBytes(promotionApprovedBy));
@@ -103,5 +116,6 @@ public class PromotionManagement {
         s.close();
         return p;
     }
+    
 
 }
