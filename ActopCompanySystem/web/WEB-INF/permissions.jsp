@@ -16,7 +16,9 @@
     <head>
 
         <%@include file="admin_header.jsp" %>
-        
+        <script>
+           
+        </script>
     </head>
     <body>
 
@@ -169,11 +171,34 @@
                             <a href="addpermission"><button style="float: right" class="btn btn-warning">Add Permissions</button></a>
                             <div style="clear: both"></div>
                         </div>
-                        <select class="form-control">
+                        <select id="emp" class="form-control">
                             <c:forEach items="${allemployers}" var="employer" begin="0" end="${fn:length(allemployers)}">
-                                <option><m:convertbytetostring text="${employer.callingName}" /></option>
+                                <option value="${employer.idEmployers}"><m:convertbytetostring text="${employer.callingName}" /></option>
                             </c:forEach>
                         </select>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Interface Name</th>
+                                            <th>Access</th>
+                                            <th>Save</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                            <th>Search</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="permbyempbody">
+                                    </tbody>
+                                </table>
+                                <!--Data Models-->
+
+                                <!--Data Models End-->
+                            </div>
+
+
+                        </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">

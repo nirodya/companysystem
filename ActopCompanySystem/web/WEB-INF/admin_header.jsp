@@ -44,6 +44,15 @@
             $('.edit').show(500);
             $('#saveChanges').show(500);
         });
+
+        $.post('LoadPermissionsByEmp', {empid: $('#emp').val()}, function (data, status) {
+            $('#permbyempbody').html(data);
+        });
+        $('#permbyempbody').change(function () {
+            $.post('LoadPermissionsByEmp', {empid: $('#emp').val()}, function (data, status) {
+                $('#permbyempbody').html(data);
+            });
+        });
     });
 </script>
 <!-- Custom Js -->

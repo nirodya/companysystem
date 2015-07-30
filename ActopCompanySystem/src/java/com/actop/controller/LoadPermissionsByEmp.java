@@ -5,8 +5,13 @@
  */
 package com.actop.controller;
 
+import com.actop.db.Employers;
+import com.actop.db.InterfacesHasUserLogin;
+import com.actop.model.PermissionManagement;
+import com.actop.model.UserManagement;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "LoadPermissionsByEmp", urlPatterns = {"/LoadPermissionsByEmp"})
 public class LoadPermissionsByEmp extends HttpServlet {
 
+    private int empid;
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -33,7 +39,7 @@ public class LoadPermissionsByEmp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       request.getRequestDispatcher("/permissions").forward(request, response);
+        request.getRequestDispatcher("/permissions").forward(request, response);
     }
 
     /**
@@ -47,7 +53,46 @@ public class LoadPermissionsByEmp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        empid = Integer.parseInt(request.getParameter("empid"));
+        if (request.getParameter("empid") != null) {
+            UserManagement um = new UserManagement();
+            Employers emp = um.loadEmployer(empid);
+            com.actop.db.UserLogin ul = um.loadUserLoginfromEmployer(emp);
+            PermissionManagement pm = new PermissionManagement();
+            List<InterfacesHasUserLogin> ihuls = pm.getPermissionByEmployer(ul);
+            PrintWriter out = response.getWriter();
+            ihuls.forEach(ihul -> {
+                out.write("<tr>");
+                out.write("<td>" + new String(ihul.getInterfaces().getInterfaceName()) + "</td>");
+                if (ihul.getPermissionType() == 1) {
+                    out.write("<td>Allowed</td>");
+                } else {
+                    out.write("<td>Not Allowed</td>");
+                }
+                if (ihul.getPermissionSave() == 1) {
+                    out.write("<td>Allowed</td>");
+                } else {
+                    out.write("<td>Not Allowed</td>");
+                }
+                if (ihul.getPermissionUpdate() == 1) {
+                    out.write("<td>Allowed</td>");
+                } else {
+                    out.write("<td>Not Allowed</td>");
+                }
+                if (ihul.getPermissionDelete() == 1) {
+                    out.write("<td>Allowed</td>");
+                } else {
+                    out.write("<td>Not Allowed</td>");
+                }
+                if (ihul.getPermissionSearch() == 1) {
+                    out.write("<td>Allowed</td>");
+                } else {
+                    out.write("<td>Not Allowed</td>");
+                }
+                out.write("</tr>");
+            });
+            
+        }
     }
 
     /**
