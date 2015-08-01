@@ -21,7 +21,9 @@ import org.hibernate.Transaction;
  */
 public class OtherManagement {
     public byte[] convertToBytes(String word){
-        byte[] convertedText=word.getBytes();
+        byte[] convertedText = null;
+        if(word!=null)
+        convertedText=word.getBytes();
         return convertedText;
     }
     public Other saveOther(Integer claim, Date approvedDate, String approvedBy, Date payedDate, Employers emp,

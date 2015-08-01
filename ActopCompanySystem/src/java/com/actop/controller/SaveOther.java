@@ -31,6 +31,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "SaveOther", urlPatterns = {"/SaveOther"})
 public class SaveOther extends HttpServlet {
+
     private String type;
     private String location;
     private String indate;
@@ -67,33 +68,34 @@ public class SaveOther extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        type=request.getParameter("type");
-        location=request.getParameter("location");
-        indate=request.getParameter("indate");
-        outdate=request.getParameter("outdate");
-        reason=request.getParameter("reason");
-        note=request.getParameter("note");
-        expenses=request.getParameter("expenses");
-        claim=request.getParameter("claim");
-        depthasdesigid=request.getParameterValues("depthasdesigid");
-        UserManagement um=new UserManagement();
-        
-        if (type!=null&&location!=null&&indate!=null&&outdate!=null&&reason!=null&&note!=null) {
-            com.actop.db.UserLogin ul=(com.actop.db.UserLogin) request.getSession().getAttribute("loggedUser");
-            Employers emp=ul.getEmployers();
-            OtherManagement om=new OtherManagement();
-            ApprovalManagement am=new ApprovalManagement();
-            Other o=om.saveOther(Integer.parseInt(claim), null, null, null, emp, expenses, convertToDate(indate), null, location, note, type, convertToDate(outdate), reason, 0);
+        type = request.getParameter("type");
+        location = request.getParameter("location");
+        indate = request.getParameter("indate");
+        outdate = request.getParameter("outdate");
+        reason = request.getParameter("reason");
+        note = request.getParameter("note");
+        expenses = request.getParameter("expenses");
+        claim = request.getParameter("claim");
+        depthasdesigid = request.getParameterValues("depthasdesigid");
+        UserManagement um = new UserManagement();
+
+        if (type != null && location != null && indate != null && outdate != null && reason != null && note != null) {
+            com.actop.db.UserLogin ul = (com.actop.db.UserLogin) request.getSession().getAttribute("loggedUser");
+            Employers emp = ul.getEmployers();
+            OtherManagement om = new OtherManagement();
+            ApprovalManagement am = new ApprovalManagement();
+            Other o = om.saveOther(Integer.parseInt(claim), null, null, null, emp, expenses, convertToDate(indate), null, location, note, type, convertToDate(outdate), reason, 0);
             for (int i = 0; i < depthasdesigid.length; i++) {
-                String depthasdesigid1 = depthasdesigid[i];
-                DepartmentsHasDesignation dhd=um.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
-                if (dhd!=null) {
-                    //System.out.println("awa"+dhd);
+                DepartmentsHasDesignation dhd = um.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
+                if (dhd != null) {
                     am.saveOtherApproval(null, dhd, null, o, 0);
                 }
             }
+            request.setAttribute("msg", "saved successfully");
         }
+        request.getRequestDispatcher("/other").forward(request, response);
     }
+
     public Date convertToDate(String strDate) {
         Date apdate = null;
         try {

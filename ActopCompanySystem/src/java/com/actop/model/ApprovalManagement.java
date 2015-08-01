@@ -148,6 +148,7 @@ public class ApprovalManagement {
         OtherApprovals approvals=new OtherApprovals();
         try {
             approvals.setApprovedtime(date);
+            System.out.println(dhd.getIdDepartmentsHasDesignation()+"");
             approvals.setDepartmentsHasDesignation(dhd);
             approvals.setNote(note);
             approvals.setOther(other);
