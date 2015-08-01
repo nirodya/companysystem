@@ -6,7 +6,7 @@
                             <a href="admin"><i class="fa fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="ui-elements.html"><i class="fa fa-desktop"></i> Projects Management</a>
+                            <a href="projectsmanagement"><i class="fa fa-desktop"></i> Projects Management</a>
                         </li>
                         <li>
                             <a href="usermanagement"><i class="fa fa-bar-chart-o"></i> User Management</a>

@@ -58,6 +58,9 @@
                 $('#msg').html(data);
             });
         }, 6000);
+        $.post('ApprovalListner', {}, function (data, status) {
+            $('#msg').html(data);
+        });
     });
 </script>
 <!-- Custom Js -->
