@@ -10,6 +10,7 @@ import com.actop.db.Clients;
 import com.actop.db.Employers;
 import com.actop.db.ProjectTaskStates;
 import com.actop.db.ProjectTasks;
+import com.actop.db.ProjectTypes;
 import com.actop.db.Projects;
 import com.actop.db.TaskDetails;
 import java.util.Date;
@@ -206,6 +207,14 @@ public class ProjectsManagement {
         s.flush();
         s.close();
         return details;
+    }
+    public List<ProjectTypes> getAllProjectTypes(){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(ProjectTypes.class);
+        List<ProjectTypes> l=c.list();
+        s.flush();
+        s.close();
+        return l;
     }
 
 }

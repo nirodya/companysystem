@@ -73,6 +73,14 @@
         <tag-class>com.actop.taglibs.RetrieveOtherTypes</tag-class>  
     </tag>  
     <tag>  
+        <name>retrievepaymenttypes</name>  
+        <tag-class>com.actop.taglibs.RetrievePaymentTypes</tag-class>  
+    </tag>  
+    <tag>  
+        <name>retrieveprojecttypes</name>  
+        <tag-class>com.actop.taglibs.RetrieveProjectTypes</tag-class>  
+    </tag>  
+    <tag>  
         <name>convertbytetostring</name>  
         <tag-class>com.actop.taglibs.ConvertByteToString</tag-class>
         <attribute> 

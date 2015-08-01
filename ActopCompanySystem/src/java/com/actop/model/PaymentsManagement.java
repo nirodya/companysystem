@@ -7,6 +7,7 @@ package com.actop.model;
 
 import com.actop.connection.Connection;
 import com.actop.db.Employers;
+import com.actop.db.PaymentTypes;
 import com.actop.db.Payments;
 import java.util.Date;
 import java.util.List;
@@ -56,6 +57,14 @@ public class PaymentsManagement {
         Session s = Connection.getSessionFactory().openSession();
         Criteria c=s.createCriteria(Payments.class);
         List<Payments> l=c.list();
+        s.flush();
+        s.close();
+        return l;
+    }
+    public List<PaymentTypes> getAllPaymentTypes(){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(PaymentTypes.class);
+        List<PaymentTypes> l=c.list();
         s.flush();
         s.close();
         return l;

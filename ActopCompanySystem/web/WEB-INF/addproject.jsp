@@ -9,6 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <niro:retrieveDesignations/>
 <niro:retrieveDepartments/>
+<niro:retrieveprojecttypes/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -93,7 +94,11 @@
                 <div class="form-group">
                     <label for="projecttype" class="col-lg-2 control-label">Project Type</label>
                     <div class="col-lg-10">
-                        <input name="projecttype" required="" type="text" class="form-control" id="actualenddate" placeholder="Actual End Date">
+                        <select name="projecttype" required="" class="form-control col-lg-10" id="projecttype" placeholder="Payment Type">
+                            <c:forEach items="${projecttype}" var="ptype" begin="0" end="${fn:length(projecttype)}">
+                                <option>${ptype.projecttype}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
