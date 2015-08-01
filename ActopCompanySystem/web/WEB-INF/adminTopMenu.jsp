@@ -12,7 +12,7 @@
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            <label id="msg" style="color: red;text-decoration: #ffffff;font-weight: bold"></label><i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-messages">
                             <li>

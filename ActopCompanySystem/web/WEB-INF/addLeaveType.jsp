@@ -62,7 +62,7 @@
             <div class="well" style="" id="logincontainer">
                 <div id="logoholder">
                     <div>
-                        <img src="../ActopSystem/images/favicon.png" />
+                        <img src="images/favicon.png" />
                     </div>
                 </div>
                 <label id="loginheader"><h3>Leave Types</h3></label>

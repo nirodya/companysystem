@@ -23,6 +23,8 @@
         <url-pattern>/leave</url-pattern>
         <url-pattern>/SaveLeave</url-pattern>
         <url-pattern>/leavemanagement</url-pattern>
+        <url-pattern>/other</url-pattern>
+        <url-pattern>/SaveOther</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>login</servlet-name>
@@ -121,8 +123,20 @@
         <jsp-file>/WEB-INF/myLeaves.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>SaveUser</servlet-name>
-        <servlet-class>com.actop.controller.SaveUser</servlet-class>
+        <servlet-name>addInterface</servlet-name>
+        <jsp-file>/WEB-INF/addInterface.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>addPermission</servlet-name>
+        <jsp-file>/WEB-INF/addPermission.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>projectsManagement</servlet-name>
+        <jsp-file>/WEB-INF/projectsmanagement.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>other</servlet-name>
+        <jsp-file>/WEB-INF/other.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -221,8 +235,20 @@
         <url-pattern>/myleaves</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SaveUser</servlet-name>
-        <url-pattern>/SaveUser</url-pattern>
+        <servlet-name>addInterface</servlet-name>
+        <url-pattern>/addinterface</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addPermission</servlet-name>
+        <url-pattern>/addpermission</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>projectsManagement</servlet-name>
+        <url-pattern>/projectsmanagement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>other</servlet-name>
+        <url-pattern>/other</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -159,6 +159,13 @@ public class UserManagement {
         s.close();
         return ul;
     }
+    public UserLogin loadUserLoginfromEmployer(Employers emp){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(UserLogin.class);
+        c.add(Restrictions.eq("employers", emp));
+        UserLogin ul=(UserLogin) c.uniqueResult();
+        return ul;
+    }
     public UserLogin updateUserLogin(String answer1, String answer2, Employers employer, 
             String pw, String securityq1, String securityq2, String un, int ulid){
         Session s=Connection.getSessionFactory().openSession();
@@ -396,12 +403,7 @@ public class UserManagement {
         s.close();
         return allowanceses;
     }
-//    public static void main(String[] args) {
-////        SimpleDateFormat d= new SimpleDateFormat("dd-MM-yyyy");
-////        
-////      new UserManagement().saveDepartment("IT Department");
-////      new UserManagement().saveDepartment("Finance");
-////      new UserManagement().saveDepartment("Project");
-////      new UserManagement().saveDepartment("Management");
-//    }
+
+    
+
 }

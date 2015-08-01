@@ -9,6 +9,9 @@ import com.actop.connection.Connection;
 import com.actop.db.AllowanceApproval;
 import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.EmployersHasAllowances;
+import com.actop.db.LeaveApproval;
+import com.actop.db.Other;
+import com.actop.db.OtherApprovals;
 import com.actop.db.PaymentApproval;
 import com.actop.db.Payments;
 import com.actop.db.ProjectTasks;
@@ -18,8 +21,11 @@ import com.actop.db.ProjectsApproval;
 import com.actop.db.PromotionApproval;
 import com.actop.db.Promotions;
 import java.util.Date;
+import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -134,6 +140,90 @@ public class ApprovalManagement {
         s.flush();
         s.close();
         return approval;
+    }
+    public OtherApprovals saveOtherApproval(Date date, DepartmentsHasDesignation dhd, String note, Other other,
+            Integer status){
+        Session s=Connection.getSessionFactory().openSession();
+        Transaction t=s.beginTransaction();
+        OtherApprovals approvals=new OtherApprovals();
+        try {
+            approvals.setApprovedtime(date);
+            approvals.setDepartmentsHasDesignation(dhd);
+            approvals.setNote(note);
+            approvals.setOther(other);
+            approvals.setStatus(status);
+            s.save(approvals);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approvals;
+    }
+    public List<PaymentApproval> checkPayementApproval(DepartmentsHasDesignation dhd){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(PaymentApproval.class);
+        c.add(Restrictions.eq("departmentsHasDesignation", dhd));
+        c.add(Restrictions.eq("status", 0));
+        List<PaymentApproval> approvals=c.list();
+        s.close();
+        return approvals;
+    }
+    public List<LeaveApproval> checkLeaveApproval(DepartmentsHasDesignation dhd){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(LeaveApproval.class);
+        c.add(Restrictions.eq("departmentsHasDesignation", dhd));
+        c.add(Restrictions.eq("status", 0));
+        List<LeaveApproval> approvals=c.list();
+        s.close();
+        return approvals;
+    }
+    public List<ProjectsApproval> checkProjectsApproval(DepartmentsHasDesignation dhd){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(ProjectsApproval.class);
+        c.add(Restrictions.eq("departmentsHasDesignation", dhd));
+        c.add(Restrictions.eq("status", 0));
+        List<ProjectsApproval> approvals=c.list();
+        s.close();
+        return approvals;
+    }
+    public List<PromotionApproval> checkPromotionApproval(DepartmentsHasDesignation dhd){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(PromotionApproval.class);
+        c.add(Restrictions.eq("departmentsHasDesignation", dhd));
+        c.add(Restrictions.eq("status", 0));
+        List<PromotionApproval> approvals=c.list();
+        s.close();
+        return approvals;
+    }
+    public List<ProjectTasksApproval> checkProjectTaskApproval(DepartmentsHasDesignation dhd){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(ProjectTasksApproval.class);
+        c.add(Restrictions.eq("departmentsHasDesignation", dhd));
+        c.add(Restrictions.eq("status", 0));
+        List<ProjectTasksApproval> approvals=c.list();
+        s.close();
+        return approvals;
+    }
+    public List<OtherApprovals> checkOtherApproval(DepartmentsHasDesignation dhd){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(OtherApprovals.class);
+        c.add(Restrictions.eq("departmentsHasDesignation", dhd));
+        c.add(Restrictions.eq("status", 0));
+        List<OtherApprovals> approvals=c.list();
+        s.close();
+        return approvals;
+    }
+    public List<AllowanceApproval> checkAllowanceApproval(DepartmentsHasDesignation dhd){
+        Session s=Connection.getSessionFactory().openSession();
+        Criteria c=s.createCriteria(AllowanceApproval.class);
+        c.add(Restrictions.eq("departmentsHasDesignation", dhd));
+        c.add(Restrictions.eq("status", 0));
+        List<AllowanceApproval> approvals=c.list();
+        s.close();
+        return approvals;
     }
 
 }

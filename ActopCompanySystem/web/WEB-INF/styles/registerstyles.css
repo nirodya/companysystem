@@ -15,7 +15,7 @@ body{
     min-height: 100vh;
     height: 100%;
     width: 100%;
-    background-image: url('../ActopSystem/images/Nature_focus_moss_macro_blurred_1920x1200.jpg');
+    background-image: url('images/Nature_focus_moss_macro_blurred_1920x1200.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     -webkit-background-size: cover;

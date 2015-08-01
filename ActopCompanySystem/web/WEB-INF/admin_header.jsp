@@ -29,6 +29,35 @@
 <script>
     $(document).ready(function () {
         $('.dataTables-example').dataTable();
+        $('.dataTables-example').dataTable();
+        $('#access').change(function () {
+            if ($('#access').is(":checked")) {
+                $('.permissions').show(500);
+            } else {
+                $('.permissions').hide(500);
+            }
+
+        });
+        $('#changepermission').click(function () {
+            $('.text').hide();
+            $(this).hide();
+            $('.edit').show(500);
+            $('#saveChanges').show(500);
+        });
+
+        $.post('LoadPermissionsByEmp', {empid: $('#emp').val()}, function (data, status) {
+            $('#permbyempbody').html(data);
+        });
+        $('#permbyempbody').change(function () {
+            $.post('LoadPermissionsByEmp', {empid: $('#emp').val()}, function (data, status) {
+                $('#permbyempbody').html("0");
+            });
+        });
+        setInterval(function () {
+            $.post('ApprovalListner', {}, function (data, status) {
+                $('#msg').html(data);
+            });
+        }, 6000);
     });
 </script>
 <!-- Custom Js -->

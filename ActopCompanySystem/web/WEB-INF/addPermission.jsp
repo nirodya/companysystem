@@ -1,35 +1,64 @@
 <%-- 
-    Document   : permissions
-    Created on : Jul 21, 2015, 4:11:16 PM
-    Author     : Nirodya Gamage (ACTOP Technologies)
+    Document   : addPermission
+    Created on : Jul 28, 2015, 1:24:53 PM
+    Author     : Nirodya Gamage(Actop Technologies)
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/tlds/actoptags.tld" prefix="m" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <m:retrievepermissions/>
 <m:retrieveallEmplyers/>
 <m:retrieveinterfaces/>
 <m:openHibSession/>
+
 <!DOCTYPE html>
 <html>
     <head>
-
-        <%@include file="admin_header.jsp" %>
+        <%@include file="header.jsp" %>
+        <style>
+            <%@include file="styles/registerstyles.css" %>
+            .permissions{
+                display: none;
+            }
+        </style>
+        <!-- DATA TABLE SCRIPTS -->
+        <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+        <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
         <script>
-           
+            $(document).ready(function () {
+                $('.dataTables-example').dataTable();
+                $('#access').change(function () {
+                    if ($('#access').is(":checked")) {
+                        $('.permissions').show(500);
+                    } else {
+                        $('.permissions').hide(500);
+                    }
+
+                });
+                $('#changepermission').click(function () {
+                    $('.text').hide();
+                    $(this).hide();
+                    $('.edit').show(500);
+                    $('#saveChanges').show(500);
+                });
+            });
         </script>
     </head>
     <body>
+        <div id="bodycontainer">
+            <%@include file="navigationbar.jsp" %>
+            <div class="well" style="" id="logincontainer">
+                <div id="logoholder">
+                    <div>
+                        <img src="images/favicon.png" />
+                    </div>
+                </div>
+                <label id="loginheader"><h3>Permissions</h3></label>
+                <div class="well" style="width: 100%;margin-left: auto;margin-right: auto">
 
-        <div id="wrapper">
-            <%@include file="adminTopMenu.jsp" %>
-            <!--/. NAV TOP  -->
-            <%@include file="adminSideMenu.jsp" %>
-            <!-- /. NAV SIDE  -->
-            <div id="page-wrapper">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Permissions
@@ -164,61 +193,63 @@
 
                         </div>
                     </div>
-                    <!--End Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Permissions by Employer
-                            <a href="addpermission"><button style="float: right" class="btn btn-warning">Add Permissions</button></a>
-                            <div style="clear: both"></div>
-                        </div>
-                        <select id="emp" class="form-control">
-                            <c:forEach items="${allemployers}" var="employer" begin="0" end="${fn:length(allemployers)}">
-                                <option value="${employer.idEmployers}"><m:convertbytetostring text="${employer.callingName}" /></option>
-                            </c:forEach>
-                        </select>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Interface Name</th>
-                                            <th>Access</th>
-                                            <th>Save</th>
-                                            <th>Update</th>
-                                            <th>Delete</th>
-                                            <th>Search</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="permbyempbody">
-                                    </tbody>
-                                </table>
-                                <!--Data Models-->
-
-                                <!--Data Models End-->
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Permissions by Interface
-
-                        </div>
-                        <select class="form-control">
-                            <c:forEach items="${interfaces}" var="interface" begin="0" end="${fn:length(interfaces)}">
-                                <option><m:convertbytetostring text="${interface.interfaceName}" /></option>
-                            </c:forEach>
-                        </select>
-                    </div>
                 </div>
-                <!-- /. PAGE INNER  -->
+                <label id="loginheader"><h4>Add new Permission</h4></label>
+                <form class="form-horizontal" action="SavePermission" method="post">
+                    <div class="form-group">
+                        <label for="ltype" class="col-lg-2 control-label">Employee Name</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" name="empname">
+                                <c:forEach items="${allemployers}" var="allemployer" begin="0" end="${fn:length(allemployers)}">
+                                    <option value="${allemployer.idEmployers}"><m:convertbytetostring text="${allemployer.callingName}" /></option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ltype" class="col-lg-2 control-label">Interfaces</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" name="interfaceName">
+                                <c:forEach items="${interfaces}" var="interface" begin="0" end="${fn:length(interfaces)}">
+                                    <option><m:convertbytetostring text="${interface.interfaceName}" /></option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ltype" class="col-lg-2 control-label">Access</label>
+                        <div class="col-lg-10">
+                            <input id="access" type="checkbox" name="access" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group permissions">
+                        <label for="ltype" class="col-lg-2 control-label">Save</label>
+                        <div class="col-lg-10">
+                            <input type="checkbox" name="save" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group permissions">
+                        <label for="ltype" class="col-lg-2 control-label">Update</label>
+                        <div class="col-lg-10">
+                            <input type="checkbox" name="update" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group permissions">
+                        <label for="ltype" class="col-lg-2 control-label">Delete</label>
+                        <div class="col-lg-10">
+                            <input type="checkbox" name="delete" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group permissions">
+                        <label for="ltype" class="col-lg-2 control-label">Search</label>
+                        <div class="col-lg-10">
+                            <input type="checkbox" name="search" value="1" />
+                        </div>
+                    </div>
+                    <input value="SAVE" type="submit" class="btn btn-info btn-raised" />
+                </form>
             </div>
-            <!-- /. PAGE WRAPPER  -->
         </div>
-        <!-- /. WRAPPER  -->
-        <!-- JS Scripts-->
-        <footer><p>All right reserved. <a href="http://actoptec.com">ACTOP Technologies</a></p></footer>
     </body>
 </html>
 <m:closehibsession session="${hibsession}"/>
