@@ -57,10 +57,10 @@
     <body ng-app="myApp">
         <%@include file="navigationbar.jsp" %>
         <div class="well" style="width: 80%;margin-left: auto;margin-right: auto">
-            <h3 style="width: 100%;text-align: center">Payment to Employer</h3>
+            <h3 style="width: 100%;text-align: center">Other Payment</h3>
             <label style="color: red;">${msg}</label>
             <hr>
-            <form  action="savePayment" method="post">
+            <form  action="SaveOther" method="post">
                 <div class="form-group">
                     <label for="empname" class="col-lg-2 control-label">Other Type</label>
                     <div class="col-lg-10">

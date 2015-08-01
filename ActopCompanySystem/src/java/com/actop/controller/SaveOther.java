@@ -5,7 +5,10 @@
  */
 package com.actop.controller;
 
+import com.actop.db.DepartmentsHasDesignation;
+import com.actop.db.Employers;
 import com.actop.db.Other;
+import com.actop.model.ApprovalManagement;
 import com.actop.model.OtherManagement;
 import com.actop.model.UserManagement;
 import java.io.IOException;
@@ -74,9 +77,21 @@ public class SaveOther extends HttpServlet {
         claim=request.getParameter("claim");
         depthasdesigid=request.getParameterValues("depthasdesigid");
         UserManagement um=new UserManagement();
+        
         if (type!=null&&location!=null&&indate!=null&&outdate!=null&&reason!=null&&note!=null) {
+            com.actop.db.UserLogin ul=(com.actop.db.UserLogin) request.getSession().getAttribute("loggedUser");
+            Employers emp=ul.getEmployers();
             OtherManagement om=new OtherManagement();
-            
+            ApprovalManagement am=new ApprovalManagement();
+            Other o=om.saveOther(Integer.parseInt(claim), null, null, null, emp, expenses, convertToDate(indate), null, location, note, type, convertToDate(outdate), reason, 0);
+            for (int i = 0; i < depthasdesigid.length; i++) {
+                String depthasdesigid1 = depthasdesigid[i];
+                DepartmentsHasDesignation dhd=um.loadDepartmentsHasDesignation(Integer.parseInt(depthasdesigid[i]));
+                if (dhd!=null) {
+                    //System.out.println("awa"+dhd);
+                    am.saveOtherApproval(null, dhd, null, o, 0);
+                }
+            }
         }
     }
     public Date convertToDate(String strDate) {
