@@ -29,7 +29,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Leave
-                            <a href="register"><button style="float: right" class="btn btn-info">Add new Employer</button></a>
+                            <a href="leave"><button style="float: right" class="btn btn-info">Add new Leave</button></a>
                             <div style="clear: both"></div>
                         </div>
                         <div class="panel-body">

@@ -40,6 +40,7 @@ public class LeaveManagement {
             lv.setStarttime(stime);
             lv.setEndtime(etime);
             lv.setSubstitute(convertToBytes(substitute));
+//            lv.setSubstituteApprove(new Date());
             s.save(lv);
 
         } catch (Exception e) {
@@ -130,5 +131,5 @@ public class LeaveManagement {
         s.flush();
         s.close();
     }
-
+    
 }
