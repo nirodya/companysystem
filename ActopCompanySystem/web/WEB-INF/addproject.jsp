@@ -154,22 +154,14 @@
                 <div class="form-group">
                     <label for="payeddate" class="col-lg-2 control-label">Need Approvals</label>
                     <div ng-controller="myCtrl" class="col-lg-5">
-
                         <select name="depthasdesigid" id="depts" ng-change="changeItem()" multiple  class="form-control" ng-model="selectedItemvalue">
-
                             <option ng-repeat="sel in selectables" value="{{sel.value}}">{{sel.label}}</option>
                         </select>
-
                         <p id="desres" ng-model="desres"></p>
-
                     </div>
                     <div ng-controller="myCtrl" class="col-lg-5">
-
                         <select id="desigs" required=""  class="form-control" multiple ng-model="selectedItemvalue">
-
-
                         </select>
-
                     </div>
                 </div>
                 <div style="clear: both"></div>
