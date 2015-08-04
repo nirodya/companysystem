@@ -13,6 +13,7 @@ import com.actop.db.ProjectTasks;
 import com.actop.db.ProjectTypes;
 import com.actop.db.Projects;
 import com.actop.db.TaskDetails;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -182,6 +183,13 @@ public class ProjectsManagement {
         s.flush();
         s.close();
         return projectTaskStates;
+    }
+    public ProjectTaskStates loadProjectStatus(int pid){
+        Session s=Connection.getSessionFactory().openSession();
+        ProjectTaskStates pts=(ProjectTaskStates) s.load(ProjectTaskStates.class, pid);
+        s.flush();
+        s.close();
+        return pts;
     }
     
     public TaskDetails saveTaskDetails(ProjectTaskStates prostatus, String actualTime, String calculatedTime, 
