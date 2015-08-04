@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "SaveTaskDetails", urlPatterns = {"/SaveTaskDetails"})
 public class SaveTaskDetails extends HttpServlet {
+
     private String topic;
     private String note;
     private String startdate;
@@ -34,7 +35,6 @@ public class SaveTaskDetails extends HttpServlet {
     private String estimated;
     private String actual;
     private String taskid;
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -62,19 +62,21 @@ public class SaveTaskDetails extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        topic=request.getParameter("topic");
-        note=request.getParameter("note");
-        startdate=request.getParameter("startdate");
-        tenddate=request.getParameter("tenddate");
-        estimated=request.getParameter("estimated");
-        actual=request.getParameter("actual");
-        taskid=request.getParameter("taskid");
-        ProjectsManagement management=new ProjectsManagement();
-        
-        ProjectTaskStates pts=management.loadProjectStatus(Integer.parseInt(taskid));
-        management.saveTaskDetails(pts, actual, estimated, new Date(), convertToDate(tenddate), note, convertToDate(startdate), topic);
+        topic = request.getParameter("topic");
+        note = request.getParameter("note");
+        startdate = request.getParameter("startdate");
+        tenddate = request.getParameter("tenddate");
+        estimated = request.getParameter("estimated");
+        actual = request.getParameter("actual");
+        taskid = request.getParameter("taskid");
+        if (topic != null && note != null && startdate != null && tenddate != null) {
+            ProjectsManagement management = new ProjectsManagement();
+            ProjectTaskStates pts = management.loadProjectStatus(Integer.parseInt(taskid));
+            management.saveTaskDetails(pts, actual, estimated, new Date(), convertToDate(tenddate), note, convertToDate(startdate), topic);
+        }
+        request.getRequestDispatcher("/addTaskDetails").forward(request, response);
     }
-    
+
     public Date convertToDate(String strDate) {
         Date apdate = null;
         try {
