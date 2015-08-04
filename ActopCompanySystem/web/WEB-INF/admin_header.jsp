@@ -36,7 +36,6 @@
             } else {
                 $('.permissions').hide(500);
             }
-
         });
         $('#changepermission').click(function () {
             $('.text').hide();
