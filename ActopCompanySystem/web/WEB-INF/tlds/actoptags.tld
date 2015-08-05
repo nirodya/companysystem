@@ -69,6 +69,10 @@
         <tag-class>com.actop.taglibs.RetrievePaymentApproval</tag-class>  
     </tag>  
     <tag>  
+        <name>retrieveleaveapproval</name>  
+        <tag-class>com.actop.taglibs.RetrieveLeaveApproval</tag-class>  
+    </tag>  
+    <tag>  
         <name>retrieveemphasallowances</name>  
         <tag-class>com.actop.taglibs.RetrieveEmployersHasAllowances</tag-class>  
     </tag>  
