@@ -33,7 +33,6 @@
                     <h3 style="width: 100%;text-align: center">Approvals</h3>
                     <label style="color: red">${msg}</label>
                     <hr>
-                    <form  action="AddAllowance" method="post">
                         <niro:retrievepaymentapproval>
                             <div class="form-group">
                                 <table class="table table-striped table-bordered table-hover dataTables-example">
@@ -57,7 +56,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.payment}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${payapproval.departmentsHasDesignationHasPaymentsId}"/>
+                                                                <input type="hidden" name="type" value="payapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:when test="${payapproval.status==1}">
@@ -66,7 +71,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.payment}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${payapproval.departmentsHasDesignationHasPaymentsId}"/>
+                                                                <input type="hidden" name="type" value="payapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:otherwise>
@@ -75,7 +86,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.payment}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Disapproved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${payapproval.departmentsHasDesignationHasPaymentsId}"/>
+                                                                <input type="hidden" name="type" value="payapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:otherwise>
                                             </c:choose>
@@ -108,7 +125,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${leaveapproval.leaveHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="leaveapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:when test="${leaveapproval.status==1}">
@@ -117,7 +140,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${leaveapproval.leaveHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="leaveapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:otherwise>
@@ -126,7 +155,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Disapproved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${leaveapproval.leaveHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="leaveapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:otherwise>
                                             </c:choose>
@@ -159,7 +194,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${projectapproval.departmentsHasDesignationHasPaymentsId}"/>
+                                                                <input type="hidden" name="type" value="projectapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:when test="${projectapproval.status==1}">
@@ -168,7 +209,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${projectapproval.departmentsHasDesignationHasPaymentsId}"/>
+                                                                <input type="hidden" name="type" value="projectapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:otherwise>
@@ -177,7 +224,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${projectapproval.departmentsHasDesignationHasPaymentsId}"/>
+                                                                <input type="hidden" name="type" value="projectapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:otherwise>
                                             </c:choose>
@@ -210,7 +263,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${promotionapproval.promotionsHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="promotionapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:when test="${promotionapproval.status==1}">
@@ -219,7 +278,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${promotionapproval.promotionsHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="promotionapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:otherwise>
@@ -227,8 +292,14 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.employers.callingName}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
-                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Disapproved</td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${promotionapproval.promotionsHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="promotionapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:otherwise>
                                             </c:choose>
@@ -261,7 +332,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${projectTaskApproval.projectTasksHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:when test="${promotionapproval.status==1}">
@@ -270,7 +347,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
                                                         <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${projectTaskApproval.projectTasksHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:otherwise>
@@ -279,7 +362,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${projectTaskApproval.projectTasksHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:otherwise>
                                             </c:choose>
@@ -312,7 +401,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.otherType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.expenses}"/></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${otherApproval.otherHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="otherapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:when test="${otherApproval.status==1}">
@@ -321,7 +416,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.otherType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">${otherApproval.other.expenses}</td>
                                                         <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${otherApproval.otherHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="otherapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:otherwise>
@@ -330,7 +431,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.otherType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">${otherApproval.other.expenses}</td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${otherApproval.otherHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="otherapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:otherwise>
                                             </c:choose>
@@ -362,7 +469,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.employers.callingName}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.allowances.allowanceType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${allowanceApproval.employersHasAllowancesHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:when test="${otherApproval.status==1}">
@@ -370,7 +483,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.employers.callingName}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.allowances.allowanceType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${allowanceApproval.employersHasAllowancesHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:when>
                                                 <c:otherwise>
@@ -378,7 +497,13 @@
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.employers.callingName}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.allowances.allowanceType}" /></td>
                                                         <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                        <td valign="top">
+                                                            <form method="post" action="processapproval">
+                                                                <input type="hidden" name="id" value="${allowanceApproval.employersHasAllowancesHasDepartmentsHasDesignationId}"/>
+                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 </c:otherwise>
                                             </c:choose>
@@ -389,7 +514,6 @@
                             </div>
                         </niro:retrieveallowences>
                         <div style="clear: both"></div>
-                    </form>
                 </div>
             </div>
         </body>
