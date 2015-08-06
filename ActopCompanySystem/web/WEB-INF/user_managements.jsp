@@ -8,7 +8,8 @@
 <%@taglib uri="/WEB-INF/tlds/actoptags.tld" prefix="m" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <m:retrieveallEmplyers/>
 <m:retrieveattendance/>
 <m:openHibSession/>
@@ -105,3 +106,4 @@
     </body>
 </html>
 <m:closehibsession session="${hibsession}"/>
+</compress:html>

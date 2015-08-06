@@ -7,6 +7,8 @@
 <%@taglib prefix="niro" uri="/WEB-INF/tlds/actoptags.tld" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <niro:retrieveDesignations/>
 <niro:retrieveDepartments/>
 <niro:retrieveothertypes />
@@ -133,3 +135,4 @@
         </div>
     </body>
 </html>
+</compress:html>

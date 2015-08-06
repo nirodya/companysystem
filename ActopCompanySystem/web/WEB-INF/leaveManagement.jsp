@@ -6,6 +6,8 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <!DOCTYPE html>
 <html>
     <head>
@@ -133,4 +135,4 @@
 
     </body>
 </html>
-
+</compress:html>

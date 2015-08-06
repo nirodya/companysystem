@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class CompanyManagementWebService {
 
     /**
-     * This is a sample web service operation
+     * Save Attendance Require Key.
      */
     @WebMethod(operationName = "saveAttendance")
     public String saveAttendance(String req, String key) throws JSONException, ParseException {

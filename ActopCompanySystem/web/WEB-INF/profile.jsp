@@ -8,6 +8,8 @@
 <%@taglib prefix="niro" uri="/WEB-INF/tlds/actoptags.tld" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <niro:retrieveprofile id="${param['id']}" />
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <!DOCTYPE html>
 <html>
     <head>
@@ -263,3 +265,4 @@
         </div>
     </body>
 </html>
+</compress:html>

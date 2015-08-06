@@ -41,10 +41,6 @@
 <script src="remotestyles/angular.min.js"></script>
 
 <script>
-    $(function () {
-        if ($('[type="date"]').prop('type') !== 'date') {
-            $('[type="date"]').datepicker();
-        }
-    });
+    $(function(){"date"!==$('[type="date"]').prop("type")&&$('[type="date"]').datepicker()});
 </script>
 </compress:html>

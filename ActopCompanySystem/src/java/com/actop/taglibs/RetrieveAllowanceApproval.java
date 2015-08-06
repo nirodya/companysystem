@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.actop.taglibs;
 
+import com.actop.db.AllowanceApproval;
 import com.actop.db.DepartmentsHasDesignation;
 import com.actop.db.Employers;
-import com.actop.db.LeaveApproval;
 import com.actop.db.UserLogin;
 import com.actop.model.ApprovalManagement;
 import com.actop.model.UserManagement;
@@ -20,7 +21,7 @@ import javax.servlet.jsp.tagext.TagSupport;
  *
  * @author Nirodya Gamage
  */
-public class RetrieveLeaveApproval extends TagSupport {
+public class RetrieveAllowanceApproval extends TagSupport{
 
     @Override
     public int doStartTag() throws JspException {
@@ -29,12 +30,12 @@ public class RetrieveLeaveApproval extends TagSupport {
         UserLogin sessul = (UserLogin) pageContext.getAttribute("loggedUser", PageContext.SESSION_SCOPE);
         Employers e = sessul.getEmployers();
         DepartmentsHasDesignation dhd = um.getDepartmentHasDesignation(e);
-        List<LeaveApproval> las = am.checkLeaveApproval(dhd,false);
-        if (las.size() > 0) {
-            pageContext.setAttribute("leaveApprovals", las);
+        List<AllowanceApproval> aas=am.checkAllowanceApproval(dhd,false);
+        if (aas.size() > 0) {
+            pageContext.setAttribute("projectApprovals", aas);
             return EVAL_BODY_INCLUDE;
         } else {
-            return SKIP_BODY; //To change body of generated methods, choose Tools | Templates.
+            return SKIP_BODY;
         }
     }
 

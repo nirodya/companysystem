@@ -10,6 +10,8 @@
 <m:retrieveallEmplyers/>
 <m:retrieveProjects/>
 <m:openHibSession/>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <!DOCTYPE html>
 <html>
     <head>
@@ -72,3 +74,4 @@
     </body>
 </html>
 <m:closehibsession session="${hibsession}"/>
+</compress:html>

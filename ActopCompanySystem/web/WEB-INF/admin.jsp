@@ -3,7 +3,6 @@
     Created on : Jul 10, 2015, 11:21:16 AM
     Author     : U Computers
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
 <compress:html removeIntertagSpaces="true">

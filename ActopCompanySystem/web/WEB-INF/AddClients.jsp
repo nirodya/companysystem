@@ -8,6 +8,8 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <niro:retrieveDesignations/>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <!DOCTYPE html>
 <html>
     <head>
@@ -85,4 +87,4 @@
         </div>
     </body>
 </html>
-
+</compress:html>

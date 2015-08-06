@@ -10,6 +10,8 @@
 <niro:retrieveDesignations/>
 <niro:retrieveDepartments/>
 <niro:retrieveprojecttypes/>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <!DOCTYPE html>
 <html>
     <head>
@@ -171,3 +173,4 @@
         </div>
     </body>
 </html>
+</compress:html>

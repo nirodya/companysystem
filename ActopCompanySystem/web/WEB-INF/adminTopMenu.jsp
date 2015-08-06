@@ -1,3 +1,5 @@
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <nav class="navbar navbar-default top-navbar" role="navigation">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -218,3 +220,4 @@
                     <!-- /.dropdown -->
                 </ul>
             </nav>
+</compress:html>

@@ -30,7 +30,7 @@ public class RetrievePaymentApproval extends TagSupport {
         UserLogin sessul = (UserLogin) pageContext.getAttribute("loggedUser", PageContext.SESSION_SCOPE);
         Employers e = sessul.getEmployers();
         DepartmentsHasDesignation dhd = um.getDepartmentHasDesignation(e);
-        List<PaymentApproval> paymentApprovals = am.checkPayementApproval(dhd);
+        List<PaymentApproval> paymentApprovals = am.checkPayementApproval(dhd,false);
         if (paymentApprovals.size() > 0) {
             pageContext.setAttribute("paymentApprovals", paymentApprovals);
             return EVAL_BODY_INCLUDE;

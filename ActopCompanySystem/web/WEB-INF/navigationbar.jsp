@@ -1,3 +1,5 @@
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html removeIntertagSpaces="true">
 <div class="navbar navbar-info">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-blue-collapse">
@@ -54,3 +56,4 @@
     </ul>
   </div>
 </div>
+</compress:html>

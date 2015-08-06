@@ -34,8 +34,6 @@ import javax.servlet.http.HttpSession;
 public class ApprovalListner extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -54,13 +52,13 @@ public class ApprovalListner extends HttpServlet {
         com.actop.db.UserLogin ul = (com.actop.db.UserLogin) httpSession.getAttribute("loggedUser");
         Employers e = ul.getEmployers();
         DepartmentsHasDesignation dhd = um.getDepartmentHasDesignation(e);
-        List<PaymentApproval> paymentApprovals = am.checkPayementApproval(dhd);
-        List<LeaveApproval> leaveApprovals = am.checkLeaveApproval(dhd);
-        List<ProjectsApproval> projectsApprovals = am.checkProjectsApproval(dhd);
-        List<PromotionApproval> promotionApprovals = am.checkPromotionApproval(dhd);
-        List<ProjectTasksApproval> projectTasksApprovals = am.checkProjectTaskApproval(dhd);
-        List<OtherApprovals> otherApprovalses = am.checkOtherApproval(dhd);
-        List<AllowanceApproval> allowanceApprovals = am.checkAllowanceApproval(dhd);
+        List<PaymentApproval> paymentApprovals = am.checkPayementApproval(dhd, true);
+        List<LeaveApproval> leaveApprovals = am.checkLeaveApproval(dhd, true);
+        List<ProjectsApproval> projectsApprovals = am.checkProjectsApproval(dhd, true);
+        List<PromotionApproval> promotionApprovals = am.checkPromotionApproval(dhd, true);
+        List<ProjectTasksApproval> projectTasksApprovals = am.checkProjectTaskApproval(dhd, true);
+        List<OtherApprovals> otherApprovalses = am.checkOtherApproval(dhd, true);
+        List<AllowanceApproval> allowanceApprovals = am.checkAllowanceApproval(dhd, true);
         int count = 0;
         if (!paymentApprovals.isEmpty()) {
             count = paymentApprovals.size();
@@ -86,7 +84,7 @@ public class ApprovalListner extends HttpServlet {
         PrintWriter out = response.getWriter();
         System.out.println("awa");
         if (count > 0) {
-            out.write(""+count+"");
+            out.write("" + count + "");
         }
     }
 

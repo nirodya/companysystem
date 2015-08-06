@@ -73,6 +73,22 @@
         <tag-class>com.actop.taglibs.RetrieveLeaveApproval</tag-class>  
     </tag>  
     <tag>  
+        <name>retrieveprojectapproval</name>  
+        <tag-class>com.actop.taglibs.RetrieveProjectApproval</tag-class>  
+    </tag>  
+    <tag>  
+        <name>retrievepromotionapproval</name>  
+        <tag-class>com.actop.taglibs.RetrievePromotionApproval</tag-class>  
+    </tag>  
+    <tag>  
+        <name>retrieveprojecttaskapproval</name>  
+        <tag-class>com.actop.taglibs.RetrieveProjectTaskApproval</tag-class>  
+    </tag>  
+    <tag>  
+        <name>retrieveotherapproval</name>  
+        <tag-class>com.actop.taglibs.RetrieveOtherApproval</tag-class>  
+    </tag>  
+    <tag>  
         <name>retrieveemphasallowances</name>  
         <tag-class>com.actop.taglibs.RetrieveEmployersHasAllowances</tag-class>  
     </tag>  
