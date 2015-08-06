@@ -53,34 +53,34 @@
                                             <c:choose>
                                                 <c:when test="${payapproval.status==0}">
                                                     <tr>
-                                                        <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.payment}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:when test="${payapproval.status==1}">
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.payment}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${payapproval.payments.payment}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Disapproved</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <niro:closehibsession session="${hibsession}"/>
-                                    </c:forEach>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.payment}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:when test="${payapproval.status==1}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.payment}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Approved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.paymentFor}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${payapproval.payments.payment}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Disapproved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <niro:closehibsession session="${hibsession}"/>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -104,34 +104,34 @@
                                             <c:choose>
                                                 <c:when test="${leaveapproval.status==0}">
                                                     <tr>
-                                                        <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:when test="${leaveapproval.status==1}">
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Disapproved</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <niro:closehibsession session="${hibsession}"/>
-                                    </c:forEach>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:when test="${leaveapproval.status==1}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Approved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.leaveType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${leaveapproval.leave.noOfDays}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Disapproved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <niro:closehibsession session="${hibsession}"/>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -155,34 +155,34 @@
                                             <c:choose>
                                                 <c:when test="${projectapproval.status==0}">
                                                     <tr>
-                                                        <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:when test="${projectapproval.status==1}">
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
-                                                </tr>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <niro:closehibsession session="${hibsession}"/>
-                                    </c:forEach>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:when test="${projectapproval.status==1}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Approved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectapproval.projects.projectName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                    </tr>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <niro:closehibsession session="${hibsession}"/>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -206,34 +206,34 @@
                                             <c:choose>
                                                 <c:when test="${promotionapproval.status==0}">
                                                     <tr>
-                                                        <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:when test="${promotionapproval.status==1}">
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
-                                                </tr>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <niro:closehibsession session="${hibsession}"/>
-                                    </c:forEach>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:when test="${promotionapproval.status==1}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Approved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.beforePromotion}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${promotionapproval.promotions.promotionFor}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                    </tr>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <niro:closehibsession session="${hibsession}"/>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -257,40 +257,137 @@
                                             <c:choose>
                                                 <c:when test="${projectTaskApproval.status==0}">
                                                     <tr>
-                                                        <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectTaskApproval.projectTasks.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:when test="${promotionapproval.status==1}">
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectTaskApproval.projectTasks.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
-                                                <td valign="middle" style="vertical-align:middle;">Approved</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
-                                                </tr>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <tr>
-                                                    <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectTaskApproval.projectTasks.employers.callingName}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
-                                                <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
-                                                <td valign="middle" style="vertical-align:middle;">Pending</td>
-                                                <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
-                                                </tr>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <niro:closehibsession session="${hibsession}"/>
-                                    </c:forEach>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:when test="${promotionapproval.status==1}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
+                                                        <td valign="middle" style="vertical-align:middle;">Approved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${projectTaskApproval.projectTasks.projectTaskType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">${projectTaskApproval.projectTasks.projectTaskPriority}</td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                    </tr>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <niro:closehibsession session="${hibsession}"/>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                         </niro:retrieveprojecttaskapproval>
-                        
-                        <input class="btn btn-info" value="Apply" type="submit" />
+                        <niro:retrieveotherapproval>
+                            <div class="form-group">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Employer</th>
+                                            <th>Project Type</th>
+                                            <th>No of time</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${otherApprovals}" var="otherApproval" begin="0" end="${fn:length(otherApprovals)}">
+                                            <niro:openHibSession />
+                                            <niro:updatehibsession object="${otherApproval}" session="${hibsession}" />
+                                            <c:choose>
+                                                <c:when test="${otherApproval.status==0}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.otherType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.expenses}"/></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:when test="${otherApproval.status==1}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.otherType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">${otherApproval.other.expenses}</td>
+                                                        <td valign="middle" style="vertical-align:middle;">Approved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${otherApproval.other.otherType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">${otherApproval.other.expenses}</td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                    </tr>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <niro:closehibsession session="${hibsession}"/>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </niro:retrieveotherapproval>
+                        <niro:retrieveallowences>
+                            <div class="form-group">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Employer</th>
+                                            <th>Project Type</th>
+                                            <th>No of time</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${allowanceApprovals}" var="allowanceApproval" begin="0" end="${fn:length(allowanceApprovals)}">
+                                            <niro:openHibSession />
+                                            <niro:updatehibsession object="${allowanceApproval}" session="${hibsession}" />
+                                            <c:choose>
+                                                <c:when test="${allowanceApproval.status==0}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.allowances.allowanceType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:when test="${otherApproval.status==1}">
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.allowances.allowanceType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Approved</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Remove</button></td>
+                                                    </tr>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <tr>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.employers.callingName}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;"><niro:convertbytetostring text="${allowanceApproval.employersHasAllowances.allowances.allowanceType}" /></td>
+                                                        <td valign="middle" style="vertical-align:middle;">Pending</td>
+                                                        <td valign="top"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Disapproved</button></td>
+                                                    </tr>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <niro:closehibsession session="${hibsession}"/>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </niro:retrieveallowences>
                         <div style="clear: both"></div>
                     </form>
                 </div>

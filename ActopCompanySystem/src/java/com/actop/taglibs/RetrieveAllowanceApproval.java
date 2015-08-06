@@ -32,7 +32,7 @@ public class RetrieveAllowanceApproval extends TagSupport{
         DepartmentsHasDesignation dhd = um.getDepartmentHasDesignation(e);
         List<AllowanceApproval> aas=am.checkAllowanceApproval(dhd,false);
         if (aas.size() > 0) {
-            pageContext.setAttribute("projectApprovals", aas);
+            pageContext.setAttribute("allowanceApprovals", aas);
             return EVAL_BODY_INCLUDE;
         } else {
             return SKIP_BODY;

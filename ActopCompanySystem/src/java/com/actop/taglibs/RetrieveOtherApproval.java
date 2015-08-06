@@ -32,7 +32,7 @@ public class RetrieveOtherApproval extends TagSupport{
         DepartmentsHasDesignation dhd = um.getDepartmentHasDesignation(e);
         List<OtherApprovals> oas=am.checkOtherApproval(dhd,false);
         if (oas.size() > 0) {
-            pageContext.setAttribute("projectApprovals", oas);
+            pageContext.setAttribute("otherApprovals", oas);
             return EVAL_BODY_INCLUDE;
         } else {
             return SKIP_BODY;

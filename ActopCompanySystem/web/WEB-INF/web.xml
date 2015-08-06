@@ -29,6 +29,7 @@
         <url-pattern>/leavemanagement</url-pattern>
         <url-pattern>/other</url-pattern>
         <url-pattern>/SaveOther</url-pattern>
+        <url-pattern>/approvals</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>login</servlet-name>

@@ -89,6 +89,10 @@
         <tag-class>com.actop.taglibs.RetrieveOtherApproval</tag-class>  
     </tag>  
     <tag>  
+        <name>retrieveallowanceapproval</name>  
+        <tag-class>com.actop.taglibs.RetrieveAllowanceApproval</tag-class>  
+    </tag>  
+    <tag>  
         <name>retrieveemphasallowances</name>  
         <tag-class>com.actop.taglibs.RetrieveEmployersHasAllowances</tag-class>  
     </tag>  
