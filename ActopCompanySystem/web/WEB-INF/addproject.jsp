@@ -98,7 +98,7 @@
                     <div class="col-lg-10">
                         <select name="projecttype" required="" class="form-control col-lg-10" id="projecttype" placeholder="Payment Type">
                             <c:forEach items="${projecttype}" var="ptype" begin="0" end="${fn:length(projecttype)}">
-                                <option>${ptype.projecttype}</option>
+                                <option>${ptype.projectType}</option>
                             </c:forEach>
                         </select>
                     </div>

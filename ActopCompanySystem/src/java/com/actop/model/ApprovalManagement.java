@@ -57,6 +57,33 @@ public class ApprovalManagement {
         s.close();
         return approval;
     }
+    
+    public PaymentApproval approvePayment(int id, String note, Integer status){
+        Session s = Connection.getSessionFactory().openSession();
+        PaymentApproval approval=(PaymentApproval) s.load(PaymentApproval.class, id);
+        Transaction t = s.beginTransaction();
+        try {
+            approval.setApprovedtime(new Date());
+            approval.setNote(note);
+            approval.setStatus(status);
+            s.update(approval);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approval;
+    }
+    
+    public PaymentApproval getPaymentApproval(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        PaymentApproval paymentApproval=(PaymentApproval) s.load(PaymentApproval.class, id);
+        s.flush();
+        s.close();
+        return paymentApproval;
+    }
 
     public PromotionApproval savePromotionApproval(Date date, DepartmentsHasDesignation dhd, String note,
             Promotions promo, Integer status) {
@@ -79,6 +106,32 @@ public class ApprovalManagement {
         s.close();
         return approval;
     }
+    
+    public PromotionApproval approvePromotion(int id, String note, Integer status){
+        Session s = Connection.getSessionFactory().openSession();
+        Transaction t = s.beginTransaction();
+        PromotionApproval approval=(PromotionApproval) s.load(PromotionApproval.class, id);
+        try {
+            approval.setDatetime(new Date());
+            approval.setNote(note);
+            approval.setStatus(status);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approval;
+    }
+    
+    public PromotionApproval getPromotionApproval(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        PromotionApproval promotionapproval=(PromotionApproval) s.load(PromotionApproval.class, id);
+        s.flush();
+        s.close();
+        return promotionapproval;
+    }
 
     public ProjectsApproval saveProjectApproval(Date date, DepartmentsHasDesignation dhd, String note,
             Projects projects, Integer status) {
@@ -92,6 +145,30 @@ public class ApprovalManagement {
             approval.setProjects(projects);
             approval.setStatus(status);
             s.save(approval);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approval;
+    }
+    public ProjectsApproval getProjectApproval(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        ProjectsApproval projectapproval=(ProjectsApproval) s.load(ProjectsApproval.class, id);
+        s.flush();
+        s.close();
+        return projectapproval;
+    }
+    public ProjectsApproval approveProject(int id, String note, Integer status){
+        Session s = Connection.getSessionFactory().openSession();
+        Transaction t = s.beginTransaction();
+        ProjectsApproval approval=(ProjectsApproval) s.load(ProjectsApproval.class, id);
+        try {
+            approval.setApprovedtime(new Date());
+            approval.setNote(note);
+            approval.setStatus(status);
         } catch (Exception e) {
             e.printStackTrace();
             t.rollback();
@@ -123,6 +200,30 @@ public class ApprovalManagement {
         s.close();
         return approval;
     }
+    public ProjectTasksApproval getProjectTaskApproval(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        ProjectTasksApproval projectTaskapproval=(ProjectTasksApproval) s.load(ProjectTasksApproval.class, id);
+        s.flush();
+        s.close();
+        return projectTaskapproval;
+    }
+    public ProjectTasksApproval approveProjectTask(int id, String note, Integer status){
+        Session s=Connection.getSessionFactory().openSession();
+        ProjectTasksApproval approval=(ProjectTasksApproval) s.load(ProjectTasksApproval.class, id);
+        Transaction t=s.beginTransaction();
+        try {
+            approval.setApprovedtime(new Date());
+            approval.setNote(note);
+            approval.setStatus(status);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approval;
+    }
 
     public AllowanceApproval saveAllowanceApproval(Date date, DepartmentsHasDesignation dhd,
             EmployersHasAllowances emp, String note, Integer status) {
@@ -136,6 +237,32 @@ public class ApprovalManagement {
             approval.setNote(note);
             approval.setStatus(status);
             s.save(approval);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approval;
+    }
+    public AllowanceApproval getAllowanceApproval(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        AllowanceApproval allowanceApproval=(AllowanceApproval) s.load(AllowanceApproval.class, id);
+        s.flush();
+        s.close();
+        return allowanceApproval;
+    }
+    
+    public AllowanceApproval approveAllowance(int id, String note, Integer status){
+        Session s=Connection.getSessionFactory().openSession();
+        AllowanceApproval approval=(AllowanceApproval) s.load(AllowanceApproval.class, id);
+        Transaction t=s.beginTransaction();
+        try {
+           approval.setApprovedtime(new Date());
+           approval.setNote(note);
+           approval.setStatus(status);
+           s.update(t);
         } catch (Exception e) {
             e.printStackTrace();
             t.rollback();
@@ -168,6 +295,30 @@ public class ApprovalManagement {
         s.close();
         return approvals;
     }
+    public OtherApprovals getOtherApproval(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        OtherApprovals otherApproval=(OtherApprovals) s.load(OtherApprovals.class, id);
+        s.flush();
+        s.close();
+        return otherApproval;
+    }
+    public OtherApprovals approveOther(int id, String note, Integer status){
+        Session s=Connection.getSessionFactory().openSession();
+        Transaction t=s.beginTransaction();
+        OtherApprovals approvals=(OtherApprovals) s.load(OtherApprovals.class, id);
+        try {
+            approvals.setApprovedtime(new Date());
+            approvals.setNote(note);
+            approvals.setStatus(status);
+        } catch (Exception e) {
+            e.printStackTrace();
+            t.rollback();
+        }
+        t.commit();
+        s.flush();
+        s.close();
+        return approvals;
+    }
 
     public List<PaymentApproval> checkPayementApproval(DepartmentsHasDesignation dhd, boolean checkOnly) {
         Session s = Connection.getSessionFactory().openSession();
@@ -180,6 +331,13 @@ public class ApprovalManagement {
         List<PaymentApproval> approvals = c.list();
         s.close();
         return approvals;
+    }
+    
+    public LeaveApproval getLeaveApproval(int id){
+        Session s=Connection.getSessionFactory().openSession();
+        LeaveApproval la=(LeaveApproval) s.load(LeaveApproval.class, id);
+        s.close();
+        return la;
     }
 
     public List<LeaveApproval> checkLeaveApproval(DepartmentsHasDesignation dhd, boolean checkOnly) {

@@ -22,7 +22,7 @@
             <li>
                 <a href="leavemanagement"><i class="fa fa-briefcase"></i> Leave Management</a>
             </li>
-            <li>
+<!--            <li>
                 <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
             </li>
             <li>
@@ -54,7 +54,7 @@
             </li>
             <li>
                 <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-            </li>
+            </li>-->
         </ul>
     </div>
 </nav>

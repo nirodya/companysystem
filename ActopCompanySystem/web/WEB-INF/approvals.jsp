@@ -472,7 +472,7 @@
                                                         <td valign="top">
                                                             <form method="post" action="processapproval">
                                                                 <input type="hidden" name="id" value="${allowanceApproval.employersHasAllowancesHasDepartmentsHasDesignationId}"/>
-                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <input type="hidden" name="type" value="allowanceapproval"/>
                                                                 <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
                                                             </form>
                                                         </td>
@@ -486,7 +486,7 @@
                                                         <td valign="top">
                                                             <form method="post" action="processapproval">
                                                                 <input type="hidden" name="id" value="${allowanceApproval.employersHasAllowancesHasDepartmentsHasDesignationId}"/>
-                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <input type="hidden" name="type" value="allowanceapproval"/>
                                                                 <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
                                                             </form>
                                                         </td>
@@ -500,7 +500,7 @@
                                                         <td valign="top">
                                                             <form method="post" action="processapproval">
                                                                 <input type="hidden" name="id" value="${allowanceApproval.employersHasAllowancesHasDepartmentsHasDesignationId}"/>
-                                                                <input type="hidden" name="type" value="projectTaskapproval"/>
+                                                                <input type="hidden" name="type" value="allowanceapproval"/>
                                                                 <button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger ">Process</button>
                                                             </form>
                                                         </td>

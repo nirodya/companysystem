@@ -75,7 +75,7 @@
     <tag>  
         <name>retrieveprojectapproval</name>  
         <tag-class>com.actop.taglibs.RetrieveProjectApproval</tag-class>  
-    </tag>  
+    </tag>
     <tag>  
         <name>retrievepromotionapproval</name>  
         <tag-class>com.actop.taglibs.RetrievePromotionApproval</tag-class>  
@@ -127,10 +127,91 @@
         </attribute>  
     </tag> 
     <tag>  
+        <name>getprojecttaskapproval</name>  
+        <tag-class>com.actop.taglibs.GetProjectTaskApproval</tag-class>
+        <attribute> 
+            <name>ptid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getprojecttask</name>  
+        <tag-class>com.actop.taglibs.GetProjectTask</tag-class>
+        <attribute> 
+            <name>ptid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getprojecttaskstatus</name>  
+        <tag-class>com.actop.taglibs.GetProjectTaskStatus</tag-class>
+        <attribute> 
+            <name>ptsid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getproject</name>  
+        <tag-class>com.actop.taglibs.GetProject</tag-class>
+        <attribute> 
+            <name>proid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getpaymentapproval</name>  
+        <tag-class>com.actop.taglibs.GetPaymentApproval</tag-class>
+        <attribute> 
+            <name>pid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getleaveapproval</name>  
+        <tag-class>com.actop.taglibs.GetLeaveApproval</tag-class>
+        <attribute> 
+            <name>lid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
         <name>getPromotion</name>  
         <tag-class>com.actop.taglibs.GetPromotion</tag-class>
         <attribute> 
             <name>promoid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getprojectapproval</name>  
+        <tag-class>com.actop.taglibs.GetProjectApproval</tag-class>
+        <attribute> 
+            <name>proid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getotherapprovals</name>  
+        <tag-class>com.actop.taglibs.GetOtherApprovals</tag-class>
+        <attribute> 
+            <name>oid</name> 
+            <rtexprvalue>true</rtexprvalue> 
+            <required>true</required> 
+        </attribute>  
+    </tag> 
+    <tag>  
+        <name>getallowanceapproval</name>  
+        <tag-class>com.actop.taglibs.GetAllowanceApproval</tag-class>
+        <attribute> 
+            <name>aid</name> 
             <rtexprvalue>true</rtexprvalue> 
             <required>true</required> 
         </attribute>  

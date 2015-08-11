@@ -28,8 +28,8 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Employers
-                            <a href="register"><button style="float: right" class="btn btn-info">Add new Project</button></a>
+                            Projects
+                            <a href="addproject"><button style="float: right" class="btn btn-info">Add new Project</button></a>
                             <div style="clear: both"></div>
                         </div>
                         <div class="panel-body">
@@ -51,7 +51,7 @@
                                                 <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${project.projectType}" /></td>
                                                 <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${project.projectManager}" /></td>
                                                 <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${project.projectStatus}" /></td>
-                                                <td valign="top"><a href="profile?id=${employer.idEmployers}"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger">View Profile</button></a></td>
+                                                <td valign="top"><a href="profile?id=${project.idProjects}"><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger">View Project</button></a></td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
