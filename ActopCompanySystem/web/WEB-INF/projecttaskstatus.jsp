@@ -108,15 +108,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${projectTaskStatus.taskDetailses}" var="taskstatus" begin="0" end="${fn:length(ptask.projectTaskStateses)}">
+                                    <c:forEach items="${projectTaskStatus.taskDetailses}" var="taskdetails" begin="0" end="${fn:length(projectTaskStatus.taskDetailses)}">
                                         <tr>
-                                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${taskstatus.topic}" /></td>
-                                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${taskstatus.topicEstimateTime}" /></td>
-                                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${taskstatus.topicActualTime}" /></td>
-                                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${taskstatus.topicStates}" /></td>
-                                            <td valign="middle" style="vertical-align:middle;">${taskstatus.topicStart}</td>
-                                            <td valign="middle" style="vertical-align:middle;">${taskstatus.topicEnd}</td>
-                                            <td valign="middle" style="vertical-align:middle;">${taskstatus.topicNote}</td>
+                                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${taskdetails.taskDetailsTopic}" /></td>
+                                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${taskdetails.taskDetailsDate}" /></td>
+                                            <td valign="middle" style="vertical-align:middle;"><m:convertbytetostring text="${taskdetails.taskDetailsEnd}" /></td>
                                             <td valign="top"><a href=""><button data-toggle="modal" data-target="#complete-dialog" class="btn btn-danger">View Details</button></a></td>
                                         </tr>
                                     </c:forEach>
